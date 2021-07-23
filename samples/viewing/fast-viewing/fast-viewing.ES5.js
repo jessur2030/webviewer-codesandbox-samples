@@ -407,10 +407,10 @@
         k = r(52),
         D = r(41),
         C = r(79),
-        W = r(106),
-        B = r(9),
+        B = r(106),
+        W = r(9),
         U = r(20),
-        V = B.f,
+        V = W.f,
         G = U.f,
         z = i.RangeError,
         Y = i.TypeError,
@@ -516,7 +516,7 @@
         },
         Rt = {
           copyWithin: function(t, n) {
-            return W.call(Ot(this), t, n, arguments.length > 2 ? arguments[2] : void 0);
+            return B.call(Ot(this), t, n, arguments.length > 2 ? arguments[2] : void 0);
           },
           every: function(t) {
             return Q(Ot(this), t, arguments.length > 1 ? arguments[1] : void 0);
@@ -598,19 +598,19 @@
             return ot.call(Ot(this));
           },
         },
-        Wt = function(t, n) {
+        Bt = function(t, n) {
           return w(t) && t[St] && 'symbol' != e(n) && n in t && String(+n) == String(n);
         },
-        Bt = function(t, n) {
-          return Wt(t, (n = b(n, !0))) ? h(2, t[n]) : G(t, n);
+        Wt = function(t, n) {
+          return Bt(t, (n = b(n, !0))) ? h(2, t[n]) : G(t, n);
         },
         Ut = function(t, n, r) {
-          return !(Wt(t, (n = b(n, !0))) && w(r) && S(r, 'value')) || S(r, 'get') || S(r, 'set') || r.configurable || (S(r, 'writable') && !r.writable) || (S(r, 'enumerable') && !r.enumerable)
+          return !(Bt(t, (n = b(n, !0))) && w(r) && S(r, 'value')) || S(r, 'get') || S(r, 'set') || r.configurable || (S(r, 'writable') && !r.writable) || (S(r, 'enumerable') && !r.enumerable)
             ? V(t, n, r)
             : ((t[n] = r.value), t);
         };
-      bt || ((U.f = Bt), (B.f = Ut)),
-        c(c.S + c.F * !bt, 'Object', { getOwnPropertyDescriptor: Bt, defineProperty: Ut }),
+      bt || ((U.f = Wt), (W.f = Ut)),
+        c(c.S + c.F * !bt, 'Object', { getOwnPropertyDescriptor: Wt, defineProperty: Ut }),
         u(function() {
           pt.call({});
         }) &&
@@ -1733,21 +1733,23 @@
       y = r(9).f,
       d = r(79),
       g = r(38),
-      m = e.ArrayBuffer,
-      b = e.DataView,
-      S = e.Math,
-      x = e.RangeError,
-      w = e.Infinity,
-      _ = m,
-      E = S.abs,
-      P = S.pow,
-      O = S.floor,
-      F = S.log,
-      I = S.LN2,
-      M = o ? '_b' : 'buffer',
-      A = o ? '_l' : 'byteLength',
-      j = o ? '_o' : 'byteOffset';
-    function N(t, n, r) {
+      m = 'prototype',
+      b = 'Wrong index!',
+      S = e.ArrayBuffer,
+      x = e.DataView,
+      w = e.Math,
+      _ = e.RangeError,
+      E = e.Infinity,
+      P = S,
+      O = w.abs,
+      F = w.pow,
+      I = w.floor,
+      M = w.log,
+      A = w.LN2,
+      j = o ? '_b' : 'buffer',
+      N = o ? '_l' : 'byteLength',
+      T = o ? '_o' : 'byteOffset';
+    function L(t, n, r) {
       var e,
         o,
         i,
@@ -1755,23 +1757,23 @@
         c = 8 * r - n - 1,
         f = (1 << c) - 1,
         a = f >> 1,
-        s = 23 === n ? P(2, -24) - P(2, -77) : 0,
+        s = 23 === n ? F(2, -24) - F(2, -77) : 0,
         l = 0,
         h = t < 0 || (0 === t && 1 / t < 0) ? 1 : 0;
       for (
-        (t = E(t)) != t || t === w
+        (t = O(t)) != t || t === E
           ? ((o = t != t ? 1 : 0), (e = f))
-          : ((e = O(F(t) / I)),
-            t * (i = P(2, -e)) < 1 && (e--, (i *= 2)),
-            (t += e + a >= 1 ? s / i : s * P(2, 1 - a)) * i >= 2 && (e++, (i /= 2)),
-            e + a >= f ? ((o = 0), (e = f)) : e + a >= 1 ? ((o = (t * i - 1) * P(2, n)), (e += a)) : ((o = t * P(2, a - 1) * P(2, n)), (e = 0)));
+          : ((e = I(M(t) / A)),
+            t * (i = F(2, -e)) < 1 && (e--, (i *= 2)),
+            (t += e + a >= 1 ? s / i : s * F(2, 1 - a)) * i >= 2 && (e++, (i /= 2)),
+            e + a >= f ? ((o = 0), (e = f)) : e + a >= 1 ? ((o = (t * i - 1) * F(2, n)), (e += a)) : ((o = t * F(2, a - 1) * F(2, n)), (e = 0)));
         n >= 8;
         u[l++] = 255 & o, o /= 256, n -= 8
       );
       for (e = (e << n) | o, c += n; c > 0; u[l++] = 255 & e, e /= 256, c -= 8);
       return (u[--l] |= 128 * h), u;
     }
-    function T(t, n, r) {
+    function R(t, n, r) {
       var e,
         o = 8 * r - n - 1,
         i = (1 << o) - 1,
@@ -1784,159 +1786,159 @@
       for (e = s & ((1 << -c) - 1), s >>= -c, c += n; c > 0; e = 256 * e + t[f], f--, c -= 8);
       if (0 === s) s = 1 - u;
       else {
-        if (s === i) return e ? NaN : a ? -w : w;
-        (e += P(2, n)), (s -= u);
+        if (s === i) return e ? NaN : a ? -E : E;
+        (e += F(2, n)), (s -= u);
       }
-      return (a ? -1 : 1) * e * P(2, s - n);
-    }
-    function L(t) {
-      return (t[3] << 24) | (t[2] << 16) | (t[1] << 8) | t[0];
-    }
-    function R(t) {
-      return [255 & t];
+      return (a ? -1 : 1) * e * F(2, s - n);
     }
     function k(t) {
-      return [255 & t, (t >> 8) & 255];
+      return (t[3] << 24) | (t[2] << 16) | (t[1] << 8) | t[0];
     }
     function D(t) {
-      return [255 & t, (t >> 8) & 255, (t >> 16) & 255, (t >> 24) & 255];
+      return [255 & t];
     }
     function C(t) {
-      return N(t, 52, 8);
+      return [255 & t, (t >> 8) & 255];
+    }
+    function B(t) {
+      return [255 & t, (t >> 8) & 255, (t >> 16) & 255, (t >> 24) & 255];
     }
     function W(t) {
-      return N(t, 23, 4);
+      return L(t, 52, 8);
     }
-    function B(t, n, r) {
-      y(t.prototype, n, {
+    function U(t) {
+      return L(t, 23, 4);
+    }
+    function V(t, n, r) {
+      y(t[m], n, {
         get: function() {
           return this[r];
         },
       });
     }
-    function U(t, n, r, e) {
+    function G(t, n, r, e) {
       var o = p(+r);
-      if (o + n > t[A]) throw x('Wrong index!');
-      var i = t[M]._b,
-        u = o + t[j],
+      if (o + n > t[N]) throw _(b);
+      var i = t[j]._b,
+        u = o + t[T],
         c = i.slice(u, u + n);
       return e ? c : c.reverse();
     }
-    function V(t, n, r, e, o, i) {
+    function z(t, n, r, e, o, i) {
       var u = p(+r);
-      if (u + n > t[A]) throw x('Wrong index!');
-      for (var c = t[M]._b, f = u + t[j], a = e(+o), s = 0; s < n; s++) c[f + s] = a[i ? s : n - s - 1];
+      if (u + n > t[N]) throw _(b);
+      for (var c = t[j]._b, f = u + t[T], a = e(+o), s = 0; s < n; s++) c[f + s] = a[i ? s : n - s - 1];
     }
     if (u.ABV) {
       if (
         !a(function() {
-          m(1);
+          S(1);
         }) ||
         !a(function() {
-          new m(-1);
+          new S(-1);
         }) ||
         a(function() {
-          return new m(), new m(1.5), new m(NaN), 'ArrayBuffer' != m.name;
+          return new S(), new S(1.5), new S(NaN), 'ArrayBuffer' != S.name;
         })
       ) {
         for (
-          var G,
-            z = ((m = function(t) {
-              return s(this, m), new _(p(t));
-            }).prototype = _.prototype),
-            Y = v(_),
-            q = 0;
-          Y.length > q;
+          var Y,
+            q = ((S = function(t) {
+              return s(this, S), new P(p(t));
+            })[m] = P[m]),
+            $ = v(P),
+            K = 0;
+          $.length > K;
 
         )
-          (G = Y[q++]) in m || c(m, G, _[G]);
-        i || (z.constructor = m);
+          (Y = $[K++]) in S || c(S, Y, P[Y]);
+        i || (q.constructor = S);
       }
-      var $ = new b(new m(2)),
-        K = b.prototype.setInt8;
-      $.setInt8(0, 2147483648),
-        $.setInt8(1, 2147483649),
-        (!$.getInt8(0) && $.getInt8(1)) ||
+      var J = new x(new S(2)),
+        X = x[m].setInt8;
+      J.setInt8(0, 2147483648),
+        J.setInt8(1, 2147483649),
+        (!J.getInt8(0) && J.getInt8(1)) ||
           f(
-            b.prototype,
+            x[m],
             {
               setInt8: function(t, n) {
-                K.call(this, t, (n << 24) >> 24);
+                X.call(this, t, (n << 24) >> 24);
               },
               setUint8: function(t, n) {
-                K.call(this, t, (n << 24) >> 24);
+                X.call(this, t, (n << 24) >> 24);
               },
             },
             !0
           );
     } else
-      (m = function(t) {
-        s(this, m, 'ArrayBuffer');
+      (S = function(t) {
+        s(this, S, 'ArrayBuffer');
         var n = p(t);
-        (this._b = d.call(new Array(n), 0)), (this[A] = n);
+        (this._b = d.call(new Array(n), 0)), (this[N] = n);
       }),
-        (b = function(t, n, r) {
-          s(this, b, 'DataView'), s(t, m, 'DataView');
-          var e = t[A],
+        (x = function(t, n, r) {
+          s(this, x, 'DataView'), s(t, S, 'DataView');
+          var e = t[N],
             o = l(n);
-          if (o < 0 || o > e) throw x('Wrong offset!');
-          if (o + (r = void 0 === r ? e - o : h(r)) > e) throw x('Wrong length!');
-          (this[M] = t), (this[j] = o), (this[A] = r);
+          if (o < 0 || o > e) throw _('Wrong offset!');
+          if (o + (r = void 0 === r ? e - o : h(r)) > e) throw _('Wrong length!');
+          (this[j] = t), (this[T] = o), (this[N] = r);
         }),
-        o && (B(m, 'byteLength', '_l'), B(b, 'buffer', '_b'), B(b, 'byteLength', '_l'), B(b, 'byteOffset', '_o')),
-        f(b.prototype, {
+        o && (V(S, 'byteLength', '_l'), V(x, 'buffer', '_b'), V(x, 'byteLength', '_l'), V(x, 'byteOffset', '_o')),
+        f(x[m], {
           getInt8: function(t) {
-            return (U(this, 1, t)[0] << 24) >> 24;
+            return (G(this, 1, t)[0] << 24) >> 24;
           },
           getUint8: function(t) {
-            return U(this, 1, t)[0];
+            return G(this, 1, t)[0];
           },
           getInt16: function(t) {
-            var n = U(this, 2, t, arguments[1]);
+            var n = G(this, 2, t, arguments[1]);
             return (((n[1] << 8) | n[0]) << 16) >> 16;
           },
           getUint16: function(t) {
-            var n = U(this, 2, t, arguments[1]);
+            var n = G(this, 2, t, arguments[1]);
             return (n[1] << 8) | n[0];
           },
           getInt32: function(t) {
-            return L(U(this, 4, t, arguments[1]));
+            return k(G(this, 4, t, arguments[1]));
           },
           getUint32: function(t) {
-            return L(U(this, 4, t, arguments[1])) >>> 0;
+            return k(G(this, 4, t, arguments[1])) >>> 0;
           },
           getFloat32: function(t) {
-            return T(U(this, 4, t, arguments[1]), 23, 4);
+            return R(G(this, 4, t, arguments[1]), 23, 4);
           },
           getFloat64: function(t) {
-            return T(U(this, 8, t, arguments[1]), 52, 8);
+            return R(G(this, 8, t, arguments[1]), 52, 8);
           },
           setInt8: function(t, n) {
-            V(this, 1, t, R, n);
+            z(this, 1, t, D, n);
           },
           setUint8: function(t, n) {
-            V(this, 1, t, R, n);
+            z(this, 1, t, D, n);
           },
           setInt16: function(t, n) {
-            V(this, 2, t, k, n, arguments[2]);
+            z(this, 2, t, C, n, arguments[2]);
           },
           setUint16: function(t, n) {
-            V(this, 2, t, k, n, arguments[2]);
+            z(this, 2, t, C, n, arguments[2]);
           },
           setInt32: function(t, n) {
-            V(this, 4, t, D, n, arguments[2]);
+            z(this, 4, t, B, n, arguments[2]);
           },
           setUint32: function(t, n) {
-            V(this, 4, t, D, n, arguments[2]);
+            z(this, 4, t, B, n, arguments[2]);
           },
           setFloat32: function(t, n) {
-            V(this, 4, t, W, n, arguments[2]);
+            z(this, 4, t, U, n, arguments[2]);
           },
           setFloat64: function(t, n) {
-            V(this, 8, t, C, n, arguments[2]);
+            z(this, 8, t, W, n, arguments[2]);
           },
         });
-    g(m, 'ArrayBuffer'), g(b, 'DataView'), c(b.prototype, u.VIEW, !0), (n.ArrayBuffer = m), (n.DataView = b);
+    g(S, 'ArrayBuffer'), g(x, 'DataView'), c(x[m], u.VIEW, !0), (n.ArrayBuffer = S), (n.DataView = x);
   },
   function(t, n) {
     var r = (t.exports = 'undefined' != typeof window && window.Math == Math ? window : 'undefined' != typeof self && self.Math == Math ? self : Function('return this')());
@@ -2946,8 +2948,8 @@
       k = R && R.stringify,
       D = v('_hidden'),
       C = v('toPrimitive'),
-      W = {}.propertyIsEnumerable,
-      B = l('symbol-registry'),
+      B = {}.propertyIsEnumerable,
+      W = l('symbol-registry'),
       U = l('symbols'),
       V = l('op-symbols'),
       G = Object.prototype,
@@ -3000,7 +3002,7 @@
         return t;
       },
       Z = function(t) {
-        var n = W.call(this, (t = _(t, !0)));
+        var n = B.call(this, (t = _(t, !0)));
         return !(this === G && i(U, t) && !i(V, t)) && (!(n || !i(this, t) || !i(U, t) || (i(this, D) && this[D][t])) || n);
       },
       Q = function(t, n) {
@@ -3046,11 +3048,11 @@
     for (var ot = A(v.store), it = 0; ot.length > it; ) d(ot[it++]);
     c(c.S + c.F * !z, 'Symbol', {
       for: function(t) {
-        return i(B, (t += '')) ? B[t] : (B[t] = L(t));
+        return i(W, (t += '')) ? W[t] : (W[t] = L(t));
       },
       keyFor: function(t) {
         if (!J(t)) throw TypeError(t + ' is not a symbol!');
-        for (var n in B) if (B[n] === t) return n;
+        for (var n in W) if (W[n] === t) return n;
       },
       useSetter: function() {
         q = !0;
@@ -5408,90 +5410,95 @@
       }
       var r = (function(t) {
         'use strict';
-        var r = Object.prototype,
-          e = r.hasOwnProperty,
-          o = 'function' == typeof Symbol ? Symbol : {},
-          i = o.iterator || '@@iterator',
-          u = o.asyncIterator || '@@asyncIterator',
-          c = o.toStringTag || '@@toStringTag';
-        function f(t, n, r, e) {
-          var o = n && n.prototype instanceof l ? n : l,
+        var r,
+          e = Object.prototype,
+          o = e.hasOwnProperty,
+          i = 'function' == typeof Symbol ? Symbol : {},
+          u = i.iterator || '@@iterator',
+          c = i.asyncIterator || '@@asyncIterator',
+          f = i.toStringTag || '@@toStringTag';
+        function a(t, n, r, e) {
+          var o = n && n.prototype instanceof d ? n : d,
             i = Object.create(o.prototype),
-            u = new _(e || []);
+            u = new I(e || []);
           return (
             (i._invoke = (function(t, n, r) {
-              var e = 'suspendedStart';
+              var e = l;
               return function(o, i) {
-                if ('executing' === e) throw new Error('Generator is already running');
-                if ('completed' === e) {
+                if (e === p) throw new Error('Generator is already running');
+                if (e === v) {
                   if ('throw' === o) throw i;
-                  return P();
+                  return A();
                 }
                 for (r.method = o, r.arg = i; ; ) {
                   var u = r.delegate;
                   if (u) {
-                    var c = S(u, r);
+                    var c = P(u, r);
                     if (c) {
-                      if (c === s) continue;
+                      if (c === y) continue;
                       return c;
                     }
                   }
                   if ('next' === r.method) r.sent = r._sent = r.arg;
                   else if ('throw' === r.method) {
-                    if ('suspendedStart' === e) throw ((e = 'completed'), r.arg);
+                    if (e === l) throw ((e = v), r.arg);
                     r.dispatchException(r.arg);
                   } else 'return' === r.method && r.abrupt('return', r.arg);
-                  e = 'executing';
-                  var f = a(t, n, r);
+                  e = p;
+                  var f = s(t, n, r);
                   if ('normal' === f.type) {
-                    if (((e = r.done ? 'completed' : 'suspendedYield'), f.arg === s)) continue;
+                    if (((e = r.done ? v : h), f.arg === y)) continue;
                     return { value: f.arg, done: r.done };
                   }
-                  'throw' === f.type && ((e = 'completed'), (r.method = 'throw'), (r.arg = f.arg));
+                  'throw' === f.type && ((e = v), (r.method = 'throw'), (r.arg = f.arg));
                 }
               };
             })(t, r, u)),
             i
           );
         }
-        function a(t, n, r) {
+        function s(t, n, r) {
           try {
             return { type: 'normal', arg: t.call(n, r) };
           } catch (t) {
             return { type: 'throw', arg: t };
           }
         }
-        t.wrap = f;
-        var s = {};
-        function l() {}
-        function h() {}
-        function p() {}
-        var v = {};
-        v[i] = function() {
+        t.wrap = a;
+        var l = 'suspendedStart',
+          h = 'suspendedYield',
+          p = 'executing',
+          v = 'completed',
+          y = {};
+        function d() {}
+        function g() {}
+        function m() {}
+        var b = {};
+        b[u] = function() {
           return this;
         };
-        var y = Object.getPrototypeOf,
-          d = y && y(y(E([])));
-        d && d !== r && e.call(d, i) && (v = d);
-        var g = (p.prototype = l.prototype = Object.create(v));
-        function m(t) {
+        var S = Object.getPrototypeOf,
+          x = S && S(S(M([])));
+        x && x !== e && o.call(x, u) && (b = x);
+        var w = (m.prototype = d.prototype = Object.create(b));
+        function _(t) {
           ['next', 'throw', 'return'].forEach(function(n) {
             t[n] = function(t) {
               return this._invoke(n, t);
             };
           });
         }
-        function b(t) {
+        function E(t) {
           var r;
-          this._invoke = function(o, i) {
+          this._invoke = function(e, i) {
             function u() {
               return new Promise(function(r, u) {
-                !(function r(o, i, u, c) {
-                  var f = a(t[o], t, i);
+                !(function r(e, i, u, c) {
+                  var f = s(t[e], t, i);
                   if ('throw' !== f.type) {
-                    var s = f.arg,
-                      l = s.value;
-                    return l && 'object' === n(l) && e.call(l, '__await')
+                    var a = f.arg,
+                      l = a.value;
+                    return l && 'object' === n(l) && o.call(l, '__await')
                       ? Promise.resolve(l.__await).then(
                           function(t) {
                             r('next', t, u, c);
@@ -5502,7 +5509,7 @@
                         )
                       : Promise.resolve(l).then(
                           function(t) {
-                            (s.value = t), u(s);
+                            (a.value = t), u(a);
                           },
                           function(t) {
                             return r('throw', t, u, c);
@@ -5510,93 +5517,93 @@
                         );
                   }
                   c(f.arg);
-                })(o, i, r, u);
+                })(e, i, r, u);
               });
             }
             return (r = r ? r.then(u, u) : u());
           };
         }
-        function S(t, n) {
-          var r = t.iterator[n.method];
-          if (void 0 === r) {
+        function P(t, n) {
+          var e = t.iterator[n.method];
+          if (e === r) {
             if (((n.delegate = null), 'throw' === n.method)) {
-              if (t.iterator.return && ((n.method = 'return'), (n.arg = void 0), S(t, n), 'throw' === n.method)) return s;
+              if (t.iterator.return && ((n.method = 'return'), (n.arg = r), P(t, n), 'throw' === n.method)) return y;
               (n.method = 'throw'), (n.arg = new TypeError("The iterator does not provide a 'throw' method"));
             }
-            return s;
+            return y;
           }
-          var e = a(r, t.iterator, n.arg);
-          if ('throw' === e.type) return (n.method = 'throw'), (n.arg = e.arg), (n.delegate = null), s;
-          var o = e.arg;
-          return o
-            ? o.done
-              ? ((n[t.resultName] = o.value), (n.next = t.nextLoc), 'return' !== n.method && ((n.method = 'next'), (n.arg = void 0)), (n.delegate = null), s)
-              : o
-            : ((n.method = 'throw'), (n.arg = new TypeError('iterator result is not an object')), (n.delegate = null), s);
+          var o = s(e, t.iterator, n.arg);
+          if ('throw' === o.type) return (n.method = 'throw'), (n.arg = o.arg), (n.delegate = null), y;
+          var i = o.arg;
+          return i
+            ? i.done
+              ? ((n[t.resultName] = i.value), (n.next = t.nextLoc), 'return' !== n.method && ((n.method = 'next'), (n.arg = r)), (n.delegate = null), y)
+              : i
+            : ((n.method = 'throw'), (n.arg = new TypeError('iterator result is not an object')), (n.delegate = null), y);
         }
-        function x(t) {
+        function O(t) {
           var n = { tryLoc: t[0] };
           1 in t && (n.catchLoc = t[1]), 2 in t && ((n.finallyLoc = t[2]), (n.afterLoc = t[3])), this.tryEntries.push(n);
         }
-        function w(t) {
+        function F(t) {
           var n = t.completion || {};
           (n.type = 'normal'), delete n.arg, (t.completion = n);
         }
-        function _(t) {
-          (this.tryEntries = [{ tryLoc: 'root' }]), t.forEach(x, this), this.reset(!0);
+        function I(t) {
+          (this.tryEntries = [{ tryLoc: 'root' }]), t.forEach(O, this), this.reset(!0);
         }
-        function E(t) {
+        function M(t) {
           if (t) {
-            var n = t[i];
+            var n = t[u];
             if (n) return n.call(t);
             if ('function' == typeof t.next) return t;
             if (!isNaN(t.length)) {
-              var r = -1,
-                o = function n() {
-                  for (; ++r < t.length; ) if (e.call(t, r)) return (n.value = t[r]), (n.done = !1), n;
-                  return (n.value = void 0), (n.done = !0), n;
+              var e = -1,
+                i = function n() {
+                  for (; ++e < t.length; ) if (o.call(t, e)) return (n.value = t[e]), (n.done = !1), n;
+                  return (n.value = r), (n.done = !0), n;
                 };
-              return (o.next = o);
+              return (i.next = i);
             }
           }
-          return { next: P };
+          return { next: A };
         }
-        function P() {
-          return { value: void 0, done: !0 };
+        function A() {
+          return { value: r, done: !0 };
         }
         return (
-          (h.prototype = g.constructor = p),
-          (p.constructor = h),
-          (p[c] = h.displayName = 'GeneratorFunction'),
+          (g.prototype = w.constructor = m),
+          (m.constructor = g),
+          (m[f] = g.displayName = 'GeneratorFunction'),
           (t.isGeneratorFunction = function(t) {
             var n = 'function' == typeof t && t.constructor;
-            return !!n && (n === h || 'GeneratorFunction' === (n.displayName || n.name));
+            return !!n && (n === g || 'GeneratorFunction' === (n.displayName || n.name));
           }),
           (t.mark = function(t) {
-            return Object.setPrototypeOf ? Object.setPrototypeOf(t, p) : ((t.__proto__ = p), c in t || (t[c] = 'GeneratorFunction')), (t.prototype = Object.create(g)), t;
+            return Object.setPrototypeOf ? Object.setPrototypeOf(t, m) : ((t.__proto__ = m), f in t || (t[f] = 'GeneratorFunction')), (t.prototype = Object.create(w)), t;
           }),
           (t.awrap = function(t) {
             return { __await: t };
           }),
-          m(b.prototype),
-          (b.prototype[u] = function() {
+          _(E.prototype),
+          (E.prototype[c] = function() {
             return this;
           }),
-          (t.AsyncIterator = b),
+          (t.AsyncIterator = E),
           (t.async = function(n, r, e, o) {
-            var i = new b(f(n, r, e, o));
+            var i = new E(a(n, r, e, o));
             return t.isGeneratorFunction(r)
               ? i
               : i.next().then(function(t) {
                   return t.done ? t.value : i.next();
                 });
           }),
-          m(g),
-          (g[c] = 'Generator'),
-          (g[i] = function() {
+          _(w),
+          (w[f] = 'Generator'),
+          (w[u] = function() {
             return this;
           }),
-          (g.toString = function() {
+          (w.toString = function() {
             return '[object Generator]';
           }),
           (t.keys = function(t) {
@@ -5613,22 +5620,12 @@
               }
             );
           }),
-          (t.values = E),
-          (_.prototype = {
-            constructor: _,
+          (t.values = M),
+          (I.prototype = {
+            constructor: I,
             reset: function(t) {
-              if (
-                ((this.prev = 0),
-                (this.next = 0),
-                (this.sent = this._sent = void 0),
-                (this.done = !1),
-                (this.delegate = null),
-                (this.method = 'next'),
-                (this.arg = void 0),
-                this.tryEntries.forEach(w),
-                !t)
-              )
-                for (var n in this) 't' === n.charAt(0) && e.call(this, n) && !isNaN(+n.slice(1)) && (this[n] = void 0);
+              if (((this.prev = 0), (this.next = 0), (this.sent = this._sent = r), (this.done = !1), (this.delegate = null), (this.method = 'next'), (this.arg = r), this.tryEntries.forEach(F), !t))
+                for (var n in this) 't' === n.charAt(0) && o.call(this, n) && !isNaN(+n.slice(1)) && (this[n] = r);
             },
             stop: function() {
               this.done = !0;
@@ -5639,39 +5636,39 @@
             dispatchException: function(t) {
               if (this.done) throw t;
               var n = this;
-              function r(r, e) {
-                return (u.type = 'throw'), (u.arg = t), (n.next = r), e && ((n.method = 'next'), (n.arg = void 0)), !!e;
+              function e(e, o) {
+                return (c.type = 'throw'), (c.arg = t), (n.next = e), o && ((n.method = 'next'), (n.arg = r)), !!o;
               }
-              for (var o = this.tryEntries.length - 1; o >= 0; --o) {
-                var i = this.tryEntries[o],
-                  u = i.completion;
-                if ('root' === i.tryLoc) return r('end');
-                if (i.tryLoc <= this.prev) {
-                  var c = e.call(i, 'catchLoc'),
-                    f = e.call(i, 'finallyLoc');
-                  if (c && f) {
-                    if (this.prev < i.catchLoc) return r(i.catchLoc, !0);
-                    if (this.prev < i.finallyLoc) return r(i.finallyLoc);
-                  } else if (c) {
-                    if (this.prev < i.catchLoc) return r(i.catchLoc, !0);
+              for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+                var u = this.tryEntries[i],
+                  c = u.completion;
+                if ('root' === u.tryLoc) return e('end');
+                if (u.tryLoc <= this.prev) {
+                  var f = o.call(u, 'catchLoc'),
+                    a = o.call(u, 'finallyLoc');
+                  if (f && a) {
+                    if (this.prev < u.catchLoc) return e(u.catchLoc, !0);
+                    if (this.prev < u.finallyLoc) return e(u.finallyLoc);
+                  } else if (f) {
+                    if (this.prev < u.catchLoc) return e(u.catchLoc, !0);
                   } else {
-                    if (!f) throw new Error('try statement without catch or finally');
-                    if (this.prev < i.finallyLoc) return r(i.finallyLoc);
+                    if (!a) throw new Error('try statement without catch or finally');
+                    if (this.prev < u.finallyLoc) return e(u.finallyLoc);
                   }
                 }
               }
             },
             abrupt: function(t, n) {
               for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-                var o = this.tryEntries[r];
-                if (o.tryLoc <= this.prev && e.call(o, 'finallyLoc') && this.prev < o.finallyLoc) {
-                  var i = o;
+                var e = this.tryEntries[r];
+                if (e.tryLoc <= this.prev && o.call(e, 'finallyLoc') && this.prev < e.finallyLoc) {
+                  var i = e;
                   break;
                 }
               }
               i && ('break' === t || 'continue' === t) && i.tryLoc <= n && n <= i.finallyLoc && (i = null);
               var u = i ? i.completion : {};
-              return (u.type = t), (u.arg = n), i ? ((this.method = 'next'), (this.next = i.finallyLoc), s) : this.complete(u);
+              return (u.type = t), (u.arg = n), i ? ((this.method = 'next'), (this.next = i.finallyLoc), y) : this.complete(u);
             },
             complete: function(t, n) {
               if ('throw' === t.type) throw t.arg;
@@ -5681,13 +5678,13 @@
                   : 'return' === t.type
                   ? ((this.rval = this.arg = t.arg), (this.method = 'return'), (this.next = 'end'))
                   : 'normal' === t.type && n && (this.next = n),
-                s
+                y
               );
             },
             finish: function(t) {
               for (var n = this.tryEntries.length - 1; n >= 0; --n) {
                 var r = this.tryEntries[n];
-                if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), w(r), s;
+                if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), F(r), y;
               }
             },
             catch: function(t) {
@@ -5697,15 +5694,15 @@
                   var e = r.completion;
                   if ('throw' === e.type) {
                     var o = e.arg;
-                    w(r);
+                    F(r);
                   }
                   return o;
                 }
               }
               throw new Error('illegal catch attempt');
             },
-            delegateYield: function(t, n, r) {
-              return (this.delegate = { iterator: E(t), resultName: n, nextLoc: r }), 'next' === this.method && (this.arg = void 0), s;
+            delegateYield: function(t, n, e) {
+              return (this.delegate = { iterator: M(t), resultName: n, nextLoc: e }), 'next' === this.method && (this.arg = r), y;
             },
           }),
           t
@@ -5934,13 +5931,13 @@
     var p = Date.now(),
       v = Date.now();
     WebViewer({ path: '../../../lib', initialDoc: r, fullAPI: l }, document.getElementById('middlePanel')).then(function(t) {
-      t.docViewer.on('documentLoaded', function() {
+      t.Core.documentViewer.addEventListener('documentLoaded', function() {
         var t = Date.now();
         console.log('The first viewer', t - p);
       });
     }),
       WebViewer({ path: '../../../lib', initialDoc: e, fullAPI: l }, document.getElementById('leftPanel')).then(function(t) {
-        t.docViewer.on('documentLoaded', function() {
+        t.Core.documentViewer.addEventListener('documentLoaded', function() {
           var t = Date.now();
           console.log('The second viewer', t - v);
         });

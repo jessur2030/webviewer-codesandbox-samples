@@ -47,7 +47,7 @@ WebViewer(
   },
   document.getElementById('middlePanel')
 ).then(instance => {
-  instance.docViewer.on('documentLoaded', () => {
+  instance.Core.documentViewer.addEventListener('documentLoaded', () => {
     const timerOneFinish = Date.now();
     console.log('The first viewer', timerOneFinish - timerOne);
   });
@@ -61,7 +61,7 @@ WebViewer(
   },
   document.getElementById('leftPanel')
 ).then(instance => {
-  instance.docViewer.on('documentLoaded', () => {
+  instance.Core.documentViewer.addEventListener('documentLoaded', () => {
     const timerTwoFinish = Date.now();
     console.log('The second viewer', timerTwoFinish - timerTwo);
   });

@@ -1,5 +1,5 @@
 // @link WebViewerInstance: https://www.pdftron.com/api/web/WebViewerInstance.html
-// @link WebViewerInstance.loadDocument: https://www.pdftron.com/api/web/WebViewerInstance.html#loadDocument__anchor
+// @link UI.loadDocument: https://www.pdftron.com/api/web/UI.html#loadDocument__anchor
 
 WebViewer(
   {
@@ -12,8 +12,8 @@ WebViewer(
 
   document.getElementById('select').onchange = e => {
     if (e.target.value === 'https://pdftron.s3.amazonaws.com/downloads/pl/encrypted-foobar12.xod') {
-      instance.loadDocument(e.target.value, {
-        decrypt: instance.iframeWindow.CoreControls.Encryption.decrypt,
+      instance.UI.loadDocument(e.target.value, {
+        decrypt: instance.Core.Encryption.decrypt,
         decryptOptions: {
           p: 'foobar12',
           type: 'aes',
@@ -23,19 +23,19 @@ WebViewer(
         },
       });
     } else {
-      instance.loadDocument(e.target.value);
+      instance.UI.loadDocument(e.target.value);
     }
   };
 
   document.getElementById('file-picker').onchange = e => {
     const file = e.target.files[0];
     if (file) {
-      instance.loadDocument(file);
+      instance.UI.loadDocument(file);
     }
   };
 
   document.getElementById('url-form').onsubmit = e => {
     e.preventDefault();
-    instance.loadDocument(document.getElementById('url').value);
+    instance.UI.loadDocument(document.getElementById('url').value);
   };
 });
