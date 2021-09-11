@@ -4,7 +4,7 @@
 WebViewer(
   {
     path: '../../../lib',
-    initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/demo-annotated.xod',
+    initialDoc: '../../../samples/files/demo-annotated.xod',
   },
   document.getElementById('viewer')
 ).then(instance => {
