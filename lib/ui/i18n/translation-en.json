@@ -64,7 +64,12 @@
     "addOption": "Add Option",
     "formFieldEdit": "Edit Form Field",
     "viewShortCutKeysFor3D": "View Shortcut Keys",
-    "markAllRead": "Mark all as read"
+    "markAllRead": "Mark all as read",
+    "insertPage": "Page Insertion",
+    "insertBlankPageAbove": "Insert blank page above",
+    "insertBlankPageBelow": "Insert blank page below",
+    "pageManipulation": "Page Manipulation",
+    "replace": "Replace"
   },
   "annotation": {
     "areaMeasurement": "Area",
@@ -83,6 +88,7 @@
     "freeHandHighlight": "Free Hand Highlight",
     "freetext": "Free Text",
     "highlight": "Highlight",
+    "image": "Image",
     "line": "Line",
     "perimeterMeasurement": "Perimeter",
     "polygon": "Polygon",
@@ -231,7 +237,7 @@
       "pageTransition": "Page Transition"
     },
     "documentControls": {
-      "placeholder": "Pages to select i.e. 2, 5-9"
+      "placeholder": "1, 3, 5-10"
     },
     "outlineControls": {
       "add": "Add item",
@@ -304,7 +310,8 @@
     "filterAnnotModal": {
       "commentBy": "Comment by",
       "types": "Types",
-      "color": "Color"
+      "color": "Color",
+      "includeReplies": "Include Replies"
     },
     "status": {
       "status": "Status"
@@ -431,7 +438,7 @@
     "select": "(Esc)",
     "signature": "(S)",
     "squiggly": "(G)",
-    "stamp": "(I)",
+    "image": "(I)",
     "redo": "(Ctrl Shift Z)",
     "redo_windows": "(Ctrl Y)",
     "undo": "(Ctrl Z)",
@@ -485,6 +492,20 @@
       "October",
       "November",
       "December"
+    ],
+    "monthsShort": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec"
     ],
     "weekdays": [
       "Sunday",
@@ -589,6 +610,7 @@
     "by": "by",
     "on": "on",
     "disallowedChange": "Disallowed Change: {{type}}, objnum: {{objnum}}",
+    "unsignedSignatureField": "Unsigned signature field: {{fieldName}}",
     "trustVerification": {
       "current": "Verification time used was the current time",
       "signing": "Verification time is from the clock on the signer's computer",

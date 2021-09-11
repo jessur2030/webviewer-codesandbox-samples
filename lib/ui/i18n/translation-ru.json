@@ -64,7 +64,12 @@
     "addOption": "Добавить вариант",
     "formFieldEdit": "Изменить поле формы",
     "viewShortCutKeysFor3D": "Просмотр горячих клавиш",
-    "markAllRead": "Отметить все как прочитанные"
+    "markAllRead": "Отметить все как прочитанные",
+    "insertPage": "Вставка страницы",
+    "insertBlankPageAbove": "Вставить пустую страницу выше",
+    "insertBlankPageBelow": "Вставьте пустую страницу ниже",
+    "pageManipulation": "Манипуляции со страницей",
+    "replace": "Заменять"
   },
   "annotation": {
     "areaMeasurement": "Площадь",
@@ -83,6 +88,7 @@
     "freeHandHighlight": "Ручное выделение",
     "freetext": "Текст",
     "highlight": "Выделить",
+    "image": "Изображение",
     "line": "Линия",
     "perimeterMeasurement": "Периметр",
     "polygon": "Многоугольник",
@@ -231,7 +237,7 @@
       "pageTransition": "Переход страниц"
     },
     "documentControls": {
-      "placeholder": "Введите страницы для выбора, то есть 2, 5-9"
+      "placeholder": "1, 3, 5-10"
     },
     "outlineControls": {
       "add": "Добавить элемент",
@@ -304,7 +310,8 @@
     "filterAnnotModal": {
       "commentBy": "Комментарий от",
       "types": "Типы",
-      "color": "Цвет"
+      "color": "Цвет",
+      "includeReplies": "Включить ответы"
     },
     "status": {
       "status": "Статус"
@@ -431,7 +438,7 @@
     "select": "(Esc)",
     "signature": "(S)",
     "squiggly": "(G)",
-    "stamp": "(I)",
+    "image": "(Я)",
     "redo": "(Ctrl Shift Z)",
     "redo_windows": "(Ctrl Y)",
     "undo": "(Ctrl Z)",
@@ -485,6 +492,20 @@
       "9": "октябрь",
       "10": "ноябрь",
       "11": "декабрь"
+    },
+    "monthsShort": {
+      "0": "янв",
+      "1": "февр",
+      "2": "март",
+      "3": "апр",
+      "4": "май",
+      "5": "июнь",
+      "6": "июль",
+      "7": "авг",
+      "8": "сент",
+      "9": "окт",
+      "10": "ноябрь",
+      "11": "дек"
     },
     "weekdays": {
       "0": "воскресенье",
@@ -589,6 +610,7 @@
     "by": "по",
     "on": "на",
     "disallowedChange": "Запрещенное изменение: {{type}}, objnum: {{objnum}}",
+    "unsignedSignatureField": "Поле неподписанной подписи: {{fieldName}}",
     "trustVerification": {
       "current": "Использованное время проверки было текущим.",
       "signing": "Время подтверждения - по часам на компьютере подписавшего.",

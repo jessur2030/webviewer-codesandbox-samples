@@ -64,7 +64,12 @@
     "addOption": "新增选项",
     "formFieldEdit": "编辑表格栏位",
     "viewShortCutKeysFor3D": "查看快捷键",
-    "markAllRead": "将所有内容标记为已读"
+    "markAllRead": "将所有内容标记为已读",
+    "insertPage": "页面插入",
+    "insertBlankPageAbove": "在上方插入空白页",
+    "insertBlankPageBelow": "在下方插入空白页",
+    "pageManipulation": "页面操作",
+    "replace": "代替"
   },
   "annotation": {
     "areaMeasurement": "面积测量",
@@ -83,6 +88,7 @@
     "freeHandHighlight": "自由手精选",
     "freetext": "自由文本",
     "highlight": "高亮",
+    "image": "图像",
     "line": "直线",
     "perimeterMeasurement": "周长测量",
     "polygon": "多边形",
@@ -231,7 +237,7 @@
       "pageTransition": "页面转换"
     },
     "documentControls": {
-      "placeholder": "输入页面以选择2、5-9"
+      "placeholder": "1, 3, 5-10"
     },
     "outlineControls": {
       "add": "添加项目",
@@ -304,7 +310,8 @@
     "filterAnnotModal": {
       "commentBy": "评论者",
       "types": "种类",
-      "color": "颜色"
+      "color": "颜色",
+      "includeReplies": "包括回覆"
     },
     "status": {
       "status": "状态"
@@ -431,7 +438,7 @@
     "select": "(Esc)",
     "signature": "(S)",
     "squiggly": "(G)",
-    "stamp": "(I)",
+    "image": "（一世）",
     "redo": "（Ctrl Shift Z）",
     "redo_windows": "(Ctrl Y)",
     "undo": "（Ctrl Z）",
@@ -473,6 +480,20 @@
     "previousMonth": "前一个月",
     "nextMonth": "下个月",
     "months": {
+      "0": "一月",
+      "1": "二月",
+      "2": "三月",
+      "3": "四月",
+      "4": "五月",
+      "5": "六月",
+      "6": "七月",
+      "7": "八月",
+      "8": "九月",
+      "9": "十月",
+      "10": "十一月",
+      "11": "十二月"
+    },
+    "monthsShort": {
       "0": "一月",
       "1": "二月",
       "2": "三月",
@@ -589,6 +610,7 @@
     "by": "通过",
     "on": "上",
     "disallowedChange": "不允许更改：{{type}}，objnum：{{objnum}}",
+    "unsignedSignatureField": "未签名的签名字段：{{fieldName}}",
     "trustVerification": {
       "current": "验证时间为当前时间",
       "signing": "验证时间是来自签名者计算机上的时钟",

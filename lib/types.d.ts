@@ -10,6 +10,11 @@ declare namespace Core.PDFNet {
      */
     class Convert {
         /**
+         * Method to create an AdvancedImagingConvertOptions object
+         * @returns A promise that resolves to a PDFNet.Convert.AdvancedImagingConvertOptions.
+         */
+        static createAdvancedImagingConvertOptions(): Promise<PDFNet.Convert.AdvancedImagingConvertOptions>;
+        /**
          * Method to create an OfficeToPDFOptions object
          * @param [json] - options in JSON format.
          * @returns A promise that resolves to a PDFNet.Convert.OfficeToPDFOptions.
@@ -236,174 +241,6 @@ declare namespace Core.PDFNet {
          * Destructor
          */
         destroy(): Promise<void>;
-    }
-    /**
-     * Method to create a RefreshOptions object
-     * @returns A promise that resolves to a PDFNet.RefreshOptions.
-     */
-    function createRefreshOptions(): Promise<PDFNet.RefreshOptions>;
-    /**
-     * Options for PDFNet.PDFDoc.RefreshAnnotAppearances or PDFNet.Annot.refreshAppearanceRefreshOptions
-     */
-    class RefreshOptions {
-        /**
-         * Gets the value DrawBackgroundOnly from the options object
-         * If true draw only the background and border, which can be useful when generating the rest of the annotation content elsewhere. Off by default.
-         * @returns the current value for DrawBackgroundOnly.
-         */
-        getDrawBackgroundOnly(): boolean;
-        /**
-         * Sets the value for DrawBackgroundOnly in the options object
-         * If true draw only the background and border, which can be useful when generating the rest of the annotation content elsewhere. Off by default.
-         * @param value - the new value for DrawBackgroundOnly
-         * @returns this object, for call chaining
-         */
-        setDrawBackgroundOnly(value: boolean): PDFNet.RefreshOptions;
-        /**
-         * Gets the value RefreshExisting from the options object
-         * Whether we should refresh annotations with existing appearances. Defaults to false when used in PDFDoc.RefreshAnnotAppearances and true when used in Annot.RefreshAppearance.
-         * @returns the current value for RefreshExisting.
-         */
-        getRefreshExisting(): boolean;
-        /**
-         * Sets the value for RefreshExisting in the options object
-         * Whether we should refresh annotations with existing appearances. Defaults to false when used in PDFDoc.RefreshAnnotAppearances and true when used in Annot.RefreshAppearance.
-         * @param value - the new value for RefreshExisting
-         * @returns this object, for call chaining
-         */
-        setRefreshExisting(value: boolean): PDFNet.RefreshOptions;
-        /**
-         * Gets the value UseNonStandardRotation from the options object
-         * Whether we should use rotation in the annotation even if it is not a multiple of 90. Off by default.
-         * @returns the current value for UseNonStandardRotation.
-         */
-        getUseNonStandardRotation(): boolean;
-        /**
-         * Sets the value for UseNonStandardRotation in the options object
-         * Whether we should use rotation in the annotation even if it is not a multiple of 90. Off by default.
-         * @param value - the new value for UseNonStandardRotation.
-         * @returns this object, for call chaining
-         */
-        setUseNonStandardRotation(value: boolean): PDFNet.RefreshOptions;
-        /**
-         * Gets the value UseRoundedCorners from the options object
-         * Whether we should use the corner radii specified in Annot.BorderStyle. Off by default.
-         * @returns the current value for UseRoundedCorners.
-         */
-        getUseRoundedCorners(): boolean;
-        /**
-         * Sets the value for UseRoundedCorners in the options object
-         * Whether we should use the corner radii specified in Annot.BorderStyle. Off by default.
-         * @param value - the new value for UseRoundedCorners.
-         * @returns this object, for call chaining
-         */
-        setUseRoundedCorners(value: boolean): PDFNet.RefreshOptions;
-    }
-    /**
-     * Method to create a DiffOptions object
-     * @returns A promise that resolves to a PDFNet.DiffOptions.
-     */
-    function createDiffOptions(): Promise<PDFNet.DiffOptions>;
-    /**
-     * Options for PDFNet.PDFDoc.appendVisualDiff
-     */
-    class DiffOptions {
-        /**
-         * Gets the value AddGroupAnnots from the options object
-         * Whether we should add an annot layer indicating the difference regions
-         * @returns a bool, the current value for AddGroupAnnots.
-         */
-        getAddGroupAnnots(): boolean;
-        /**
-         * Sets the value for AddGroupAnnots in the options object
-         * Whether we should add an annot layer indicating the difference regions
-         * @param value - the new value for AddGroupAnnots
-         * @returns this object, for call chaining
-         */
-        setAddGroupAnnots(value: boolean): PDFNet.DiffOptions;
-        /**
-         * Gets the value BlendMode from the options object
-         * How the two colors should be blended.
-         * @example
-         * Return value:
-         * <pre>
-         * PDFNet.GState.BlendMode = {
-         * 	e_bl_compatible : 0
-         * 	e_bl_normal : 1
-         * 	e_bl_multiply : 2
-         * 	e_bl_screen : 3
-         * 	e_bl_difference : 4
-         * 	e_bl_darken : 5
-         * 	e_bl_lighten : 6
-         * 	e_bl_color_dodge : 7
-         * 	e_bl_color_burn : 8
-         * 	e_bl_exclusion : 9
-         * 	e_bl_hard_light : 10
-         * 	e_bl_overlay : 11
-         * 	e_bl_soft_light : 12
-         * 	e_bl_luminosity : 13
-         * 	e_bl_hue : 14
-         * 	e_bl_saturation : 15
-         * 	e_bl_color : 16
-         * }
-         * </pre>
-         * @returns the current value for BlendMode.
-         */
-        getBlendMode(): number;
-        /**
-         * Sets the value for BlendMode in the options object
-         * How the two colors should be blended.
-         * @param value - the new value for BlendMode
-         * <pre>
-         * PDFNet.GState.BlendMode = {
-         * 	e_bl_compatible : 0
-         * 	e_bl_normal : 1
-         * 	e_bl_multiply : 2
-         * 	e_bl_screen : 3
-         * 	e_bl_difference : 4
-         * 	e_bl_darken : 5
-         * 	e_bl_lighten : 6
-         * 	e_bl_color_dodge : 7
-         * 	e_bl_color_burn : 8
-         * 	e_bl_exclusion : 9
-         * 	e_bl_hard_light : 10
-         * 	e_bl_overlay : 11
-         * 	e_bl_soft_light : 12
-         * 	e_bl_luminosity : 13
-         * 	e_bl_hue : 14
-         * 	e_bl_saturation : 15
-         * 	e_bl_color : 16
-         * }
-         * </pre>
-         * @returns this object, for call chaining
-         */
-        setBlendMode(value: number): PDFNet.DiffOptions;
-        /**
-         * Gets the value ColorA from the options object
-         * The difference color for the first page.
-         * @returns an object in form {A: number, R: number, G: number, B: number}, the current value for ColorA.
-         */
-        getColorA(): any;
-        /**
-         * Sets the value for ColorA in the options object
-         * The difference color for the first page.
-         * @param value - the new value for ColorA, in form {A: number, R: number, G: number, B: number}
-         * @returns this object, for call chaining
-         */
-        setColorA(value: any): PDFNet.DiffOptions;
-        /**
-         * Gets the value ColorB from the options object
-         * The difference color for the second page
-         * @returns an object in form {A: number, R: number, G: number, B: number}, the current value for ColorB.
-         */
-        getColorB(): any;
-        /**
-         * Sets the value for ColorB in the options object
-         * The difference color for the second page
-         * @param value - the new value for ColorB, in form {A: number, R: number, G: number, B: number}
-         * @returns this object, for call chaining
-         */
-        setColorB(value: any): PDFNet.DiffOptions;
     }
     /**
      * Actions are typically what happens when a user clicks on a link or bookmark.
@@ -961,6 +798,12 @@ declare namespace Core.PDFNet {
          */
         getUniqueID(): Promise<PDFNet.Obj>;
         /**
+         * Sets the unique identifier for this annotation.
+         * @param id - A buffer containing a unique identifier for this annotation.
+         * Note: It is necessary to ensure that the unique ID generated is actually unique.
+         */
+        setUniqueID(id: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray): Promise<void>;
+        /**
          * Gets an annotation's last modified date.
          * @returns A promise that resolves to the annotation's last modified time and date. If the annotation has no associated
          * date structure, the returned date is not valid (date.IsValid() returns false). Corresponds
@@ -1225,7 +1068,7 @@ declare namespace Core.PDFNet {
          * A version of RefreshAppearance allowing custom options to make slight tweaks in behaviour.
          * @param [options] - The RefreshOptions.
          */
-        refreshAppearanceRefreshOptions(options?: PDFNet.RefreshOptions): Promise<void>;
+        refreshAppearanceRefreshOptions(options?: PDFNet.PDFDoc.RefreshOptions): Promise<void>;
         /**
          * Returns the rotation value of the annotation. The Rotation specifies the number of degrees by which the
          * annotation shall be rotated counterclockwise relative to the page.
@@ -1402,6 +1245,11 @@ declare namespace Core.PDFNet {
      * [Missing documentation]
      */
     class AppearanceReferenceList {
+    }
+    /**
+     * [Missing documentation]
+     */
+    class AppearanceStringList {
     }
     /**
      * An application or plug-in extension that processes logical structure can attach
@@ -2523,6 +2371,11 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to true if the attached Cos/SDF string was successfully updated, false otherwise.
          */
         update(d?: PDFNet.Obj): Promise<boolean>;
+        /**
+         * Sets the date object to the current date and time. The method also updates
+         * associated SDF object.
+         */
+        setCurrentTime(): Promise<void>;
         year: number;
         month: number;
         day: number;
@@ -2814,7 +2667,7 @@ declare namespace Core.PDFNet {
          */
         getContactInfo(): Promise<string>;
         /**
-         * Gets number of certificates in certificate chain (Cert entry of digital signature dictionary). Must call HasCryptographicSignature first and use it to check whether the signature is signed.
+         * Gets number of certificates in certificate chain (Cert entry of digital signature dictionary). Must call HasCryptographicSignature first and use it to check whether the signature is signed. Only to be used for old-style adbe.x509.rsa_sha1 signatures; for other signatures, use CMS getter functions instead.
          * @returns A promise that resolves to an integer value the number of certificates in the Cert entry of the digital signature dictionary.
          */
         getCertCount(): Promise<number>;
@@ -2902,7 +2755,7 @@ declare namespace Core.PDFNet {
          */
         getSigningTime(): Promise<PDFNet.Date>;
         /**
-         * Gets a certificate in the certificate chain (Cert entry) of the digital signature dictionary by index. Throws if Cert is not Array or String, throws if index is out of range and Cert is Array, throws if index is > 1 and Cert is string, otherwise retrieves the certificate.
+         * Gets a certificate in the certificate chain (Cert entry) of the digital signature dictionary by index. Throws if Cert is not Array or String, throws if index is out of range and Cert is Array, throws if index is > 1 and Cert is string, otherwise retrieves the certificate. Only to be used for old-style adbe.x509.rsa_sha1 signatures; for other signatures, use CMS getter functions instead.
          * @param in_index - - An integral index which must be greater than 0 and less than the cert count as retrieved using GetCertCount.
          * @returns A promise that resolves to a vector of bytes containing the certificate at the index. Returns empty vector if Cert is missing.
          */
@@ -3067,6 +2920,39 @@ declare namespace Core.PDFNet {
          */
         timestampOnNextSave(in_timestamping_config: PDFNet.TimestampingConfiguration, in_timestamp_response_verification_options: PDFNet.VerificationOptions): Promise<void>;
         /**
+         * Contacts a remote timestamp authority over network, sends CMS digest, receives and verifies
+         * timestamp token, combines the timestamp token and the data of an existing CMS-type (adbe.pkcs7.detached or
+         * ETSI.CAdES.detached subfilter) main document signature, and then returns that data to the user.
+         *
+         * Note: This function does not insert the final CMS-type document signature into the document.
+         * You must retrieve it from the result using GetData and then pass that to PDFDoc SaveCustomSignature.
+         * @param in_timestamping_config - - Configuration options to store for timestamping.
+         * These will include various items related to contacting a timestamping authority.
+         * Incorrect configuration will result in an exception being thrown.
+         * The usability of a combination of a TimestampingConfiguration and VerificationOptions
+         * can be checked ahead of time to prevent exceptions by calling TestConfiguration on
+         * TimestampingConfiguration and passing VerificationOptions.
+         * @param in_timestamp_response_verification_options - - Options for the timestamp
+         * response verification step (which is required by RFC 3161 to be done as part of
+         * timestamping). These response verification options should include the root certificate
+         * of the timestamp authority, so that the trust status of the timestamp signature
+         * can be verified. The options that should be passed are the same ones that one expects
+         * the timestamp to be verifiable with in the future (once it is embedded in the document),
+         * except the response verification requires online revocation information whereas
+         * the later verification may not (depending on whether LTV offline verification
+         * information for the embedded timestamp gets embedded into the document by that
+         * time). The timestamp response verification step makes sure that (a) the
+         * timestamp response has a success status, which is the only time that this is
+         * verified in the entire workflow, which prevents embedding an unsuccessful
+         * response; (b) that it digests the main signature digest correctly and is otherwise generally
+         * verifiable; and (c) that the nonce is correct (which is the only time that this
+         * is verifiable in the entire workflow) to prevent replay attacks (if it was not
+         * requested in the TimestampingConfiguration that the nonce mechanism should be
+         * disabled).
+         * @returns A promise that resolves to the result of the timestamp request, including the final document signature as DER-encoded CMS with a timestamp embedded
+         */
+        generateContentsWithEmbeddedTimestamp(in_timestamping_config: PDFNet.TimestampingConfiguration, in_timestamp_response_verification_options: PDFNet.VerificationOptions): Promise<PDFNet.TimestampingResult>;
+        /**
          * Sets the requested SubFilter value (which identifies a signature type) as the only one to use during future signing, overwriting all such previous settings. It is not necessary to call HasCryptographicSignature before calling this function. For example, this function can be used to switch to PAdES signing mode.
          * @param in_subfilter_type - <pre>
          * PDFNet.DigitalSignatureField.SubFilterType = {
@@ -3083,6 +2969,137 @@ declare namespace Core.PDFNet {
          * @param [in_make_mandatory] - - Whether to make usage of this SubFilter mandatory for future signing applications. Default value for this parameter is true.
          */
         useSubFilter(in_subfilter_type: number, in_make_mandatory?: boolean): Promise<void>;
+        /**
+         * Calculates the digest of the relevant bytes of the document for this signature field, in order to allow
+         * the caller to perform custom signing/processing. Signature field must first be prepared using one of the
+         * non-sign overloads (CreateSigDictForCustomSigning/Certification), and then the document must be saved; after that, this function can be called.
+         * The ByteRanges that the most recent save has entered into the signature dictionary within this signature field
+         * will be used to calculate the digest.
+         * @param [in_digest_algorithm_type] - <pre>
+         * PDFNet.DigestAlgorithm.Type = {
+         * 	e_SHA1 : 0
+         * 	e_SHA256 : 1
+         * 	e_SHA384 : 2
+         * 	e_SHA512 : 3
+         * 	e_RIPEMD160 : 4
+         * 	e_unknown_digest_algorithm : 5
+         * }
+         * </pre>
+         * -- the enumerated type of digest algorithm to use for the calculation. The default is SHA-256.
+         * @returns A promise that resolves to an array of bytes containing the digest value
+         */
+        calculateDigest(in_digest_algorithm_type?: number): Promise<Uint8Array>;
+        /**
+         * Sets the preferred digest algorithm to use when signing this field. This is done by setting DigestMethod
+         * in the Seed Value dictionary. This function can be called before a signature field is even prepared for signing.
+         * @param in_digest_algorithm_type - <pre>
+         * PDFNet.DigestAlgorithm.Type = {
+         * 	e_SHA1 : 0
+         * 	e_SHA256 : 1
+         * 	e_SHA384 : 2
+         * 	e_SHA512 : 3
+         * 	e_RIPEMD160 : 4
+         * 	e_unknown_digest_algorithm : 5
+         * }
+         * </pre>
+         * -- the digest algorithm to use
+         * @param [in_make_mandatory] - - whether to tell signing software to give up if the preferred algorithm is unsupported. Default value for this parameter is true.
+         */
+        setPreferredDigestAlgorithm(in_digest_algorithm_type: number, in_make_mandatory?: boolean): Promise<void>;
+        /**
+         * Prepares the field for certification without actually performing certification.
+         * Useful for custom signing workflows. It is not necessary to call HasCryptographicSignature
+         * before calling this function.
+         * @param in_filter_name - the Filter name to use, representing the name of the signature handler that will be used to sign and verify the signature (e.g. Adobe.PPKLite)
+         * @param in_subfilter_type - <pre>
+         * PDFNet.DigitalSignatureField.SubFilterType = {
+         * 	e_adbe_x509_rsa_sha1 : 0
+         * 	e_adbe_pkcs7_detached : 1
+         * 	e_adbe_pkcs7_sha1 : 2
+         * 	e_ETSI_CAdES_detached : 3
+         * 	e_ETSI_RFC3161 : 4
+         * 	e_unknown : 5
+         * 	e_absent : 6
+         * }
+         * </pre>
+         * the SubFilter name to use, representing an interoperable signature type identifier for third-party verification (e.g. adbe.pkcs7.detached, ETSI.CAdES.detached, etc.)
+         * @param in_contents_size_to_reserve - The size of the empty Contents entry to create. For security reasons, set the contents size to a value greater than but as close as possible to the size you expect your final signature to be.
+         */
+        createSigDictForCustomCertification(in_filter_name: string, in_subfilter_type: number, in_contents_size_to_reserve: number): Promise<void>;
+        /**
+         * Prepares the field for approval signing without actually performing signing.
+         * Useful for custom signing workflows. It is not necessary to call HasCryptographicSignature
+         * before calling this function.
+         * @param in_filter_name - the Filter name to use, representing the name of the signature handler that will be used to sign and verify the signature (e.g. Adobe.PPKLite)
+         * @param in_subfilter_type - <pre>
+         * PDFNet.DigitalSignatureField.SubFilterType = {
+         * 	e_adbe_x509_rsa_sha1 : 0
+         * 	e_adbe_pkcs7_detached : 1
+         * 	e_adbe_pkcs7_sha1 : 2
+         * 	e_ETSI_CAdES_detached : 3
+         * 	e_ETSI_RFC3161 : 4
+         * 	e_unknown : 5
+         * 	e_absent : 6
+         * }
+         * </pre>
+         * the SubFilter name to use, representing an interoperable signature type identifier for third-party verification (e.g. adbe.pkcs7.detached, ETSI.CAdES.detached, etc.)
+         * @param in_contents_size_to_reserve - The size of the empty Contents entry to create. For security reasons, set the contents size to a value greater than but as close as possible to the size you expect your final signature to be.
+         */
+        createSigDictForCustomSigning(in_filter_name: string, in_subfilter_type: number, in_contents_size_to_reserve: number): Promise<void>;
+        /**
+         * Adds the "M" key and value, representing the PDF-time-of-signing (not to be confused with
+         * embedded timestamps, DocTimeStamps, or CMS signing time), to the digital signature dictionary.
+         * The digital signature field must have been prepared for signing first. This function should
+         * only be used if no secure embedded timestamping support is available from your signing provider.
+         * Useful for custom signing workflows, where signing time is not set automatically by the PDFTron SDK,
+         * unlike in the usual standard handler signing workflow.
+         * @param in_date - the PDF Date datetime value to set
+         */
+        setSigDictTimeOfSigning(in_date: PDFNet.Date): Promise<void>;
+        /**
+         * Returns a CMS detached signature incorporating a digest that is provided using the provided PKCS #12 key file (.pfx).
+         * Note: This function does not change the DigitalSignatureField. Call SaveCustomSignature to write a signature to its PDFDoc.
+         * @param in_digest - - the digest value to use
+         * @param in_digest_size - - the size of the digest buffer
+         * @param in_pkcs12_keyfile_path - - the path to the PKCS #12 key file (usually has a .pfx extension) to use for signing
+         * @param in_keyfile_password - - the password to use to decrypt the PKCS #12 key file
+         * @param in_pades_mode - - whether to create a PAdES-type signature (PDF Advanced Electronic Signatures standards)
+         * @param in_digest_algorithm_type - <pre>
+         * PDFNet.DigestAlgorithm.Type = {
+         * 	e_SHA1 : 0
+         * 	e_SHA256 : 1
+         * 	e_SHA384 : 2
+         * 	e_SHA512 : 3
+         * 	e_RIPEMD160 : 4
+         * 	e_unknown_digest_algorithm : 5
+         * }
+         * </pre>
+         * -- the identifier to use to write the digest algorithm
+         * @returns A promise that resolves to the DER-serialized bytes of a CMS detached signature (CMS ContentInfo)
+         */
+        static signDigestPath(in_digest: number, in_digest_size: number, in_pkcs12_keyfile_path: string, in_keyfile_password: string, in_pades_mode: boolean, in_digest_algorithm_type: number): Promise<Uint8Array>;
+        /**
+         * Returns a CMS detached signature incorporating a digest that is provided using the provided PKCS #12 key buffer (.pfx).
+         * Note: This function does not change the DigitalSignatureField. Call SaveCustomSignature to write a signature to its PDFDoc.
+         * @param in_digest - - the digest value to use
+         * @param in_digest_size - - the size of the digest buffer
+         * @param in_pkcs12_buffer - - a buffer containing the PKCS #12 key (as usually stored in .pfx files) to use for signing
+         * @param in_keyfile_password - - the password to use to decrypt the PKCS #12 key file data in the buffer
+         * @param in_pades_mode - - whether to create a PAdES-type signature (PDF Advanced Electronic Signatures standards)
+         * @param in_digest_algorithm_type - <pre>
+         * PDFNet.DigestAlgorithm.Type = {
+         * 	e_SHA1 : 0
+         * 	e_SHA256 : 1
+         * 	e_SHA384 : 2
+         * 	e_SHA512 : 3
+         * 	e_RIPEMD160 : 4
+         * 	e_unknown_digest_algorithm : 5
+         * }
+         * </pre>
+         * -- the identifier to use to write the digest algorithm
+         * @returns A promise that resolves to the DER-serialized bytes of a CMS detached signature (CMS ContentInfo)
+         */
+        static signDigestBuffer(in_digest: number, in_digest_size: number, in_pkcs12_buffer: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray, in_keyfile_password: string, in_pades_mode: boolean, in_digest_algorithm_type: number): Promise<Uint8Array>;
         /**
          * Must be called to prepare a signature for certification, which is done afterwards by calling Save. Throws if document already certified.
         Default document permission level is e_annotating_formfilling_signing_allowed. Throws if signature field already has a digital signature dictionary.
@@ -3710,16 +3727,6 @@ declare namespace Core.PDFNet {
         createTextRun(text_data: string, font: PDFNet.Font, font_sz: number): Promise<PDFNet.Element>;
         /**
          * Create a text run using the given font.
-         * @param text_data - text to initialize the text run with
-         * @param text_data_sz - size of the text run
-         * @param font - font of the text in the text run
-         * @param font_sz - size of the text in the text run
-         * Note: a text run can be created only within a text block
-         * @returns A promise that resolves to an object of type: "PDFNet.Element"
-         */
-        createTextRunWithSize(text_data: string, text_data_sz: number, font: PDFNet.Font, font_sz: number): Promise<PDFNet.Element>;
-        /**
-         * Create a text run using the given font.
          * @param text_data - text to initialize the text run with. Uses unsigned characters.
          * @param font - font of the text in the text run
          * @param font_sz - size of the text in the text run
@@ -3735,15 +3742,6 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to an object of type: "PDFNet.Element"
          */
         createNewTextRun(text_data: string): Promise<PDFNet.Element>;
-        /**
-         * Create a new text run.
-         * @param text_data - text to initialize the text run with.
-         * @param text_data_sz - size pf the text run.
-         * Note: a text run can be created only within a text block
-         * Note: you must set the current Font and font size before calling this function.
-         * @returns A promise that resolves to an object of type: "PDFNet.Element"
-         */
-        createNewTextRunWithSize(text_data: string, text_data_sz: number): Promise<PDFNet.Element>;
         /**
          * Create a new text run.
          * @param text_data - text to initialize the text run with. Uses unsigned characters.
@@ -4287,7 +4285,7 @@ declare namespace Core.PDFNet {
          * This function can be used to insert comments, inline-image data, and
          * chunks of arbitrary content to the output stream.
          */
-        writeBuffer(data: string, data_sz: number): Promise<void>;
+        writeBuffer(data_buf: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray): Promise<void>;
         /**
          * Writes an arbitrary string to the content stream.
          * Serves the same purpose as WriteBuffer().
@@ -4455,6 +4453,11 @@ declare namespace Core.PDFNet {
      */
     class FDFDoc extends PDFNet.Destroyable {
         /**
+         * Method to create a XFDFExportOptions object
+         * @returns A promise that resolves to a PDFNet.FDFDoc.XFDFExportOptions.
+         */
+        static createXFDFExportOptions(): Promise<PDFNet.FDFDoc.XFDFExportOptions>;
+        /**
          * Default constructor that creates an empty new document.
          * @returns A promise that resolves to an object of type: "PDFNet.FDFDoc"
          */
@@ -4594,10 +4597,21 @@ declare namespace Core.PDFNet {
          */
         static createFromXFDF(file_name: string): Promise<PDFNet.FDFDoc>;
         /**
-         * Export FDF file as a XFDF string
-         * @returns A promise that resolves to a UString containing the XFDF representation of the FDF file
+         * Export FDF file as an XFDF file
+         * @param filepath - the filepath of the exported XFDF file
+         * @param [opts] - Options controlling finer parameters of xfdf export
+         */
+        saveAsXFDFWithOptions(filepath: string, opts?: PDFNet.Obj | PDFNet.FDFDoc.XFDFExportOptions): Promise<void>;
+        /**
+         * @returns A promise that resolves to an object of type: "string"
          */
         saveAsXFDFAsString(): Promise<string>;
+        /**
+         * Export FDF file as a XFDF string
+         * @param [opts] - Options controlling finer parameters of xfdf export
+         * @returns A promise that resolves to a UString containing the XFDF representation of the FDF file
+         */
+        saveAsXFDFAsStringWithOptions(opts?: PDFNet.Obj | PDFNet.FDFDoc.XFDFExportOptions): Promise<string>;
         /**
          * Merge the annotations from XFDF file into FDF file
          * @param command_file - string containing the xml command file path or xml string of the command
@@ -9913,17 +9927,6 @@ declare namespace Core.PDFNet {
         /**
          * Inserts a <key, Obj::Type::e_string> pair in the dictionary.
          * @param key - The key of the value to set.
-         * @param value - The buffer used to set the value of the Obj::Type::e_string
-         * object to be inserted into the dictionary.
-         * @param size - The number of bytes to copy from the 'value' buffer parameter.
-         * @returns A promise that resolves to a newly created string object.
-         * Note: If a dictionary already contains an entry with the same key, the old entry
-         * will be deleted and all DictIterators to this entry will be invalidated.
-         */
-        putStringWithSize(key: string, value: string, size: number): Promise<PDFNet.Obj>;
-        /**
-         * Inserts a <key, Obj::Type::e_string> pair in the dictionary.
-         * @param key - The key of the value to set.
          * @param t - The value of the Obj::Type::e_string object to be inserted into
          * the dictionary.
          * Note: PutText will create the string object as a 'PDF Text' object.
@@ -10057,17 +10060,6 @@ declare namespace Core.PDFNet {
          * @param pos - The location in the array to insert the object . The object is inserted
          *          before the specified location. The first element in an array has a pos of
          * 	        zero. If pos >= Array->Length(), appends obj to array.
-         * @param value - The buffer used to set the value of the Obj::Type::e_string
-         * object to be inserted.
-         * @param size - The number of bytes to copy from the 'value' buffer parameter.
-         * @returns A promise that resolves to a newly created string object.
-         */
-        insertStringWithSize(pos: number, value: string, size: number): Promise<PDFNet.Obj>;
-        /**
-         * Inserts an Obj::Type::e_string object in the array.
-         * @param pos - The location in the array to insert the object . The object is inserted
-         *          before the specified location. The first element in an array has a pos of
-         * 	        zero. If pos >= Array->Length(), appends obj to array.
          * @param t - The value of the Obj::Type::e_string object to be inserted.
          *
          * Note: InsertText will create the string object as a 'PDF Text' object.
@@ -10151,14 +10143,6 @@ declare namespace Core.PDFNet {
         pushBackString(value: string): Promise<PDFNet.Obj>;
         /**
          * Appends a new Obj::Type::e_string object at the end of the array.
-         * @param value - The buffer used to set the value of the Obj::Type::e_string
-         * object to be inserted.
-         * @param size - The number of bytes to copy from the 'value' buffer parameter.
-         * @returns A promise that resolves to the new string object.
-         */
-        pushBackStringWithSize(value: string, size: number): Promise<PDFNet.Obj>;
-        /**
-         * Appends a new Obj::Type::e_string object at the end of the array.
          * @param t - The value of the Obj::Type::e_string object to be inserted.
          * Note: InsertText will create the string object as a 'PDF Text' object.
          * @returns A promise that resolves to the new string object.
@@ -10209,12 +10193,12 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to the length of the raw/encoded stream equal to the Length parameter
          */
         getRawStreamLength(): Promise<number>;
-        setStreamData(data: string, data_size: number): Promise<void>;
+        setStreamData(data_buf: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray): Promise<void>;
         /**
          * allows to replace the content stream with a new one
          * without creating a new object
          */
-        setStreamDataWithFilter(data: string, data_size: number, filter_chain?: PDFNet.Filter): Promise<void>;
+        setStreamDataWithFilter(data_buf: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray, filter_chain: PDFNet.Filter): Promise<void>;
         /**
          * @param decrypt - If true decrypt the stream if the stream is encrypted.
          * @returns A promise that resolves to A filter to the encoded stream
@@ -11372,6 +11356,21 @@ declare namespace Core.PDFNet {
      */
     class PDFDoc extends PDFNet.Destroyable {
         /**
+         * Method to create a RefreshOptions object
+         * @returns A promise that resolves to a PDFNet.PDFDoc.RefreshOptions.
+         */
+        static createRefreshOptions(): Promise<PDFNet.PDFDoc.RefreshOptions>;
+        /**
+         * Method to create a DiffOptions object
+         * @returns A promise that resolves to a PDFNet.PDFDoc.DiffOptions.
+         */
+        static createDiffOptions(): Promise<PDFNet.PDFDoc.DiffOptions>;
+        /**
+         * Method to create a TextDiffOptions object
+         * @returns A promise that resolves to a PDFNet.PDFDoc.TextDiffOptions.
+         */
+        static createTextDiffOptions(): Promise<PDFNet.PDFDoc.TextDiffOptions>;
+        /**
          * Get the Action associated with the selected Doc Trigger event.
          * @param trigger - <pre>
          * PDFNet.PDFDoc.EventType = {
@@ -11549,6 +11548,20 @@ declare namespace Core.PDFNet {
          * it can not be saved using the e_incremental flag.
          */
         saveStream(stream: PDFNet.Filter, flags: number): Promise<void>;
+        /**
+         * Saves a custom signature Contents to a document which has been prepared to receive it. No changes should be made to document in meantime.
+         * @param in_signature - The signature Contents to write
+         * @param in_field - The signature field to which to write
+         * @returns A promise that resolves to an object of type: "Uint8Array"
+         */
+        saveCustomSignatureBuffer(in_signature: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray, in_field: PDFNet.DigitalSignatureField): Promise<Uint8Array>;
+        /**
+         * Saves a custom signature Contents to a document which has been prepared to receive it. No changes should be made to document in meantime.
+         * @param in_signature - The signature Contents to write
+         * @param in_field - The signature field to which to write
+         * @returns A promise that resolves to an object of type: "PDFNet.Filter"
+         */
+        saveCustomSignatureStream(in_signature: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray, in_field: PDFNet.DigitalSignatureField): Promise<PDFNet.Filter>;
         /**
          * Use the Next() method on the returned iterator to traverse all pages in the document.
          * For example:
@@ -11744,17 +11757,25 @@ declare namespace Core.PDFNet {
          * This function adds two new pages to the current document. The two input
          * pages are typically coming from two different PDF files.
          * @param page1 - is the before page, the basis of the comparison
-         * @param page2 - is the after page, to which the basis is compared to
+         * @param page2 - is the after page, to which the basis is compared
          * Note: This function is beta and is subject to change
          */
         appendTextDiffPage(page1: PDFNet.Page, page2: PDFNet.Page): Promise<void>;
         /**
          * Imports two external PDFs and highlights the differences between them.
          * @param doc1 - is the before document, the basis of the comparison
-         * @param doc2 - is the after document, to which the basis is compared to
+         * @param doc2 - is the after document, to which the basis is compared
          * Note: This function is beta and is subject to change
          */
         appendTextDiffDoc(doc1: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc, doc2: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc): Promise<void>;
+        /**
+         * Imports two external PDFs and highlights the differences between them.
+         * @param doc1 - is the before document, the basis of the comparison
+         * @param doc2 - is the after document, to which the basis is compared
+         * @param [options] - processing options (optional)
+         * Note: This function is beta and is subject to change
+         */
+        appendTextDiffDocOpt(doc1: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc, doc2: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc, options?: PDFNet.Obj | PDFNet.PDFDoc.TextDiffOptions): Promise<void>;
         /**
          * @returns A promise that resolves to the first Bookmark from the document's outline tree. If the
          * Bookmark tree is empty the underlying SDF/Cos Object is null and returned
@@ -11901,7 +11922,7 @@ declare namespace Core.PDFNet {
          * only for missing annotations, which can be accomplished using the default options.
          * @param [options] - Options that can be used to adjust this generation process.
          */
-        refreshAnnotAppearances(options?: PDFNet.RefreshOptions): Promise<void>;
+        refreshAnnotAppearances(options?: PDFNet.PDFDoc.RefreshOptions): Promise<void>;
         /**
          * Flatten all annotations in the document.
          * @param [forms_only] - if false flatten all annotations, otherwise flatten
@@ -11946,9 +11967,16 @@ declare namespace Core.PDFNet {
          */
         fdfMerge(fdf_doc: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc): Promise<void>;
         /**
-         * Replace existing form and annotation data with those imported from the FDF file.
-         * Since this method avoids updating annotations unnecessarily it is ideal for incremental save.
-         * @param fdf_doc - a reference to the FDF file
+         * Replace existing form and annotation data with those imported from the FDF file. It will
+         * make annotations in the FDF match those in the PDF.
+         * Since this method avoids updating annotations unnecessarily it works well with incremental save
+         * and can sometimes preserve annotation appearances, but it requires that the annotations
+         * intended to be in the final document be in the provided FDF file.
+         * Note: Some PDF viewers (like Chrome) cannot display annotations that don't already have
+         * an appearance, so it is often desirable to call PDFDoc.RefreshAnnotAppearances after
+         * this method to ensure these annotations can still be displayed in those applications.
+         * Note: This method is not suitable for realtime collaboration.
+         * @param fdf_doc - a pointer to the FDF file
          */
         fdfUpdate(fdf_doc: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc): Promise<void>;
         /**
@@ -12110,7 +12138,7 @@ declare namespace Core.PDFNet {
         /**
          * @returns A promise that resolves to an object of type: "PDFNet.Obj"
          */
-        createIndirectStream(data: string, data_size: number, filter_chain?: PDFNet.Filter): Promise<PDFNet.Obj>;
+        createIndirectStream(data_buf: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray, filter_chain: PDFNet.Filter): Promise<PDFNet.Obj>;
         /**
          * @returns A promise that resolves to document's SDF/Cos document
          */
@@ -12174,7 +12202,7 @@ declare namespace Core.PDFNet {
          * which can be generated by 'PDFNet.createDiffOptions()'. If this parameter is omitted or
          * set to null, default settings will be used.
          */
-        appendVisualDiff(p1: PDFNet.Page, p2: PDFNet.Page, opts?: PDFNet.DiffOptions): Promise<void>;
+        appendVisualDiff(p1: PDFNet.Page, p2: PDFNet.Page, opts?: PDFNet.PDFDoc.DiffOptions): Promise<void>;
         /**
          * @returns A promise that resolves to an object of type: "PDFNet.GeometryCollection"
          */
@@ -12189,10 +12217,6 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to a DigitalSignatureField object representing the created digital signature field.
          */
         createDigitalSignatureField(in_sig_field_name?: string): Promise<PDFNet.DigitalSignatureField>;
-        /**
-         * @returns A promise that resolves to an object of type: "PDFNet.DigitalSignatureField"
-         */
-        getDigitalSignatureField(field_name: string): Promise<PDFNet.DigitalSignatureField>;
         /**
          * Retrieves an iterator that iterates over digital signature fields.
          * @returns A promise that resolves to an iterator that iterates over digital signature fields.
@@ -12265,6 +12289,24 @@ declare namespace Core.PDFNet {
         false otherwise.
          */
         initSecurityHandler(): Promise<boolean>;
+        /**
+         * Initializes document's SecurityHandler using the supplied
+        password. This version of InitSecurityHandler() assumes that
+        document uses Standard security and that a password is specified
+        directly.
+        
+        This function should be called immediately after an encrypted
+        document is opened. The function does not have any side effects on
+        documents that are not encrypted.
+        
+        If the security handler was successfully initialized, it can be later
+        obtained using GetSecurityHandler() method.
+         * @param password - Specifies the password used to open the document without
+        any user feedback.
+         * @returns A promise that resolves to true if the given password successfully unlocked the document,
+        false otherwise.
+         */
+        initStdSecurityHandler(password: string): Promise<boolean>;
         /**
          * Adds a standard (built-in) signature handler to the signature manager. This method will use cryptographic
         algorithm based on Adobe.PPKLite/adbe.pkcs7.detached filter to sign a PDF.
@@ -15192,7 +15234,7 @@ declare namespace Core.PDFNet {
      * Reflow annotations between PDF and HTML
      *
      * DocumentConversion instances are created through methods belonging to
-     * the Convert class. See Convert.ReflowWithPage for an example.
+     * the Convert class. See Convert.CreateReflow for an example.
      */
     class Reflow extends PDFNet.Destroyable {
         /**
@@ -15212,6 +15254,41 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to returns JSON string.
          */
         setAnnot(in_json: string): Promise<string>;
+        /**
+         * Determines whether to include images in the output HTML. Default is false.
+         * @param include - - if true images will be included in the output HTML.
+         */
+        setIncludeImages(include: boolean): Promise<void>;
+        /**
+         * Determines whether to write text markup tags into the output HTML. Default is false.
+         * @param include - - if true text markup tags will be included in the output HTML..
+         */
+        setHTMLOutputTextMarkup(include: boolean): Promise<void>;
+        /**
+         * Sets the error message in the output HTML when the page doesn't contain reflowable text. Use it for localization purposes. Default: "This page doesn't contain reflowable text".
+         * @param content - - the localized message.
+         */
+        setMessageWhenNoReflowContent(content: string): Promise<void>;
+        /**
+         * Sets the error message in the output HTML when reflow conversion fails. Use it for localization purposes. Default: "Could not reflow this page".
+         * @param content - - the localized message.
+         */
+        setMessageWhenReflowFailed(content: string): Promise<void>;
+        /**
+         * Determines whether to hide background images. Default is false.
+         * @param hide_background_images - - if true, background images will not be included in the output HTML.
+         */
+        setHideBackgroundImages(hide_background_images: boolean): Promise<void>;
+        /**
+         * Determines whether to hide images that are covered by text. Default is false.
+         * @param hide_images_under_text - - if true, images that are covered by text will not be included in the output HTML.
+         */
+        setHideImagesUnderText(hide_images_under_text: boolean): Promise<void>;
+        /**
+         * Determines whether to not reflow text that appears over images. Default is false.
+         * @param do_not_reflow_text_over_images - - if true, text that appears over images will not be included in the output HTML.
+         */
+        setDoNotReflowTextOverImages(do_not_reflow_text_over_images: boolean): Promise<void>;
     }
     /**
      * The class ResultSnapshot.
@@ -15484,30 +15561,6 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to true if the document is/was originally encrypted false otherwise.
          */
         isEncrypted(): Promise<boolean>;
-        /**
-         * Initializes document's SecurityHandler using the supplied
-         * password. This version of InitSecurityHandler() assumes that
-         * document uses Standard security and that a password is specified
-         * directly.
-         *
-         * This function should be called immediately after an encrypted
-         * document is opened. The function does not have any side effects on
-         * documents that are not encrypted.
-         *
-         * If the security handler was successfully initialized, it can be later
-         * obtained using GetSecurityHandler() method.
-         * @param password - Specifies the password used to open the document without
-         * any user feedback. If you would like to dynamically obtain the password,
-         * you need to derive a custom class from StdSecurityHandler() and use
-         * InitSecurityHandler() without any parameters. See EncTest sample
-         * for example code.
-         * @param password_sz - An optional parameter used to specify the size of
-         * the password buffer, in bytes. If the 'password_sz' is 0, or if the parameter
-         * is not specified, the function assumes that the string is null terminated.
-         * @returns A promise that resolves to true if the given password successfully unlocked the document,
-         * false otherwise.
-         */
-        initStdSecurityHandler(password: string, password_sz: number): Promise<boolean>;
         /**
          * Initializes document's SecurityHandler using the supplied
          * password. This version of InitSecurityHandler() assumes that
@@ -15813,11 +15866,11 @@ declare namespace Core.PDFNet {
          *
          * Unlike direct objects, indirect objects can be referenced by more than one
          * object (i.e. indirect objects they can be shared).
-         * @param data - indirect boolean to create.
+         * @param data_buf - indirect boolean to create.
          * @returns A promise that resolves to the created indirect object.
          * Note: After calling the following methods the filter object is invalidated and should not be used
          */
-        createIndirectStream(data: string, data_size: number, filter_chain?: PDFNet.Filter): Promise<PDFNet.Obj>;
+        createIndirectStream(data_buf: ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray, filter_chain: PDFNet.Filter): Promise<PDFNet.Obj>;
         /**
          * Initializes document's SecurityHandler. This version of InitSecurityHandler()
         works with Standard and Custom PDF security and can be used in situations where
@@ -15835,6 +15888,24 @@ declare namespace Core.PDFNet {
         false otherwise.
          */
         initSecurityHandler(): Promise<boolean>;
+        /**
+         * Initializes document's SecurityHandler using the supplied
+        password. This version of InitSecurityHandler() assumes that
+        document uses Standard security and that a password is specified
+        directly.
+        
+        This function should be called immediately after an encrypted
+        document is opened. The function does not have any side effects on
+        documents that are not encrypted.
+        
+        If the security handler was successfully initialized, it can be later
+        obtained using GetSecurityHandler() method.
+         * @param password - Specifies the password used to open the document without
+        any user feedback.
+         * @returns A promise that resolves to true if the given password successfully unlocked the document,
+        false otherwise.
+         */
+        initStdSecurityHandler(password: string): Promise<boolean>;
         applyCustomQuery(query: any): Promise<any>;
     }
     /**
@@ -18037,7 +18108,7 @@ declare namespace Core.PDFNet {
      * (see TextExtractor::Style).
      */
     class TextExtractorWord {
-        constructor(line?: number, word?: number, end?: number, uni?: number, num?: number, cur_num?: number, mp_bld?: any);
+        constructor(line?: number, word?: number, uni?: number, num?: number, cur_num?: number, mp_bld?: any);
         /**
          * @returns A promise that resolves to the number of glyphs in this word.
          */
@@ -18097,7 +18168,6 @@ declare namespace Core.PDFNet {
         getString(): Promise<string>;
         line: number;
         word: number;
-        end: number;
         uni: number;
         num: number;
         cur_num: number;
@@ -18411,12 +18481,12 @@ declare namespace Core.PDFNet {
         setTimestampAuthorityServerURL(in_url: string): Promise<void>;
         /**
          * Setter for a username to use during timestamping.
-         * @param in_username - - a string representing a username..
+         * @param in_username - - a string representing a username.
          */
         setTimestampAuthorityServerUsername(in_username: string): Promise<void>;
         /**
-         * Setter for a username to use during timestamping.
-         * @param in_password - - a string representing a password..
+         * Setter for a password to use during timestamping.
+         * @param in_password - - a string representing a password.
          */
         setTimestampAuthorityServerPassword(in_password: string): Promise<void>;
         /**
@@ -18434,12 +18504,12 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to a result object containing information about the status of the configuration test
          * and any errors that occurred during it.
          */
-        testConfiguration(in_opts: PDFNet.VerificationOptions): Promise<PDFNet.TimestampingTestResult>;
+        testConfiguration(in_opts: PDFNet.VerificationOptions): Promise<PDFNet.TimestampingResult>;
     }
     /**
      * A class representing the result of testing a timestamping configuration.
      */
-    class TimestampingTestResult extends PDFNet.Destroyable {
+    class TimestampingResult extends PDFNet.Destroyable {
         /**
          * Retrieves the overall status of the timestamping configuration testing operation.
          * @returns A promise that resolves to a boolean value representing the status.
@@ -18469,6 +18539,15 @@ declare namespace Core.PDFNet {
          * @returns A promise that resolves to a timestamp response verification result
          */
         getResponseVerificationResult(): Promise<PDFNet.EmbeddedTimestampVerificationResult>;
+        /**
+         * If GetStatus gives true, returns the data from the completed timestamping operation, otherwise throws.
+         * If this result was returned from TimestampOnNextSave, then this data is the timestamp token.
+         * However, if this result was returned from GenerateContentsWithEmbeddedTimestamp, then this data is the main
+         * document CMS signature of the DigitalSignatureField but with a newly-added embedded
+         * timestamp (unsigned signature-time-stamp attribute as specified in PAdES and PDF 2.0).
+         * @returns A promise that resolves to the data representing the result of the timestamping operation, if GetStatus gives true
+         */
+        getData(): Promise<Uint8Array>;
     }
     /**
      * The detailed result of a trust verification step of a verification
@@ -19545,349 +19624,297 @@ declare namespace Core.PDFNet {
          */
         getData(): Promise<Uint8Array>;
     }
-    /**
-     * QuadPoint
-    
-    A QuadpPoint struct contains 8 values representing the (x,y) coordinates of four points in a rectangle..
-    
-    --------------------
-    Since QuadPoint is a struct, it can be created manually by calling "new PDFNet.QuadPoint(p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y)"
-    eg. var myfoo = new PDFNet.QuadPoint(1, 2, 3, 4, 5, 6, 7, 8)
-    
-    Default values for a Point struct are:
-    p1x = 0
-    p1y = 0
-    p2x = 0
-    p2y = 0
-    p3x = 0
-    p3y = 0
-    p4x = 0
-    p4y = 0
-     */
-    class QuadPoint {
-        constructor(p1x?: number, p1y?: number, p2x?: number, p2y?: number, p3x?: number, p3y?: number, p4x?: number, p4y?: number);
-        p1x: number;
-        p1y: number;
-        p2x: number;
-        p2y: number;
-        p3x: number;
-        p3y: number;
-        p4x: number;
-        p4y: number;
-    }
-    /**
-     * 2D Point
-    
-    A Point represents an (x,y) coordinate point.
-    
-    --------------------
-    Since Point is a struct, it can be created manually by calling "new PDFNet.Point(x, y)"
-    eg. var myfoo = new PDFNet.Point(1,2);
-    
-    Default values for a Point struct are:
-    x = 0
-    y = 0
-     */
-    class Point {
-        constructor(x?: number, y?: number);
-        x: number;
-        y: number;
-    }
-    /**
-     * CharData is a data structure returned by PDFNet.Iterator<CharData>.current() that is
-    used to provide extra information about a character within a text run. The extra
-    information includes positioning information, the character data and a number of
-    bytes taken by the character.
-     * @property char_code - 'Char code' For SimpleFonts char_code := char_data[0],
-    for composite fonts char_code is the numeric value of data stored in char_data buffer.
-     * @property x - glyph horizontal position
-     * @property y - glyph vertical position
-     * @property char_data - the buffer containing character data. For simple fonts
-    each character is represented by a single byte. For multi-byte (CID or Type0) fonts
-    each character may take more than one byte.
-     * @property bytes - Number of bytes representing this character in char_data buffer.
-    For simple fonts 'bytes' will equal 1. For multi-byte (CID or Type0) fonts 'bytes' may
-    be larger than 1. Should not be less than 0.
-     * @param charData - An object to construct PDFNet.CharData with
-     */
-    class CharData {
-        constructor(charData: any);
+    namespace PDFDoc {
         /**
-         * 'Char code' For SimpleFonts char_code := char_data[0],
-         * for composite fonts char_code is the numeric value of data stored in char_data buffer.
-        */
-        char_code: number;
-        /**
-         * glyph horizontal position
-        */
-        x: number;
-        /**
-         * glyph vertical position
-        */
-        y: number;
-        /**
-         * the buffer containing character data. For simple fonts
-         * each character is represented by a single byte. For multi-byte (CID or Type0) fonts
-         * each character may take more than one byte.
-        */
-        char_data: Uint8Array;
-        /**
-         * Number of bytes representing this character in char_data buffer.
-         * For simple fonts 'bytes' will equal 1. For multi-byte (CID or Type0) fonts 'bytes' may
-         * be larger than 1. Should not be less than 0.
-        */
-        bytes: number;
-    }
-    /**
-     * This class is used to store separations in PDFRasterize and PDFDraw
-     * @property data - the buffer containing separation data.
-     * @property data_size - number of bytes in data buffer.
-     * @property separation_name - name of the separation.
-     * @property c - separation cyan value
-     * @property m - separation magenta value
-     * @property y - separation yellow value
-     * @property k - separation key value
-     */
-    class Separation {
-        /**
-         * the buffer containing separation data.
-        */
-        data: Uint8Array;
-        /**
-         * number of bytes in data buffer.
-        */
-        data_size: number;
-        /**
-         * name of the separation.
-        */
-        separation_name: string;
-        /**
-         * separation cyan value
-        */
-        c: number;
-        /**
-         * separation magenta value
-        */
-        m: number;
-        /**
-         * separation yellow value
-        */
-        y: number;
-        /**
-         * separation key value
-        */
-        k: number;
-    }
-    namespace Optimizer {
-        /**
-         * An object that stores downsampling/recompression settings for color and grayscale images.
+         * Options for PDFNet.PDFDoc.RefreshAnnotAppearances or PDFNet.Annot.refreshAppearanceRefreshOptions
          */
-        class ImageSettings {
+        class RefreshOptions {
             /**
-             * Sets the maximum and resampling dpi for images.
-            By default these are set to 225 and 150 respectively.
-             * @param maximum - the highest dpi of an image before it will be resampled
-             * @param resampling - the image dpi to resample to if an image is encountered over the maximum dpi
+             * Gets the value DrawBackgroundOnly from the options object
+             * If true draw only the background and border, which can be useful when generating the rest of the annotation content elsewhere. Off by default.
+             * @returns the current value for DrawBackgroundOnly.
+             */
+            getDrawBackgroundOnly(): boolean;
+            /**
+             * Sets the value for DrawBackgroundOnly in the options object
+             * If true draw only the background and border, which can be useful when generating the rest of the annotation content elsewhere. Off by default.
+             * @param value - the new value for DrawBackgroundOnly
              * @returns this object, for call chaining
              */
-            setImageDPI(maximum: number, resampling: number): PDFNet.Optimizer.ImageSettings;
+            setDrawBackgroundOnly(value: boolean): PDFNet.PDFDoc.RefreshOptions;
             /**
-             * Sets the output compression mode for this type of image
-            The default value is e_retain
-             * @param mode - the compression mode to set
-            <pre>
-            PDFNet.Optimizer.ImageSettings.CompressionMode = {
-             e_retain : 0,
-             e_flate : 1,
-             e_jpeg : 2,
-             e_jpeg2000 : 3,
-             e_none : 4
-            }
-            </pre>
+             * Gets the value RefreshExisting from the options object
+             * Whether we should refresh annotations with existing appearances. Defaults to false when used in PDFDoc.RefreshAnnotAppearances and true when used in Annot.RefreshAppearance.
+             * @returns the current value for RefreshExisting.
+             */
+            getRefreshExisting(): boolean;
+            /**
+             * Sets the value for RefreshExisting in the options object
+             * Whether we should refresh annotations with existing appearances. Defaults to false when used in PDFDoc.RefreshAnnotAppearances and true when used in Annot.RefreshAppearance.
+             * @param value - the new value for RefreshExisting
              * @returns this object, for call chaining
              */
-            setCompressionMode(mode: number): PDFNet.Optimizer.ImageSettings;
+            setRefreshExisting(value: boolean): PDFNet.PDFDoc.RefreshOptions;
             /**
-             * Sets the downsample mode for this type of image
-            The default value is e_default which will allow downsampling of images
-             * @param mode - the compression mode to set
-            <pre>
-            PDFNet.Optimizer.ImageSettings.DownsampleMode = {
-             e_off : 0,
-                e_default : 1
-            }
-            </pre>
+             * Gets the value UseNonStandardRotation from the options object
+             * Whether we should use rotation in the annotation even if it is not a multiple of 90. Off by default.
+             * @returns the current value for UseNonStandardRotation.
+             */
+            getUseNonStandardRotation(): boolean;
+            /**
+             * Sets the value for UseNonStandardRotation in the options object
+             * Whether we should use rotation in the annotation even if it is not a multiple of 90. Off by default.
+             * @param value - the new value for UseNonStandardRotation.
              * @returns this object, for call chaining
              */
-            setDownsampleMode(mode: number): PDFNet.Optimizer.ImageSettings;
+            setUseNonStandardRotation(value: boolean): PDFNet.PDFDoc.RefreshOptions;
             /**
-             * Sets the quality for lossy compression modes.
-            from 1 to 10 where 10 is lossless (if possible)
-            the default value is 5
-             * @param quality - the quality for lossy compression modes.
+             * Gets the value UseRoundedCorners from the options object
+             * Whether we should use the corner radii specified in Annot.BorderStyle. Off by default.
+             * @returns the current value for UseRoundedCorners.
+             */
+            getUseRoundedCorners(): boolean;
+            /**
+             * Sets the value for UseRoundedCorners in the options object
+             * Whether we should use the corner radii specified in Annot.BorderStyle. Off by default.
+             * @param value - the new value for UseRoundedCorners.
              * @returns this object, for call chaining
              */
-            setQuality(quality: number): PDFNet.Optimizer.ImageSettings;
-            /**
-             * Sets whether recompression to the specified compression method, should be forced when the image is not downsampled.
-            By default the compression method for these images will not be changed.
-             * @param force - if true the compression method for all
-             * @returns this object, for call chaining
-             */
-            forceRecompression(force: boolean): PDFNet.Optimizer.ImageSettings;
-            /**
-             * Sets whether image changes that grow the PDF file should be kept.
-            This is off by default.
-             * @param force - if true all image changes will be kept.
-             * @returns this object, for call chaining
-             */
-            forceChanges(force: boolean): PDFNet.Optimizer.ImageSettings;
+            setUseRoundedCorners(value: boolean): PDFNet.PDFDoc.RefreshOptions;
         }
         /**
-         * An object that stores downsampling/recompression settings for monochrome images.
+         * Options for PDFNet.PDFDoc.appendVisualDiff
          */
-        class MonoImageSettings {
+        class DiffOptions {
             /**
-             * Sets the maximum and resampling dpi for monochrome images.
-            By default these are set to 450 and 300 respectively.
-             * @param maximum - the highest dpi of an image before it will be resampled
-             * @param resampling - the image dpi to resample to if an image is encountered over the maximum dpi
+             * Gets the value AddGroupAnnots from the options object
+             * Whether we should add an annot layer indicating the difference regions
+             * @returns a bool, the current value for AddGroupAnnots.
+             */
+            getAddGroupAnnots(): boolean;
+            /**
+             * Sets the value for AddGroupAnnots in the options object
+             * Whether we should add an annot layer indicating the difference regions
+             * @param value - the new value for AddGroupAnnots
              * @returns this object, for call chaining
              */
-            setImageDPI(maximum: number, resampling: number): PDFNet.Optimizer.MonoImageSettings;
+            setAddGroupAnnots(value: boolean): PDFNet.PDFDoc.DiffOptions;
             /**
-             * Sets the output compression mode for monochrome images
-            The default value is e_jbig2
-             * @param mode - the compression mode to set
-            <pre>
-            PDFNet.Optimizer.MonoImageSettings.CompressionMode = {
-                e_jbig2 : 0,
-                e_flate : 1,
-                e_none : 2
-            }
-            </pre>
+             * Gets the value BlendMode from the options object
+             * How the two colors should be blended.
+             * @example
+             * Return value:
+             * <pre>
+             * PDFNet.GState.BlendMode = {
+             * 	e_bl_compatible : 0
+             * 	e_bl_normal : 1
+             * 	e_bl_multiply : 2
+             * 	e_bl_screen : 3
+             * 	e_bl_difference : 4
+             * 	e_bl_darken : 5
+             * 	e_bl_lighten : 6
+             * 	e_bl_color_dodge : 7
+             * 	e_bl_color_burn : 8
+             * 	e_bl_exclusion : 9
+             * 	e_bl_hard_light : 10
+             * 	e_bl_overlay : 11
+             * 	e_bl_soft_light : 12
+             * 	e_bl_luminosity : 13
+             * 	e_bl_hue : 14
+             * 	e_bl_saturation : 15
+             * 	e_bl_color : 16
+             * }
+             * </pre>
+             * @returns the current value for BlendMode.
+             */
+            getBlendMode(): number;
+            /**
+             * Sets the value for BlendMode in the options object
+             * How the two colors should be blended.
+             * @param value - the new value for BlendMode
+             * <pre>
+             * PDFNet.GState.BlendMode = {
+             * 	e_bl_compatible : 0
+             * 	e_bl_normal : 1
+             * 	e_bl_multiply : 2
+             * 	e_bl_screen : 3
+             * 	e_bl_difference : 4
+             * 	e_bl_darken : 5
+             * 	e_bl_lighten : 6
+             * 	e_bl_color_dodge : 7
+             * 	e_bl_color_burn : 8
+             * 	e_bl_exclusion : 9
+             * 	e_bl_hard_light : 10
+             * 	e_bl_overlay : 11
+             * 	e_bl_soft_light : 12
+             * 	e_bl_luminosity : 13
+             * 	e_bl_hue : 14
+             * 	e_bl_saturation : 15
+             * 	e_bl_color : 16
+             * }
+             * </pre>
              * @returns this object, for call chaining
              */
-            setCompressionMode(mode: number): PDFNet.Optimizer.MonoImageSettings;
+            setBlendMode(value: number): PDFNet.PDFDoc.DiffOptions;
             /**
-             * Sets the downsample mode for monochrome images
-            The default value is e_default
-             * @param mode - the compression mode to set
-            <pre>
-            PDFNet.Optimizer.MonoImageSettings.DownsampleMode = {
-             e_off : 0,
-                e_default : 1
-            }
-            </pre>
+             * Gets the value ColorA from the options object
+             * The difference color for the first page.
+             * @returns an object in form {A: number, R: number, G: number, B: number}, the current value for ColorA.
+             */
+            getColorA(): any;
+            /**
+             * Sets the value for ColorA in the options object
+             * The difference color for the first page.
+             * @param value - the new value for ColorA, in form {A: number, R: number, G: number, B: number}
              * @returns this object, for call chaining
              */
-            setDownsampleMode(mode: number): PDFNet.Optimizer.MonoImageSettings;
+            setColorA(value: any): PDFNet.PDFDoc.DiffOptions;
             /**
-             * Sets the quality for lossy JBIG2Decode compression mode.
-            The threshold is a floating point number in the range from 4 to 9
-            The default value for JBIG2 is 8.5.  The setting is ignored for FLATE.
-             * @param jbig2_threshold - the quality for lossy compression modes.
+             * Gets the value ColorB from the options object
+             * The difference color for the second page
+             * @returns an object in form {A: number, R: number, G: number, B: number}, the current value for ColorB.
+             */
+            getColorB(): any;
+            /**
+             * Sets the value for ColorB in the options object
+             * The difference color for the second page
+             * @param value - the new value for ColorB, in form {A: number, R: number, G: number, B: number}
              * @returns this object, for call chaining
              */
-            setJBIG2Threshold(jbig2_threshold: number): PDFNet.Optimizer.MonoImageSettings;
+            setColorB(value: any): PDFNet.PDFDoc.DiffOptions;
             /**
-             * Sets whether recompression to the specified compression method, should be forced when the image is not downsampled.
-            By default the compression method for these images will not be changed.
-             * @param force - if true the compression method for all
+             * Gets the value LuminosityCompression from the options object
+             * @returns the current value for LuminosityCompression.
+             */
+            getLuminosityCompression(): number;
+            /**
+             * Sets the value for LuminosityCompression in the options object
+             * @param value - the new value for LuminosityCompression.
              * @returns this object, for call chaining
              */
-            forceRecompression(force: boolean): PDFNet.Optimizer.MonoImageSettings;
-            /**
-             * Sets whether image changes that grow the PDF file should be kept.
-            This is off by default.
-             * @param force - if true all image changes will be kept.
-             * @returns this object, for call chaining
-             */
-            forceChanges(force: boolean): PDFNet.Optimizer.MonoImageSettings;
+            setLuminosityCompression(value: number): PDFNet.PDFDoc.DiffOptions;
         }
         /**
-         * An object that stores image text optimization settings.
+         * Options for PDFNet.PDFDoc.appendTextDiffDocOpt
          */
-        class TextSettings {
+        class TextDiffOptions {
             /**
-             * Sets whether embedded fonts will be subset. This will generally reduce the size of fonts,
-            but will strip font hinting.
-            Subsetting is off by default.
-             * @param subset - if true all embedded fonts will be subsetted.
+             * Adds a collection of ignorable regions for the given page,
+             * an optional list of page areas not to be included in analysis
+             * @param regions - the zones to be added to the ignore list
+             * @param page_num - the page number the added regions belong to
              * @returns this object, for call chaining
              */
-            subsetFonts(subset: boolean): PDFNet.Optimizer.TextSettings;
-            /**
-             * Sets whether fonts should be embedded. This will generally increase the size of the file,
-            but will make the file appear the same on different machines.
-            Font embedding is off by default.
-             * @param embed - if true all fonts will be embedded.
-             * @returns this object, for call chaining
-             */
-            embedFonts(embed: boolean): PDFNet.Optimizer.TextSettings;
+            addIgnoreZonesForPage(regions: PDFNet.Rect[], page_num: number): PDFNet.PDFDoc.TextDiffOptions;
         }
+        enum EventType {
+            e_action_trigger_doc_will_close,
+            e_action_trigger_doc_will_save,
+            e_action_trigger_doc_did_save,
+            e_action_trigger_doc_will_print,
+            e_action_trigger_doc_did_print
+        }
+        enum InsertFlag {
+            e_none,
+            e_insert_bookmark
+        }
+        enum ExtractFlag {
+            e_forms_only,
+            e_annots_only,
+            e_both
+        }
+        enum SignaturesVerificationStatus {
+            e_unsigned,
+            e_failure,
+            e_untrusted,
+            e_unsupported,
+            e_verified
+        }
+    }
+    namespace FDFDoc {
         /**
-         * An object that stores settings for the optimizer
+         * Options for PDFNet.FDFDoc.saveAsXFDFWithOptions and PDFNet.FDFDoc.saveAsXFDFAsStringWithOptions
          */
-        class OptimizerSettings {
+        class XFDFExportOptions {
             /**
-             * updates the settings for color image processing
-             * @param settings - settings for color image processing
+             * Gets the value WriteAnnotationAppearance from the options object
+             * When the option is enabled, the appearance wil be written for the
+             * annotations with custom appearance (i.e. different from that generated
+             * by RefreshAppearance()). Note, that if WriteImagedata is enabled,
+             * appearance will not be written for the annotations that support imagedata.
+             * In order to preserve vector information, WriteImagedata needs to be disabled
+             * @returns a bool, the current value for WriteAnnotationAppearance.
+             */
+            getWriteAnnotationAppearance(): boolean;
+            /**
+             * Sets the value for WriteAnnotationAppearance in the options object
+             * When the option is enabled, the appearance wil be written for the
+             * annotations with custom appearance (i.e. different from that generated
+             * by RefreshAppearance()). Note, that if WriteImagedata is enabled,
+             * appearance will not be written for the annotations that support imagedata.
+             * In order to preserve vector information, WriteImagedata needs to be disabled
+             * @param value - the new value for WriteAnnotationAppearance
              * @returns this object, for call chaining
              */
-            setColorImageSettings(settings: PDFNet.Optimizer.ImageSettings): PDFNet.Optimizer.OptimizerSettings;
+            setWriteAnnotationAppearance(value: boolean): PDFNet.FDFDoc.XFDFExportOptions;
             /**
-             * updates the settings for grayscale image processing
-             * @param settings - settings for grayscale image processing
+             * Gets the value WriteImagedata from the options object
+             * If true, rasterized appearance will be written for the
+             * image-based annotations (stamps and signature fields) to xfdf
+             * @returns a bool, the current value for WriteImagedata.
+             */
+            getWriteImagedata(): boolean;
+            /**
+             * Sets the value for WriteImagedata in the options object
+             * If true, rasterized appearance will be written for the
+             * image-based annotations (stamps and signature fields) to xfdf
+             * @param value - the new value for WriteImagedata
              * @returns this object, for call chaining
              */
-            setGrayscaleImageSettings(settings: PDFNet.Optimizer.ImageSettings): PDFNet.Optimizer.OptimizerSettings;
-            /**
-             * updates the settings for monochrome image processing
-             * @param settings - settings for monochrome image processing
-             * @returns this object, for call chaining
-             */
-            setMonoImageSettings(settings: PDFNet.Optimizer.MonoImageSettings): PDFNet.Optimizer.OptimizerSettings;
-            /**
-             * updates the settings for text processing
-             * @param settings - settings for text processing
-             * @returns this object, for call chaining
-             */
-            setTextSettings(settings: PDFNet.Optimizer.TextSettings): PDFNet.Optimizer.OptimizerSettings;
-            /**
-             * Enable or disable removal of custom entries in the PDF.
-            By default custom entries are removed.
-             * @param should_remove - if true custom entries will be removed.
-             * @returns this object, for call chaining
-             */
-            removeCustomEntries(should_remove: boolean): PDFNet.Optimizer.OptimizerSettings;
-        }
-        namespace ImageSettings {
-            enum CompressionMode {
-                e_retain,
-                e_flate,
-                e_jpeg,
-                e_jpeg2000,
-                e_none
-            }
-            enum DownsampleMode {
-                e_off,
-                e_default
-            }
-        }
-        namespace MonoImageSettings {
-            enum CompressionMode {
-                e_jbig2,
-                e_flate,
-                e_none
-            }
-            enum DownsampleMode {
-                e_off,
-                e_default
-            }
+            setWriteImagedata(value: boolean): PDFNet.FDFDoc.XFDFExportOptions;
         }
     }
     namespace Convert {
+        /**
+         * An object containing options for fromDICOM functions
+         */
+        class AdvancedImagingConvertOptions {
+            /**
+             * Gets the value DefaultDPI from the options object
+             * Default dpi used when rendering content when resolution is not provided in the image file.
+             * No image pixel data is lost by specifiying this option. Note: In case of DICOM images,
+             * we assume that the resolution is specified by Pixel Spacing attribute.
+             * @returns the current value for DefaultDPI.
+             */
+            getDefaultDPI(): number;
+            /**
+             * Sets the value for DefaultDPI in the options object
+             * Default dpi used when rendering content when resolution is not provided in the image file.
+             * No image pixel data is lost by specifiying this option. Note: In case of DICOM images,
+             * we assume that the resolution is specified by Pixel Spacing attribute.
+             * @param value - the new value for DefaultDPI
+             * @returns this object, for call chaining
+             */
+            setDefaultDPI(value: number): PDFNet.Convert.AdvancedImagingConvertOptions;
+            /**
+             * Gets the value EnableAutoLevel from the options object
+             * When the option is enabled, the maximum and minimum pixel values of the entire image
+             * are calculated and all the image pixel values are streched to make use of the full range
+             * of values. In effect, this option enables normalization of the entire image and can
+             * potentially improve its brightness and contrast.
+             * @returns the current value for EnableAutoLevel.
+             */
+            getEnableAutoLevel(): boolean;
+            /**
+             * Sets the value for DefaultDPI in the options object
+             * Default dpi used when rendering content when resolution is not provided in the image file.
+             * No image pixel data is lost by specifiying this option. Note: In case of DICOM images,
+             * we assume that the resolution is specified by Pixel Spacing attribute.
+             * @param value - the new value for DefaultDPI
+             * @returns this object, for call chaining
+             */
+            setDefaultDPI(value: number): PDFNet.Convert.AdvancedImagingConvertOptions;
+        }
         /**
          * An object containing options for wordToPdf functions
          * @param [json] - options in JSON format.
@@ -20707,6 +20734,348 @@ declare namespace Core.PDFNet {
             e_interop_only,
             e_printer_only,
             e_prefer_builtin_converter
+        }
+    }
+    /**
+     * QuadPoint
+    
+    A QuadpPoint struct contains 8 values representing the (x,y) coordinates of four points in a rectangle..
+    
+    --------------------
+    Since QuadPoint is a struct, it can be created manually by calling "new PDFNet.QuadPoint(p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y)"
+    eg. var myfoo = new PDFNet.QuadPoint(1, 2, 3, 4, 5, 6, 7, 8)
+    
+    Default values for a Point struct are:
+    p1x = 0
+    p1y = 0
+    p2x = 0
+    p2y = 0
+    p3x = 0
+    p3y = 0
+    p4x = 0
+    p4y = 0
+     */
+    class QuadPoint {
+        constructor(p1x?: number, p1y?: number, p2x?: number, p2y?: number, p3x?: number, p3y?: number, p4x?: number, p4y?: number);
+        p1x: number;
+        p1y: number;
+        p2x: number;
+        p2y: number;
+        p3x: number;
+        p3y: number;
+        p4x: number;
+        p4y: number;
+    }
+    /**
+     * 2D Point
+    
+    A Point represents an (x,y) coordinate point.
+    
+    --------------------
+    Since Point is a struct, it can be created manually by calling "new PDFNet.Point(x, y)"
+    eg. var myfoo = new PDFNet.Point(1,2);
+    
+    Default values for a Point struct are:
+    x = 0
+    y = 0
+     */
+    class Point {
+        constructor(x?: number, y?: number);
+        x: number;
+        y: number;
+    }
+    /**
+     * CharData is a data structure returned by PDFNet.Iterator<CharData>.current() that is
+    used to provide extra information about a character within a text run. The extra
+    information includes positioning information, the character data and a number of
+    bytes taken by the character.
+     * @property char_code - 'Char code' For SimpleFonts char_code := char_data[0],
+    for composite fonts char_code is the numeric value of data stored in char_data buffer.
+     * @property x - glyph horizontal position
+     * @property y - glyph vertical position
+     * @property char_data - the buffer containing character data. For simple fonts
+    each character is represented by a single byte. For multi-byte (CID or Type0) fonts
+    each character may take more than one byte.
+     * @property bytes - Number of bytes representing this character in char_data buffer.
+    For simple fonts 'bytes' will equal 1. For multi-byte (CID or Type0) fonts 'bytes' may
+    be larger than 1. Should not be less than 0.
+     * @param charData - An object to construct PDFNet.CharData with
+     */
+    class CharData {
+        constructor(charData: any);
+        /**
+         * 'Char code' For SimpleFonts char_code := char_data[0],
+         * for composite fonts char_code is the numeric value of data stored in char_data buffer.
+        */
+        char_code: number;
+        /**
+         * glyph horizontal position
+        */
+        x: number;
+        /**
+         * glyph vertical position
+        */
+        y: number;
+        /**
+         * the buffer containing character data. For simple fonts
+         * each character is represented by a single byte. For multi-byte (CID or Type0) fonts
+         * each character may take more than one byte.
+        */
+        char_data: Uint8Array;
+        /**
+         * Number of bytes representing this character in char_data buffer.
+         * For simple fonts 'bytes' will equal 1. For multi-byte (CID or Type0) fonts 'bytes' may
+         * be larger than 1. Should not be less than 0.
+        */
+        bytes: number;
+    }
+    /**
+     * This class is used to store separations in PDFRasterize and PDFDraw
+     * @property data - the buffer containing separation data.
+     * @property data_size - number of bytes in data buffer.
+     * @property separation_name - name of the separation.
+     * @property c - separation cyan value
+     * @property m - separation magenta value
+     * @property y - separation yellow value
+     * @property k - separation key value
+     */
+    class Separation {
+        /**
+         * the buffer containing separation data.
+        */
+        data: Uint8Array;
+        /**
+         * number of bytes in data buffer.
+        */
+        data_size: number;
+        /**
+         * name of the separation.
+        */
+        separation_name: string;
+        /**
+         * separation cyan value
+        */
+        c: number;
+        /**
+         * separation magenta value
+        */
+        m: number;
+        /**
+         * separation yellow value
+        */
+        y: number;
+        /**
+         * separation key value
+        */
+        k: number;
+    }
+    namespace Optimizer {
+        /**
+         * An object that stores downsampling/recompression settings for color and grayscale images.
+         */
+        class ImageSettings {
+            /**
+             * Sets the maximum and resampling dpi for images.
+            By default these are set to 225 and 150 respectively.
+             * @param maximum - the highest dpi of an image before it will be resampled
+             * @param resampling - the image dpi to resample to if an image is encountered over the maximum dpi
+             * @returns this object, for call chaining
+             */
+            setImageDPI(maximum: number, resampling: number): PDFNet.Optimizer.ImageSettings;
+            /**
+             * Sets the output compression mode for this type of image
+            The default value is e_retain
+             * @param mode - the compression mode to set
+            <pre>
+            PDFNet.Optimizer.ImageSettings.CompressionMode = {
+             e_retain : 0,
+             e_flate : 1,
+             e_jpeg : 2,
+             e_jpeg2000 : 3,
+             e_none : 4
+            }
+            </pre>
+             * @returns this object, for call chaining
+             */
+            setCompressionMode(mode: number): PDFNet.Optimizer.ImageSettings;
+            /**
+             * Sets the downsample mode for this type of image
+            The default value is e_default which will allow downsampling of images
+             * @param mode - the compression mode to set
+            <pre>
+            PDFNet.Optimizer.ImageSettings.DownsampleMode = {
+             e_off : 0,
+                e_default : 1
+            }
+            </pre>
+             * @returns this object, for call chaining
+             */
+            setDownsampleMode(mode: number): PDFNet.Optimizer.ImageSettings;
+            /**
+             * Sets the quality for lossy compression modes.
+            from 1 to 10 where 10 is lossless (if possible)
+            the default value is 5
+             * @param quality - the quality for lossy compression modes.
+             * @returns this object, for call chaining
+             */
+            setQuality(quality: number): PDFNet.Optimizer.ImageSettings;
+            /**
+             * Sets whether recompression to the specified compression method, should be forced when the image is not downsampled.
+            By default the compression method for these images will not be changed.
+             * @param force - if true the compression method for all
+             * @returns this object, for call chaining
+             */
+            forceRecompression(force: boolean): PDFNet.Optimizer.ImageSettings;
+            /**
+             * Sets whether image changes that grow the PDF file should be kept.
+            This is off by default.
+             * @param force - if true all image changes will be kept.
+             * @returns this object, for call chaining
+             */
+            forceChanges(force: boolean): PDFNet.Optimizer.ImageSettings;
+        }
+        /**
+         * An object that stores downsampling/recompression settings for monochrome images.
+         */
+        class MonoImageSettings {
+            /**
+             * Sets the maximum and resampling dpi for monochrome images.
+            By default these are set to 450 and 300 respectively.
+             * @param maximum - the highest dpi of an image before it will be resampled
+             * @param resampling - the image dpi to resample to if an image is encountered over the maximum dpi
+             * @returns this object, for call chaining
+             */
+            setImageDPI(maximum: number, resampling: number): PDFNet.Optimizer.MonoImageSettings;
+            /**
+             * Sets the output compression mode for monochrome images
+            The default value is e_jbig2
+             * @param mode - the compression mode to set
+            <pre>
+            PDFNet.Optimizer.MonoImageSettings.CompressionMode = {
+                e_jbig2 : 0,
+                e_flate : 1,
+                e_none : 2
+            }
+            </pre>
+             * @returns this object, for call chaining
+             */
+            setCompressionMode(mode: number): PDFNet.Optimizer.MonoImageSettings;
+            /**
+             * Sets the downsample mode for monochrome images
+            The default value is e_default
+             * @param mode - the compression mode to set
+            <pre>
+            PDFNet.Optimizer.MonoImageSettings.DownsampleMode = {
+             e_off : 0,
+                e_default : 1
+            }
+            </pre>
+             * @returns this object, for call chaining
+             */
+            setDownsampleMode(mode: number): PDFNet.Optimizer.MonoImageSettings;
+            /**
+             * Sets the quality for lossy JBIG2Decode compression mode.
+            The threshold is a floating point number in the range from 4 to 9
+            The default value for JBIG2 is 8.5.  The setting is ignored for FLATE.
+             * @param jbig2_threshold - the quality for lossy compression modes.
+             * @returns this object, for call chaining
+             */
+            setJBIG2Threshold(jbig2_threshold: number): PDFNet.Optimizer.MonoImageSettings;
+            /**
+             * Sets whether recompression to the specified compression method, should be forced when the image is not downsampled.
+            By default the compression method for these images will not be changed.
+             * @param force - if true the compression method for all
+             * @returns this object, for call chaining
+             */
+            forceRecompression(force: boolean): PDFNet.Optimizer.MonoImageSettings;
+            /**
+             * Sets whether image changes that grow the PDF file should be kept.
+            This is off by default.
+             * @param force - if true all image changes will be kept.
+             * @returns this object, for call chaining
+             */
+            forceChanges(force: boolean): PDFNet.Optimizer.MonoImageSettings;
+        }
+        /**
+         * An object that stores image text optimization settings.
+         */
+        class TextSettings {
+            /**
+             * Sets whether embedded fonts will be subset. This will generally reduce the size of fonts,
+            but will strip font hinting.
+            Subsetting is off by default.
+             * @param subset - if true all embedded fonts will be subsetted.
+             * @returns this object, for call chaining
+             */
+            subsetFonts(subset: boolean): PDFNet.Optimizer.TextSettings;
+            /**
+             * Sets whether fonts should be embedded. This will generally increase the size of the file,
+            but will make the file appear the same on different machines.
+            Font embedding is off by default.
+             * @param embed - if true all fonts will be embedded.
+             * @returns this object, for call chaining
+             */
+            embedFonts(embed: boolean): PDFNet.Optimizer.TextSettings;
+        }
+        /**
+         * An object that stores settings for the optimizer
+         */
+        class OptimizerSettings {
+            /**
+             * updates the settings for color image processing
+             * @param settings - settings for color image processing
+             * @returns this object, for call chaining
+             */
+            setColorImageSettings(settings: PDFNet.Optimizer.ImageSettings): PDFNet.Optimizer.OptimizerSettings;
+            /**
+             * updates the settings for grayscale image processing
+             * @param settings - settings for grayscale image processing
+             * @returns this object, for call chaining
+             */
+            setGrayscaleImageSettings(settings: PDFNet.Optimizer.ImageSettings): PDFNet.Optimizer.OptimizerSettings;
+            /**
+             * updates the settings for monochrome image processing
+             * @param settings - settings for monochrome image processing
+             * @returns this object, for call chaining
+             */
+            setMonoImageSettings(settings: PDFNet.Optimizer.MonoImageSettings): PDFNet.Optimizer.OptimizerSettings;
+            /**
+             * updates the settings for text processing
+             * @param settings - settings for text processing
+             * @returns this object, for call chaining
+             */
+            setTextSettings(settings: PDFNet.Optimizer.TextSettings): PDFNet.Optimizer.OptimizerSettings;
+            /**
+             * Enable or disable removal of custom entries in the PDF.
+            By default custom entries are removed.
+             * @param should_remove - if true custom entries will be removed.
+             * @returns this object, for call chaining
+             */
+            removeCustomEntries(should_remove: boolean): PDFNet.Optimizer.OptimizerSettings;
+        }
+        namespace ImageSettings {
+            enum CompressionMode {
+                e_retain,
+                e_flate,
+                e_jpeg,
+                e_jpeg2000,
+                e_none
+            }
+            enum DownsampleMode {
+                e_off,
+                e_default
+            }
+        }
+        namespace MonoImageSettings {
+            enum CompressionMode {
+                e_jbig2,
+                e_flate,
+                e_none
+            }
+            enum DownsampleMode {
+                e_off,
+                e_default
+            }
         }
     }
     namespace PrinterMode {
@@ -21708,31 +22077,6 @@ declare namespace Core.PDFNet {
             e_exclude
         }
     }
-    namespace PDFDoc {
-        enum EventType {
-            e_action_trigger_doc_will_close,
-            e_action_trigger_doc_will_save,
-            e_action_trigger_doc_did_save,
-            e_action_trigger_doc_will_print,
-            e_action_trigger_doc_did_print
-        }
-        enum InsertFlag {
-            e_none,
-            e_insert_bookmark
-        }
-        enum ExtractFlag {
-            e_forms_only,
-            e_annots_only,
-            e_both
-        }
-        enum SignaturesVerificationStatus {
-            e_unsigned,
-            e_failure,
-            e_untrusted,
-            e_unsupported,
-            e_verified
-        }
-    }
     namespace PDFDocViewPrefs {
         enum PageMode {
             e_UseNone,
@@ -21807,6 +22151,11 @@ declare namespace Core.PDFNet {
         e_LogLevel_Info,
         e_LogLevel_Trace,
         e_LogLevel_Debug
+    }
+    enum ConnectionErrorHandlingMode {
+        e_continue,
+        e_continue_unless_switching_to_demo,
+        e_stop
     }
     namespace Shading {
         enum Type {
@@ -21980,6 +22329,17 @@ declare namespace Core.PDFNet {
      */
     function getNormalizedUrl(url: string): Promise<string>;
     /**
+     * @param annot_state - <pre>
+     * PDFNet.Annot.State = {
+     * 	e_normal : 0
+     * 	e_rollover : 1
+     * 	e_down : 2
+     * }
+     * </pre>
+     * @returns A promise that resolves to an unknown type
+     */
+    function convertPageToAnnotAppearance(docWithAppearance: PDFNet.PDFDoc | PDFNet.SDFDoc | PDFNet.FDFDoc, objNum: number, annot_state: number, appearance_state: string): any;
+    /**
      * A switch that can be used to turn on/off JavaScript engine
      * @param enable - true to enable JavaScript engine, false to disable.
      */
@@ -21989,6 +22349,15 @@ declare namespace Core.PDFNet {
      * @returns A promise that resolves to true if it is enabled, false otherwise
      */
     function isJavaScriptEnabled(): Promise<boolean>;
+    /**
+     * terminates PDFNet library.
+     * Terminate() is usually called once, when the process is terminated.
+     * @param termination_level - Optional termination level used to decide what operations need to be included
+     *
+     * Note: it is unsafe to call any other PDFNet API after you terminate
+     * the library.
+     */
+    function terminateEx(termination_level: number): Promise<void>;
     /**
      * used to set a specific Color Management System (CMS) for
      * use during color conversion operators, image rendering, etc.
@@ -22053,16 +22422,22 @@ declare namespace Core.PDFNet {
     function getSystemFontList(): Promise<string>;
     function addPDFTronCustomHandler(custom_id: number): Promise<void>;
     /**
-     * Initializes PDFNet library.
-    Initialize() is usually called once, during initialization.
-     * @param [licenseKey] - Optional license key used to activate the product.
-     If the licenseKey is not specified or is null, the product will work in the
-     demo mode.
-     * @param [pdfBackendType] - A string representing the "backend type" for
-     rendering PDF documents. Pass "ems" to force the use of the ASM.js/WebAssembly
-     worker and "wasm-threads" to use threaded WebAssembly
+     * @returns A promise that resolves to an object of type: "string"
      */
-    function initialize(licenseKey?: string, pdfBackendType?: string): Promise<void>;
+    function getVersionString(): Promise<string>;
+    /**
+     * Sets the connection error handling behaviour for PDFTron SDK
+     * The default for this method is e_continue
+     * @param mode - <pre>
+     * PDFNet.ConnectionErrorHandlingMode = {
+     * 	e_continue : 0
+     * 	e_continue_unless_switching_to_demo : 1
+     * 	e_stop : 2
+     * }
+     * </pre>
+     * Rules that PDFTron SDK will follow after a connection error.
+     */
+    function setConnectionErrorHandlingMode(mode: number): Promise<void>;
     /**
      * This function is a utility method which will initialize PDFNet and
     execute an action defined by the first parameter generator. Unlike
@@ -22149,6 +22524,17 @@ declare namespace Core.PDFNet {
      * @returns a promise that resolves to the return value (if there is one) of the input function
      */
     function runWithoutCleanup(callback: (...params: any[]) => any, license_key: string): Promise<any>;
+    /**
+     * Initializes PDFNet library.
+    Initialize() is usually called once, during initialization.
+     * @param [licenseKey] - Optional license key used to activate the product.
+     If the licenseKey is not specified or is null, the product will work in the
+     demo mode.
+     * @param [pdfBackendType] - A string representing the "backend type" for
+     rendering PDF documents. Pass "ems" to force the use of the ASM.js/WebAssembly
+     worker and "wasm-threads" to use threaded WebAssembly
+     */
+    function initialize(licenseKey?: string, pdfBackendType?: string): Promise<void>;
 }
 
 
@@ -22179,16 +22565,78 @@ declare type LayerContext = {
 };
 
 /**
+ * Gets the annotation's border style.
+ */
+declare var Style: any;
+
+/**
+ * Gets the annotation's border style.
+ */
+declare var Style: any;
+
+/**
+ * Gets the annotation's line dash style.
+ */
+declare var Dashes: any;
+
+/**
+ * Gets the annotation's line dash style.
+ */
+declare var Dashes: any;
+
+/**
+ */
+declare type PageManipulationSection = {
+    /**
+     * Required type of 'customPageOperation'
+     */
+    type: string;
+    /**
+     * Header to be displayed in the UI for this section
+     */
+    header: string;
+    /**
+     * Unique dataElement
+     */
+    dataElement: string;
+    /**
+     * the operations that will be available under this section
+     */
+    operations: PageOperation[];
+};
+
+/**
+ */
+declare type PageOperation = {
+    /**
+     * Title to be displayed for the operation
+     */
+    title: string;
+    /**
+     * path to imge to be used as an icon for the operation
+     */
+    img: string;
+    /**
+     * onClick handler, which takes as a parameter an array of selected page numbers
+     */
+    onClick: (...params: any[]) => any;
+    /**
+     * Unique dataElement for this operation
+     */
+    dataElement: string;
+};
+
+/**
  * WebViewer Instance Core namespace.
-The namespace containing WebViewer's core user controls, including DocumentViewer control and the Document class.
+ * The namespace containing WebViewer's core user controls, including DocumentViewer control and the Document class.
  * @example
  * webViewerInstance.Core.someProperty
-webViewerInstance.Core.someAPI()
+ * webViewerInstance.Core.someAPI()
  */
 declare namespace Core {
     /**
      * The namespace for anything to do with PDF actions and action dispatch.
-    Actions can be defined by providing a JavaScript object that has the desired properties, and a name property defining the action subtype it represents. See documentation for specific action types for allowable properties.
+     * Actions can be defined by providing a JavaScript object that has the desired properties, and a name property defining the action subtype it represents. See documentation for specific action types for allowable properties.
      */
     namespace Actions {
         /**
@@ -22259,7 +22707,7 @@ declare namespace Core {
         }
         /**
          * Creates a dispatcher.
-        A mixin that enables many different classes to construct and dispatch PDF Actions.
+         * A mixin that enables many different classes to construct and dispatch PDF Actions.
          */
         interface Dispatcher {
         }
@@ -22437,14 +22885,14 @@ declare namespace Core {
             }
             /**
              * Represents a tree of PDF Forms fields. @see Core.Annotations.Forms.Field
-            Allows adding, getting and visiting fields.
+             * Allows adding, getting and visiting fields.
              */
             class FieldManager {
                 constructor(annotationManager: Core.AnnotationManager);
                 /**
                  * Set the calculation order - use this if you need changes in one field to trigger calculation events on other fields.
-                If the name of field that is changed is before the name of another field, that other field is recalculated.
-                If the name of the field that has changed is not in the array, all the fields named by the arrya are recalculated in order.
+                 * If the name of field that is changed is before the name of another field, that other field is recalculated.
+                 * If the name of the field that has changed is not in the array, all the fields named by the arrya are recalculated in order.
                  * @param order - An array of field names.
                  */
                 setCalculationOrder(order: string[]): void;
@@ -22467,7 +22915,7 @@ declare namespace Core {
                 updateFieldName(field: Core.Annotations.Forms.Field | any, name: string): Core.Annotations.Forms.Field | Core.Annotations.WidgetAnnotation;
                 /**
                  * Adds the given field object to the field tree, either replacing or merging with any existing field.
-                Note: if the field is merged, it is the equivalent of performing Annotations.Forms.Field.set on the existing field, followed by setting all the field's widgets' fields to the original field.
+                 * Note: if the field is merged, it is the equivalent of performing Annotations.Forms.Field.set on the existing field, followed by setting all the field's widgets' fields to the original field.
                  * @param field - The field or field-like object to add.
                  * @returns The field that was inserted into the field tree (may not be the field originally provided).
                  */
@@ -22490,14 +22938,14 @@ declare namespace Core {
                 areRequiredFieldsFilled(): boolean;
                 /**
                  * Calls the specified callback for each of the root fields in the document.
-                
-                If there is a tree of form fields, then this will only iterate over root fields. Please use {@link Core.Annotations.Forms.Field.children} and a tree traversal algorithm to traverse the fields. If you know the name of your field, you can use {@link Core.Annotations.Forms.FieldManager.getField}.
+                 *
+                 * If there is a tree of form fields, then this will only iterate over root fields. Please use {@link Core.Annotations.Forms.Field.children} and a tree traversal algorithm to traverse the fields. If you know the name of your field, you can use {@link Core.Annotations.Forms.FieldManager.getField}.
                  * @example
                  * const stack = [];
-                 *          fieldManager.forEachField(function(field) {
+                 *         fieldManager.forEachField(function(field) {
                  *          stack.push(field); // Push root fields
                  *        });
-                 *          while (stack.length > 0) {
+                 *         while (stack.length > 0) {
                  *          const current = stack.pop();
                  *          if (current.isTerminal()) {
                  *            // Work with terminal/leaf fields
@@ -22727,21 +23175,21 @@ declare namespace Core {
              * an object that maps between a text style location(character index) to css styles.
              * @example
              * {
-              0: {
-                'font-weight': 'bold',
-                'color': '#ff0000',
-              },
-              10: {
-                'font-style': 'italic'
-                'font-weight': 'bold',
-                'color': '#0000ff',
-              },
-              12: {
-                'text-decoration': 'underline',
-              }
-            }
-            
-            this object means that the first 9 characters are bold and red, the following 2 characters are italic, bold, and blue, and the rest of characters have underline.
+             *   0: {
+             *     'font-weight': 'bold',
+             *     'color': '#ff0000',
+             *   },
+             *   10: {
+             *     'font-style': 'italic'
+             *     'font-weight': 'bold',
+             *     'color': '#0000ff',
+             *   },
+             *   12: {
+             *     'text-decoration': 'underline',
+             *   }
+             * }
+             *
+             * this object means that the first 9 characters are bold and red, the following 2 characters are italic, bold, and blue, and the rest of characters have underline.
              */
             type RichTextStyle = {
                 [key: string]: Core.Annotations.Annotation.RichTextCSSStyle;
@@ -22760,6 +23208,45 @@ declare namespace Core {
                  */
                 color?: string;
             };
+            /**
+             * An object containing the different display formats for measurement annotations.
+             * @example
+             * const fractionMeasurementDisplayFormat = Annotations.Annotation.MeasurementDisplayFormats.FRACTION
+             */
+            enum MeasurementDisplayFormats {
+                DECIMAL,
+                FRACTION,
+                ROUND,
+                TRUNCATE
+            }
+            /**
+             * An object containing the different measurement systems for measurement annotations.
+             * @example
+             * const metricMeasurementSystem = Annotations.Annotation.MeasurementSystems.METRIC
+             */
+            enum MeasurementSystems {
+                METRIC,
+                IMPERIAL,
+                TYPOGRAPHIC
+            }
+            /**
+             * An object containing the different display measurement units for measurement annotations.
+             * @example
+             * const centimeterMeasurementUnit = Annotations.Annotation.MeasurementUnits.CM
+             */
+            enum MeasurementUnits {
+                MM,
+                CM,
+                M,
+                KM,
+                IN,
+                FT,
+                YD,
+                MI,
+                PT,
+                DOUBLE_PRIME_IN,
+                PRIME_FT
+            }
         }
         /**
          * The base class for all annotations
@@ -22769,7 +23256,7 @@ declare namespace Core {
             constructor(initializer?: any);
             /**
              * Gets or sets the name of the annotation element in XFDF.
-            <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
+             * <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
              */
             elementName: string;
             /**
@@ -22830,50 +23317,59 @@ declare namespace Core {
             ToolName: string;
             /**
              * Draws the annotation on the provide canvas context, relative to the page.
-            The point (0,0) coresponds to the top left corner of the page.
+             * The point (0,0) coresponds to the top left corner of the page.
              * @param ctx - The canvas context prepared to be drawn on.
              * @param pageMatrix - The page matrix for the page that the annotation is on.
-            You can get this object by calling getPageMatrix on the document object.
+             * You can get this object by calling getPageMatrix on the document object.
              */
             draw(ctx: CanvasRenderingContext2D, pageMatrix: any): void;
             /**
              * Whether the annotation is visible on the document or not **when viewing**.
-            If the Hidden or NoView flags are set, or if the annotation is a reply to another annotation then it won't be visible.
+             * If the Hidden or NoView flags are set, or if the annotation is a reply to another annotation then it won't be visible.
              * @returns Whether the annotation is visible on the document or not when viewing
              */
             isVisible(): boolean;
             /**
+             * Gets whether the annotation is a reply to another annotation.
+             * @returns Returns true if it does reply to another annotation, false otherwise.
+             */
+            isReply(): boolean;
+            /**
              * Whether the annotation is visible on the document or not **when printed**.
-            If Hidden or if the annotation is a reply to another annotation then it won't be visible.
+             * If Hidden or if the annotation is a reply to another annotation then it won't be visible.
              * @returns Whether the annotation is visible on the document or not when printed
              */
             isPrintVisible(): boolean;
             /**
              * Sets the size and location of the annotation's bounding rectangle.
-            Use this method instead of resize when only the x, y, width and height needs to be modified.
-            Use setRectWithNormalization instead of setRect if you want to reverse
-            any wrong-way-round coordinates instead of ignoring them.
+             * Use this method instead of resize when only the x, y, width and height needs to be modified.
+             * Use setRectWithNormalization instead of setRect if you want to reverse
+             * any wrong-way-round coordinates instead of ignoring them.
              * @param rect - the new bounding rectangle
              */
             setRectWithNormalization(rect: Core.Math.Rect): void;
             /**
              * Sets the size and location of the annotation's bounding rectangle.
-            Use this method instead of resize when only the x, y, width and height needs to be modified.
-            Beware: this method ignores coordinates if they are the wrong way around.
-            (It hasn't been fixed for reasons of maintaining backward compatibility.
-            use setRectWithNormalization instead if you want it to reverse the
-            wrong-way-round coordinates instead of ignoring them.)
+             * Use this method instead of resize when only the x, y, width and height needs to be modified.
+             * Beware: this method ignores coordinates if they are the wrong way around.
+             * (It hasn't been fixed for reasons of maintaining backward compatibility.
+             * use setRectWithNormalization instead if you want it to reverse the
+             * wrong-way-round coordinates instead of ignoring them.)
              * @param rect - the new bounding rectangle
              */
             setRect(rect: Core.Math.Rect): void;
             /**
+             * Get annotation bounding rectangle
+             */
+            getRect(): Core.Math.Rect;
+            /**
              * Adjusts the annotation's bounding rectangle to take into account changes to the annotation
-            e.g. stroke thickness, start/end points, etc
+             * e.g. stroke thickness, start/end points, etc
              */
             adjustRect(): void;
             /**
              * Resize the annotation based on a new given {@link Core.Math.Rect}.
-            Use this method instead of setRect when internal properties (other than x, y, width and height) need to be modified on move/resize.
+             * Use this method instead of setRect when internal properties (other than x, y, width and height) need to be modified on move/resize.
              * @param rect - the new bounding rectangle
              */
             resize(rect: Core.Math.Rect): void;
@@ -22917,23 +23413,19 @@ declare namespace Core {
              */
             setHeight(value: number): void;
             /**
-             * Get annotation bounding rectangle
-             */
-            getRect(): Core.Math.Rect;
-            /**
              * Gets the padding that will be applied by default on the annotation's rectangle.
              * @returns The amount of padding
              */
             getRectPadding(): number;
             /**
              * Gets the page number of the annotation.
-            Note: page number starts from 1.
+             * Note: page number starts from 1.
              * @returns The annotation's page number
              */
             getPageNumber(): number;
             /**
              * Sets the page number of the annotation.
-            Note: page numbers start from 1.
+             * Note: page numbers start from 1.
              * @param value - the page number to be set
              */
             setPageNumber(value: number): void;
@@ -22955,9 +23447,17 @@ declare namespace Core {
              */
             disableRotationControl(): void;
             /**
+             * Flags the annotation as modified if it has been before the last call to exportAnnotCommand
+             * Removes the annotation's appearance if no parameter is passed
+             * Should be called if changing a custom property on the annotation that is used for serialization
+             * Otherwise the annotation will serialize the original deserialized value
+             * @param [keepAppearance] - If true then the annotation's appearance will be maintained
+             */
+            setModified(keepAppearance?: boolean): void;
+            /**
              * Sets the custom data associated with the specified key.
              * @param key - The key under which to store this custom data. Data will automatically be saved in the exported XFDF
-            and merged into the PDF when downloading.
+             * and merged into the PDF when downloading.
              * @param value - The custom data to store
              */
             setCustomData(key: string, value: string): void;
@@ -22984,13 +23484,13 @@ declare namespace Core {
             setRichTextStyle(richTextStyle: Core.Annotations.Annotation.RichTextStyle): void;
             /**
              * Gets the text content for the annotation.
-            Contents may be displayed in an annotation's popup or directly on the page (in the case of FreeTextAnnotation).
+             * Contents may be displayed in an annotation's popup or directly on the page (in the case of FreeTextAnnotation).
              * @returns the text content for the annotation.
              */
             getContents(): string;
             /**
              * Set the text content for the annotation.
-            Note that this will not refresh the text in the UI.
+             * Note that this will not refresh the text in the UI.
              * @param value - the text content to be set
              */
             setContents(value: string): void;
@@ -23010,18 +23510,13 @@ declare namespace Core {
              */
             getStatus(): string;
             /**
-             * Gets whether the annotation is a reply to another annotation.
-             * @returns Returns true if it does reply to another annotation, false otherwise.
-             */
-            isReply(): boolean;
-            /**
              * Gets whether the annotation is a child of a group
              * @returns Returns true if the annotation is a child of a group, false otherwise.
              */
             isGrouped(): boolean;
             /**
              * Returns whether the annotation is a form field place holder annotation,
-            which are annotations used as place holders for fields in the Form Field Creation mode
+             * which are annotations used as place holders for fields in the Form Field Creation mode
              */
             isFormFieldPlaceholder(): boolean;
             /**
@@ -23031,18 +23526,10 @@ declare namespace Core {
             getFormFieldPlaceHolderType(): string;
             /**
              * Resolves when all required resources have finished loading.
-            Currently only applicable to stamp annotations that use images.
+             * Currently only applicable to stamp annotations that use images.
              * @returns A promise that resolves when the resources have finished loading
              */
-            resourcesLoaded(): Promise<any>;
-            /**
-             * Flags the annotation as modified if it has been before the last call to exportAnnotCommand
-            Removes the annotation's appearance if no parameter is passed
-            Should be called if changing a custom property on the annotation that is used for serialization
-            Otherwise the annotation will serialize the original deserialized value
-             * @param [keepAppearance] - If true then the annotation's appearance will be maintained
-             */
-            setModified(keepAppearance?: boolean): void;
+            resourcesLoaded(): Promise<void>;
             /**
              * Returns true if annotation is part of the original document, false otherwise.
              * @returns Whether the annotation is internal to the document or not
@@ -23057,8 +23544,8 @@ declare namespace Core {
             serialize(element: Element, pageMatrix: any): Element;
             /**
              * Adds a custom appearance to the annotation so that the annotation appears like the specified
-            PDF page or object in the PDF page. This appearance will be used instead of the default
-            WebViewer drawing of the annotation.
+             * PDF page or object in the PDF page. This appearance will be used instead of the default
+             * WebViewer drawing of the annotation.
              * @param doc - the PDF document object.
              * @param [options] - An object that can contain the following optional parameters.
              * @param [options.pageNumber = 1] - Page number of source document to use for custom appearance.
@@ -23153,7 +23640,7 @@ declare namespace Core {
             /**
              * Gets or sets whether any parts of the annotation drawn outside of the rect are clickable.
              */
-            isClickableOutsideRect: boolean;
+            IsClickableOutsideRect: boolean;
             /**
              * Gets or sets whether the annotation should be displayed when printing the page.
              */
@@ -23252,10 +23739,10 @@ declare namespace Core {
         }
         /**
          * Creates a new ControlHandle with the specified dimensions.
-         * @param x - the x-coordinate of the upper-left point
-         * @param y - the y-coordinate of the upper-left point
-         * @param width - the width of the control handle
-         * @param height - the width of the control handle
+         * @param x - The x-coordinate of the upper-left point
+         * @param y - The y-coordinate of the upper-left point
+         * @param width - The width of the control handle
+         * @param height - The width of the control handle
          */
         class ControlHandle {
             constructor(x: number, y: number, width: number, height: number);
@@ -23277,7 +23764,7 @@ declare namespace Core {
             static rotationHandleHeight: number;
             /**
              * Defines a padding for selection accuracy. Default is 1.
-            Increase this value to make selection more forgiving.
+             * Increase this value to make selection more forgiving.
              */
             static selectionAccuracyPadding: number;
             /**
@@ -23306,7 +23793,7 @@ declare namespace Core {
             static selectionPointOutlineThickness: number;
             /**
              * Determines if the provided point is a hit on the control handle.
-            See {@link Core.Annotations.SelectionAlgorithm} for usuable selection algorithms.
+             * See {@link Core.Annotations.SelectionAlgorithm} for usuable selection algorithms.
              * @param annotation - the annotation
              * @param selectionBox - the selection rect
              * @param zoom - the current zoom level of the document
@@ -23370,12 +23857,12 @@ declare namespace Core {
         /**
          * Contains the tools to create and manipulate form field data
          * @property getUsableInputWidth - A function to set the allowable width for fields with "scroll long text" disabled.
-        It takes the width of the field and it should return a number which is the new allowable width
+         * It takes the width of the field and it should return a number which is the new allowable width
          */
         class Forms {
             /**
              * A function to set the allowable width for fields with "scroll long text" disabled.
-             * It takes the width of the field and it should return a number which is the new allowable width
+            It takes the width of the field and it should return a number which is the new allowable width
             */
             getUsableInputWidth: (...params: any[]) => any;
         }
@@ -23510,11 +23997,13 @@ declare namespace Core {
         }
         /**
          * Creates a callout selection model.
-         * @param annotation - the annotation
-         * @param canModify - indicates if the annotation can be modified
+         * @param annotation - The annotation
+         * @param canModify - Indicates if the annotation can be modified
+         * @param isSelected - The annotation is already selected
+         * @param docViewer - An instance of DocumentViewer.
          */
         class CalloutSelectionModel {
-            constructor(annotation: Core.Annotations.Annotation, canModify: boolean);
+            constructor(annotation: Core.Annotations.FreeTextAnnotation, canModify: boolean, isSelected: boolean, docViewer: Core.DocumentViewer);
         }
         /**
          * Creates a free text selection model.
@@ -23573,10 +24062,10 @@ declare namespace Core {
         namespace SelectionAlgorithm { }
         /**
          * Create a new selection model.
-         * @param annotation - the annotation selected
-         * @param canModify - modification of the annotation is allowed
-         * @param isSelected - the annotation is already selected
-         * @param docViewer - an instance of DocumentViewer.
+         * @param annotation - The annotation selected
+         * @param canModify - Modification of the annotation is allowed
+         * @param isSelected - The annotation is already selected
+         * @param docViewer - An instance of DocumentViewer.
          */
         class SelectionModel {
             constructor(annotation: Core.Annotations.Annotation, canModify: boolean, isSelected: boolean, docViewer: Core.DocumentViewer);
@@ -23586,7 +24075,7 @@ declare namespace Core {
             static selectionOutlineThickness: number;
             /**
              * Defines padding for selection accuracy. Default is 2.
-            Increase this value to make selection more forgiving.
+             * Increase this value to make selection more forgiving.
              */
             static selectionAccuracyPadding: number;
             /**
@@ -23615,7 +24104,7 @@ declare namespace Core {
             static showPaddingWhenAnnotationIsSmall: boolean;
             /**
              * Determines if the provided point is a hit on the selected annotationhandle.
-            * See {@link Core.Annotations.SelectionAlgorithm} for usuable selection algorithms.
+             * * See {@link Core.Annotations.SelectionAlgorithm} for usuable selection algorithms.
              * @param annotation - the annotation
              * @param x - the x-coordinate of the point to test, in page coordinates
              * @param y - the y-coordinate of the point to test, in page coordinates
@@ -23627,18 +24116,18 @@ declare namespace Core {
             testSelection(annotation: Core.Annotations.Annotation, x: number, y: number, pageMatrix: any, zoom: number, rotation: Core.PageRotation): boolean;
             /**
              * Hit detection for each control handle.
-             * @returns the control handle that was hit
+             * @returns The control handle that was hit
              */
             testControlHandles(annotation: Core.Annotations.Annotation, zoom: number, x: number, y: number): Core.Annotations.ControlHandle;
             /**
              * Returns the ControlHandle objects associated with this selection model.
-             * @returns an array of ControlHandleObject
+             * @returns An array of ControlHandleObject
              */
             getControlHandles(): Core.Annotations.ControlHandle[];
             /**
              * Gets the dimensions {x, y, width, height} of the selection bounding box.
-            It may be different from the annotation's bounding box.
-            e.g. The selection bounding box may have a padding.
+             * It may be different from the annotation's bounding box.
+             * e.g. The selection bounding box may have a padding.
              */
             getDimensions(annotation: Core.Annotations.Annotation): Core.Math.Rect;
             /**
@@ -23647,7 +24136,7 @@ declare namespace Core {
             canModify(): boolean;
             /**
              * Draws the selection outline of the annotation.
-            By default, a rectangle is drawn based on the annotations x, y, width and height.
+             * By default, a rectangle is drawn based on the annotations x, y, width and height.
              */
             drawSelectionOutline(ctx: CanvasRenderingContext2D, annotation: Core.Annotations.Annotation, zoom: number): void;
         }
@@ -23668,8 +24157,8 @@ declare namespace Core {
         }
         /**
          * The base class for custom annotations. Extending from this class will allow your annotation to appear the same in other viewers.
-        This class will be serialized as a stamp and other viewers will view it as a stamp. However, this can be deserialized back into it's original type in WebViewer with the original behavior.
-        Please store your custom attributes/values into the custom data using {@link CustomAnnotation.SerializedData SerializedData} so that it will be preserved.
+         * This class will be serialized as a stamp and other viewers will view it as a stamp. However, this can be deserialized back into it's original type in WebViewer with the original behavior.
+         * Please store your custom attributes/values into the custom data using {@link CustomAnnotation.SerializedData SerializedData} so that it will be preserved.
          * @property SerializationTypes - An enumeration of custom annotation serialization method types.
          * @property SerializationTypes.STAMP - Saves custom annotation as a stamp. Compatible with other viewers.
          * @property SerializationTypes.CUSTOM - Saves custom annotation using custom XFDF. Not compatible with other viewers.
@@ -23681,6 +24170,13 @@ declare namespace Core {
          */
         class CustomAnnotation extends Core.Annotations.MarkupAnnotation {
             constructor(type: any, initializer?: any);
+            /**
+             * Converts an existing annotation class into a custom annotation that can be customized and viewed in other viewers.
+             * @param type - The initial element name for this custom annotation.
+             * @param annotClass - The annotation class that will be made into a custom annotation instead.
+             * @returns A custom annotation class that behaves the same as the input annotation class but is actually a custom annotation.
+             */
+            static createFromClass(type: string, annotClass: any): any;
             /**
              * The scaling factor that controls the output image quality. The higher the factor, the higher the quality, the higher the memory required. By default, this is set to two.
              */
@@ -23695,16 +24191,14 @@ declare namespace Core {
             static OutputImagePadding: number;
             /**
              * Gets an object that can be used to store primitive, custom data. Data set on this object will be saved to an annotations custom data automatically which gets preserved in the document.
-            <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
+             * <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
              */
             SerializedData: any;
             /**
-             * An enumeration of custom annotation serialization method types.
-            */
-            SerializationTypes: {
-                STAMP: string;
-                CUSTOM: string;
-            };
+             * An enum with possible serialization types.
+             * If custom is used, the custom annotation will be serialized as is. Otherwise, stamp will be automatically assumed and the custom annotation will be serialized as a stamp.
+             */
+            static SerializationTypes: any;
         }
         /**
          * Represents an ellipse annotation.
@@ -23722,12 +24216,55 @@ declare namespace Core {
             Dashes: string;
             /**
              * Gets or sets the annotation's precision from its measure dictionary.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
              */
             Precision: number;
             /**
              * Gets or sets the annotation's scale from its measure dictionary.
              */
             Scale: any[];
+            /**
+             * Gets or sets the annotation's system (Metric, Imperial, Typographic).
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementSystems = Annotations.Annotation.MeasurementSystems
+             *        measurementAnnotation.System = measurementSystems.METRIC
+             */
+            System: string;
+            /**
+             * Gets or sets the annotation's measurement display format.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
+             */
+            DisplayFormat: string;
+            /**
+             * Gets or sets the annotation's measurement display units.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementUnits = Annotations.Annotation.MeasurementUnits
+             *        measurementAnnotation.DisplayUnits = [measurementUnits.FT, measurementUnits.IN]
+             *     });
+             */
+            DisplayUnits: string[];
         }
         /**
          * Represents a file attachment annotation.
@@ -23754,13 +24291,13 @@ declare namespace Core {
             setFileData(data: ArrayBuffer, mimeType: string, filename: string): Promise<void>;
             /**
              * <p>Gets or sets the icon for this fileattachment.</p>
-            <p>Possible default icon types:</p>
-            <ul>
-             <li>Graph</li>
-             <li>PushPin</li>
-             <li>Paperclip</li>
-             <li>Tag</li>
-            </ul>
+             * <p>Possible default icon types:</p>
+             * <ul>
+             *  <li>Graph</li>
+             *  <li>PushPin</li>
+             *  <li>Paperclip</li>
+             *  <li>Tag</li>
+             * </ul>
              */
             Icon: string;
         }
@@ -23786,22 +24323,22 @@ declare namespace Core {
             constructor(initializer?: any);
             /**
              * The leftmost point of the annotation.
-            <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
+             * <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
              */
             LeftMost: number;
             /**
              * The rightmost point of the annotation.
-            <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
+             * <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
              */
             RightMost: number;
             /**
              * The topmost point of the annotation.
-            <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
+             * <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
              */
             TopMost: number;
             /**
              * The bottommost point of the annotation.
-            <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
+             * <p style="font-weight: bold;">This property cannot be initialized through the initializer.</p>
              */
             BottomMost: number;
             /**
@@ -23928,13 +24465,13 @@ declare namespace Core {
              * Resize the annotation's text box to fit its contents
              * @example
              * const freetextAnnot = annotManager.getAnnotationsList()[0];
-            const doc = docViewer.getDocument();
-            const pageNumber = 1;
-            const pageInfo = doc.getPageInfo(pageNumber);
-            const pageMatrix = doc.getPageMatrix(pageNumber);
-            const pageRotation = doc.getPageRotation(pageNumber);
-            freetextAnnot.fitText(pageInfo, pageMatrix, pageRotation);
-            annotManager.drawAnnotationsFromList([freetextAnnot]);
+             * const doc = docViewer.getDocument();
+             * const pageNumber = 1;
+             * const pageInfo = doc.getPageInfo(pageNumber);
+             * const pageMatrix = doc.getPageMatrix(pageNumber);
+             * const pageRotation = doc.getPageRotation(pageNumber);
+             * freetextAnnot.fitText(pageInfo, pageMatrix, pageRotation);
+             * annotManager.drawAnnotationsFromList([freetextAnnot]);
              * @param pageInfo - An object representing the page info. Contains the properties "width" and "height".
              * @param pageMatrix - The transformation matrix for the page that the annotation is on.
              * @param pageRotation - The internal degrees of rotation of the current page.
@@ -23956,7 +24493,7 @@ declare namespace Core {
             isAutoSized(): boolean;
             /**
              * Sets how the freetext annotation auto-sizes to content.
-             * @param type - Use one of the types provided by {@link Annotations.FreeTextAnnotation#AutoSizeTypes AutoSizeTypes}
+             * @param type - Use one of the types provided by {@link Core.Annotations.FreeTextAnnotation.AutoSizeTypes AutoSizeTypes}
              */
             setAutoSizeType(type: string): void;
             /**
@@ -23999,8 +24536,8 @@ declare namespace Core {
         }
         /**
          * An abstract annotation class for aiding the creation of path-based annotations.
-        Classes extending IPathAnnotation or implements the interface can be used by the PathTools.
-        Note: this class makes no assumptions on serialization
+         * Classes extending IPathAnnotation or implements the interface can be used by the PathTools.
+         * Note: this class makes no assumptions on serialization
          * @param [initializer] - A map of values to auto-initialize certain properties of the annotation. You can only initialize properties defined on the annotation under the Members section (unless specified otherwise).
          */
         class IPathAnnotation extends Core.Annotations.MarkupAnnotation {
@@ -24111,12 +24648,55 @@ declare namespace Core {
             Dashes: string;
             /**
              * Gets or sets the annotation's precision from its measure dictionary.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
              */
             Precision: number;
             /**
              * Gets or sets the annotation's scale from its measure dictionary.
              */
             Scale: any[];
+            /**
+             * Gets or sets the annotation's system (Metric, Imperial, Typographic).
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementSystems = Annotations.Annotation.MeasurementSystems
+             *        measurementAnnotation.System = measurementSystems.METRIC
+             */
+            System: string;
+            /**
+             * Gets or sets the annotation's measurement display format.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
+             */
+            DisplayFormat: string;
+            /**
+             * Gets or sets the annotation's measurement display units.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementUnits = Annotations.Annotation.MeasurementUnits
+             *        measurementAnnotation.DisplayUnits = [measurementUnits.FT, measurementUnits.IN]
+             *     });
+             */
+            DisplayUnits: string[];
         }
         /**
          * Creates a new instance of MarkupAnnotation.
@@ -24181,13 +24761,13 @@ declare namespace Core {
             setInteractive(interactive: boolean): void;
             /**
              * Enable camera controls for the 3D model
-            Once enabled the 3D model is able to be rotated and zoomed but not able to be dragged around the page
-            Note that if the model is not interactive then camera controls cannot be enabled.
+             * Once enabled the 3D model is able to be rotated and zoomed but not able to be dragged around the page
+             * Note that if the model is not interactive then camera controls cannot be enabled.
              */
             enableCameraControls(): void;
             /**
              * Disable camera controls for the 3D model
-            Once disabled the 3D model is moveable on the page but able to be rotated or zoomed
+             * Once disabled the 3D model is moveable on the page but able to be rotated or zoomed
              */
             disableCameraControls(): void;
         }
@@ -24227,12 +24807,55 @@ declare namespace Core {
             Dashes: string;
             /**
              * Gets or sets the annotation's precision from its measure dictionary.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
              */
             Precision: number;
             /**
              * Gets or sets the annotation's scale from its measure dictionary.
              */
             Scale: any[];
+            /**
+             * Gets or sets the annotation's system (Metric, Imperial, Typographic).
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementSystems = Annotations.Annotation.MeasurementSystems
+             *        measurementAnnotation.System = measurementSystems.METRIC
+             */
+            System: string;
+            /**
+             * Gets or sets the annotation's measurement display format.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
+             */
+            DisplayFormat: string;
+            /**
+             * Gets or sets the annotation's measurement display units.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementUnits = Annotations.Annotation.MeasurementUnits
+             *        measurementAnnotation.DisplayUnits = [measurementUnits.FT, measurementUnits.IN]
+             *     });
+             */
+            DisplayUnits: string[];
         }
         /**
          * Represents a Polygon annotation.
@@ -24267,12 +24890,55 @@ declare namespace Core {
             Dashes: string;
             /**
              * Gets or sets the annotation's precision from its measure dictionary.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
              */
             Precision: number;
             /**
              * Gets or sets the annotation's scale from its measure dictionary.
              */
             Scale: any[];
+            /**
+             * Gets or sets the annotation's system (Metric, Imperial, Typographic).
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementSystems = Annotations.Annotation.MeasurementSystems
+             *        measurementAnnotation.System = measurementSystems.METRIC
+             */
+            System: string;
+            /**
+             * Gets or sets the annotation's measurement display format.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementDisplayFormats = Annotations.Annotation.MeasurementDisplayFormats
+             *        measurementAnnotation.DisplayFormat = measurementDisplayFormats.FRACTION
+             *     });
+             */
+            DisplayFormat: string;
+            /**
+             * Gets or sets the annotation's measurement display units.
+             * @example
+             * WebViewer(...)
+             *     .then(function(instance) {
+             *       const { annotationManager, Annotations } = instance.Core;
+             *       const measurementAnnotation = annotationManager.getAnnotationsList()[0]
+             *       const measurementUnits = Annotations.Annotation.MeasurementUnits
+             *        measurementAnnotation.DisplayUnits = [measurementUnits.FT, measurementUnits.IN]
+             *     });
+             */
+            DisplayUnits: string[];
         }
         /**
          * Creates a new instance of PopupAnnotation.
@@ -24479,27 +25145,48 @@ declare namespace Core {
             constructor(initializer?: any);
             /**
              * The name of the icon to use for this sticky annotation.
-            <p>Possible default icon types:</p>
-            <ul>
-             <li>Comment</li>
-             <li>Insert</li>
-             <li>Circle</li>
-             <li>NewParagraph</li>
-             <li>Help</li>
-             <li>Key</li>
-             <li>Check</li>
-             <li>Checkmark</li>
-             <li>Cross</li>
-             <li>CrossHairs</li>
-             <li>Paragraph</li>
-             <li>RightArrow</li>
-             <li>RightPointer</li>
-             <li>Star</li>
-             <li>UpArrow</li>
-             <li>UpLeftArrow</li>
-            </ul>
+             * <p>Possible default icon types:</p>
+             * <ul>
+             *  <li>Comment</li>
+             *  <li>Insert</li>
+             *  <li>Circle</li>
+             *  <li>NewParagraph</li>
+             *  <li>Help</li>
+             *  <li>Key</li>
+             *  <li>Check</li>
+             *  <li>Checkmark</li>
+             *  <li>Cross</li>
+             *  <li>CrossHairs</li>
+             *  <li>Paragraph</li>
+             *  <li>RightArrow</li>
+             *  <li>RightPointer</li>
+             *  <li>Star</li>
+             *  <li>UpArrow</li>
+             *  <li>UpLeftArrow</li>
+             * </ul>
              */
             Icon: string;
+            /**
+             * An enum with possible icon names.
+             */
+            static IconNames: {
+                INSERT: string;
+                CIRCLE: string;
+                NEW_PARAGRAPH: string;
+                HELP: string;
+                KEY: string;
+                CHECK: string;
+                CHECKMARK: string;
+                CROSS: string;
+                CROSS_HAIRS: string;
+                PARAGRAPH: string;
+                RIGHT_ARROW: string;
+                RIGHT_POINTER: string;
+                STAR: string;
+                UP_ARROW: string;
+                UP_LEFT_ARROW: string;
+                COMMENT: string;
+            };
             /**
              * Gets the state of the annotation.
              * @returns the state of the annotation.
@@ -24855,9 +25542,9 @@ declare namespace Core {
             get(flag: string): boolean;
             /**
              * Set flags to true or false.
-            If options is an array of strings, set the flags with those names to true.
-            If options is a number or array of numbers, set the flags from the corresponding numbers to true. (deprecated, relies on a limited interpretation of numbers as bitfields)
-            If options is a string, set that flag to shouldSet.
+             * If options is an array of strings, set the flags with those names to true.
+             * If options is a number or array of numbers, set the flags from the corresponding numbers to true. (deprecated, relies on a limited interpretation of numbers as bitfields)
+             * If options is a string, set that flag to shouldSet.
              * @param options - One of the possible input types to determine which flags to set
              * @param [shouldSet] - If options is a string, whether to set or unset the flag
              */
@@ -24865,7 +25552,7 @@ declare namespace Core {
         }
         /**
          * Callback that gets passed to serializeHandler in {@link Core.Annotations.setCustomSerializeHandler setCustomSerializeHandler}.
-        The signature is similar to {@link Core.Annotations.Annotation#serialize serialize} except with an additional options parameter.
+         * The signature is similar to {@link Core.Annotations.Annotation#serialize serialize} except with an additional options parameter.
          * @param element - An xml element representing the annotation
          * @param pageMatrix - The page matrix used to convert PDF coordinates to viewer coordinates
          * @param options - Additional options and parameters
@@ -24878,7 +25565,7 @@ declare namespace Core {
         }) => Element;
         /**
          * Callback that gets passed to deserializeHandler in {@link Core.Annotations.setCustomDeserializeHandler setCustomDeserializeHandler}.
-        The signature is similar to {@link Core.Annotations.Annotation#deserialize deserialize} except with an additional options parameter.
+         * The signature is similar to {@link Core.Annotations.Annotation#deserialize deserialize} except with an additional options parameter.
          * @param element - An xml element representing the annotation
          * @param pageMatrix - The page matrix used to convert PDF coordinates to viewer coordinates
          * @param options - Additional options and parameters
@@ -24891,31 +25578,31 @@ declare namespace Core {
         }) => void;
         /**
          * Changes how an annotation type is serialized within WebViewer. Note that custom attributes will not be persisted in the downloaded PDF and are only useful if you're saving the XFDF separately from the PDF.
-        If you are looking to save your custom property/attribute, please consider using {@link Core.Annotations.Annotation#setCustomData setCustomData} which will be persisted.
+         * If you are looking to save your custom property/attribute, please consider using {@link Core.Annotations.Annotation#setCustomData setCustomData} which will be persisted.
          * @example
          * Annotations.setCustomSerializeHandler(Annotations.RectangleAnnotation, function(element, pageMatrix, options) {
-          const annot = options.annotation;
-          options.originalSerialize(element, pageMatrix)
-          if (annot.Width > 100) {
-            element.setAttribute('myAttr', 1);
-          }
-          return element;
-        });
+         *   const annot = options.annotation;
+         *   options.originalSerialize(element, pageMatrix)
+         *   if (annot.Width > 100) {
+         *     element.setAttribute('myAttr', 1);
+         *   }
+         *   return element;
+         * });
          * @param annotationClass - The class (constructor) of the annotation
          * @param serializeHandler - A handler function that will serialize the annotation
          */
         function setCustomSerializeHandler(annotationClass: Core.Annotations.Annotation, serializeHandler: Core.Annotations.CustomAnnotationSerializeHandler): void;
         /**
          * Changes how an annotation type is deserialized within WebViewer.
-        If your custom property/attribute is stored in the CustomData, please consider using {@link Core.Annotations.Annotation#getCustomData getCustomData} instead.
+         * If your custom property/attribute is stored in the CustomData, please consider using {@link Core.Annotations.Annotation#getCustomData getCustomData} instead.
          * @example
          * Annotations.setCustomDeserializeHandler(Annotations.RectangleAnnotation, function(element, pageMatrix, options) {
-          const annot = options.annotation;
-          options.originalDeserialize(element, pageMatrix)
-          if (annot.Width > 100) {
-            annot.myProperty = element.getAttribute('myAttr');
-          }
-        });
+         *   const annot = options.annotation;
+         *   options.originalDeserialize(element, pageMatrix)
+         *   if (annot.Width > 100) {
+         *     annot.myProperty = element.getAttribute('myAttr');
+         *   }
+         * });
          * @param annotationClass - The class (constructor) of the annotation
          * @param deserializeHandler - A handler function that will deserialize the annotation
          */
@@ -24954,7 +25641,7 @@ declare namespace Core {
         };
         /**
          * Callback that gets passed to drawHandler in {@link Core.Annotations.setCustomDrawHandler setCustomDrawHandler}.
-        The signature is similar to {@link Core.Annotations.Annotation#draw draw} except with an additional options parameter.
+         * The signature is similar to {@link Core.Annotations.Annotation#draw draw} except with an additional options parameter.
          * @param ctx - A canvas context
          * @param pageMatrix - The transformation matrix for the page that the annotation is on
          * @param rotation - Certain annotations, such as sticky notes, get rotation as a third parameter. Default: undefined
@@ -24968,22 +25655,22 @@ declare namespace Core {
         }) => void;
         /**
          * Changes how an annotation type is drawn within WebViewer.
-        By default, this will also generate an appearance for the annotation when the document is downloaded, so it will appear the same in other viewers. Please note that changes to the annotation may cause the appearance to be discarded, reverting it back to normal.
-        <br/>
-        Please note that NoZoom annotations do render slightly differently from standard annotations. Nonetheless, please draw at the annotation coordinates.
-        The appearance set by {@link Core.Annotations.Annotation#addCustomAppearance addCustomAppearance} will take priority.
+         * By default, this will also generate an appearance for the annotation when the document is downloaded, so it will appear the same in other viewers. Please note that changes to the annotation may cause the appearance to be discarded, reverting it back to normal.
+         * <br/>
+         * Please note that NoZoom annotations do render slightly differently from standard annotations. Nonetheless, please draw at the annotation coordinates.
+         * The appearance set by {@link Core.Annotations.Annotation#addCustomAppearance addCustomAppearance} will take priority.
          * @example
          * Annotations.setCustomDrawHandler(Annotations.RectangleAnnotation, function(ctx, pageMatrix, rotation, options) {
-          options.originalDraw(ctx, pageMatrix); // Draw original annotation
-          const annot = options.annotation;
-        
-          // Draw annotation ID overtop the rectangle
-          ctx.fillStyle = '#FF0000';
-          ctx.strokeStyle = '#000000';
-          const fontSize = 12;
-          ctx.fillText(annot.Id, annot.X, annot.Y + fontSize);   // Draw at annotation location
-          ctx.strokeText(annot.Id, annot.X, annot.Y + fontSize);
-        });
+         *   options.originalDraw(ctx, pageMatrix); // Draw original annotation
+         *   const annot = options.annotation;
+         *
+         *   // Draw annotation ID overtop the rectangle
+         *   ctx.fillStyle = '#FF0000';
+         *   ctx.strokeStyle = '#000000';
+         *   const fontSize = 12;
+         *   ctx.fillText(annot.Id, annot.X, annot.Y + fontSize);   // Draw at annotation location
+         *   ctx.strokeText(annot.Id, annot.X, annot.Y + fontSize);
+         * });
          * @param annotationClass - The class (constructor) of the annotation
          * @param drawHandler - A handler function that will draw the annotation
          * @param [options] - Optional options
@@ -25246,10 +25933,74 @@ declare namespace Core {
                 fontFamily?: string;
             }): TextMetrics;
         }
+        /**
+         * The namespace for utility functions for annotation rotation.
+         */
+        class RotationUtils {
+            /**
+             * @param pointsArray - An array containing the points to be rotated.
+             * @param angle - The angle to rotate the points.
+             * @param rotationPoint - The pivot point around which the points in the array will be rotated.
+             * @returns An array containing the rotated points.
+             */
+            getRotatedPointsArray(pointsArray: Core.Math.Point[], angle: number, rotationPoint: Core.Math.Point): Core.Math.Point[];
+            /**
+             * @param rect - The rect representing the rotated annotation's bounding box.
+             * @param angle - The angle that the annotation in rotated.
+             * @returns An object with the annotation's unrotated dimensions (X, Y, Width and Height).
+             */
+            getUnrotatedDimensionsFromRectangularAnnotations(rect: Core.Math.Rect, angle: number): any;
+            /**
+             * @param unrotatedDimensions - An object with the annotation's unrotated dimensions (X, Y, Width and Height).
+             * @param angle - The angle that the annotation in rotated.
+             * @param rotationPoint - To pivot point for which the annotation is rotated on.
+             * @returns The rect representing the rotated annotation's bounding box.
+             */
+            getRotatedBoundingBoxRectFromRectangularAnnotations(unrotatedDimensions: any, angle: number, rotationPoint: Core.Math.Point): Core.Math.Rect;
+            /**
+             * @param angleInDegrees - The angle in degrees.
+             * @returns The angle in radians.
+             */
+            getRotationAngleInRadiansByDegrees(angleInDegrees: number): number;
+            /**
+             * @param angleInRadians - The angle in radians.
+             * @returns The angle in degrees.
+             */
+            getRotationAngleInDegreesByRadians(angleInRadians: number): number;
+            /**
+             * @param angleInRadians - The angle in radians.
+             * @returns The normalized angle (between 0 and 2*PI) in radians.
+             */
+            normalizeAngle(angleInRadians: number): number;
+            /**
+             * Adds the following methods to a class:
+             * <ul>
+             * <li><b>rotate</b>: Changes the Rotation property of the annotation, Updates the annotation path and updates the bounding box.</li>
+             * <li><b>adjustRect</b>: Adjusts the annotation's bounding box.</li>
+             * <li><b>serialize / deserialize</b>: Make sure the annotation gets correctly saved into the PDF when downloading the document and that it will load fine.</li>
+             * </ul>
+             * For this mixin to work properly, the annotation class must implement two methods:
+             * <ul>
+             * <li><b>setPath</b>: Updates the annotation's path (Array of points)</li>
+             * <li><b>getPath</b>: returns the annotation's path (Array of points)</li>
+             * <ul>
+             */
+            PathCustomAnnotationRotationMixin(): void;
+            /**
+             * Adds the following methods to a class:
+             * <ul>
+             * <li><b>rotate</b>: Changes the Rotation property of the annotation and updates the bounding box.</li>
+             * <li><b>getUnrotatedDimensions</b>: Calculates the correct dimension for drawing.</li>
+             * <li><b>getRotatedAnnotationBoundingBoxRect</b>: Calculates the bounding box dimensions.</li>
+             * <li><b>serialize / deserialize</b>: Make sure the annotation gets correctly saved into the PDF when downloading the document and that it will load fine.</li>
+             * </ul>
+             */
+            RectangularCustomAnnotationRotationMixin(): void;
+        }
         namespace ButtonWidgetAnnotation {
             /**
              * An enum for each checkbox/radioButton caption values
-            When assgin the enum to checkbox/radioButton caption, the UI of the checkbox/radioButton will be changed to the corresponded shape
+             * When assgin the enum to checkbox/radioButton caption, the UI of the checkbox/radioButton will be changed to the corresponded shape
              */
             enum WidgetButtonCaptions {
                 CROSS,
@@ -25269,7 +26020,7 @@ declare namespace Core {
                 type Format = 'color' | 'bold' | 'italic' | 'underline' | 'strike';
                 /**
                  * The value of a format.
-                The value should be a hex color string(e.g. #FF00FF) for the `color` format, and boolean for the rest of formats.
+                 * The value should be a hex color string(e.g. #FF00FF) for the `color` format, and boolean for the rest of formats.
                  */
                 type FormatValue = string | boolean;
             }
@@ -25347,7 +26098,7 @@ declare namespace Core {
     /**
      * The manager of the Annotation history state for undoing and redoing annotation changes
      */
-    class AnnotationHistoryManager {
+    class AnnotationHistoryManager extends Core.EventHandler {
         /**
          * Undoes the most recent annotation change
          * @returns Returns a promise that resolves when the operation is complete
@@ -25374,12 +26125,12 @@ declare namespace Core {
         canRedo(): boolean;
         /**
          * Triggered when the annotation history stack changes.
-        This could be used to check the canUndo or canRedo functions if their value has changed.
+         * This could be used to check the canUndo or canRedo functions if their value has changed.
          */
         on(event: 'historyChanged', callback: () => void): void;
         /**
          * Triggered when the annotation history stack changes.
-        This could be used to check the canUndo or canRedo functions if their value has changed.
+         * This could be used to check the canUndo or canRedo functions if their value has changed.
          */
         one(event: 'historyChanged', callback: () => void): void;
         off(event?: 'historyChanged', callback?: () => void): void;
@@ -25503,7 +26254,7 @@ declare namespace Core {
         disableFreeTextEditing(): void;
         /**
          * Disables the use of vector appearances for stamp annotations and always uses a fixed size bitmap.
-        This may be much faster in certain situations but will appear blurry at higher zoom levels.
+         * This may be much faster in certain situations but will appear blurry at higher zoom levels.
          */
         disableStampVectorAppearance(): void;
         /**
@@ -25534,7 +26285,7 @@ declare namespace Core {
         getFieldManager(): Core.Annotations.Forms.FieldManager;
         /**
          * Draws all annotations associated with the given page number.
-        Note that the entire annotation canvas for the page will be redrawn.
+         * Note that the entire annotation canvas for the page will be redrawn.
          * @param options - An object that can contain the following parameters
          * @param options.pageNumber - The page number of the page to draw
          * @param [options.overrideCanvas] - Optionally draw directly to this canvas
@@ -25557,19 +26308,19 @@ declare namespace Core {
         setAnnotationCanvasTransform(annotCanvasContext: CanvasRenderingContext2D, zoom: number, rotation: Core.PageRotation): void;
         /**
          * Redraws the specified annotation.
-        Note that the entire annotation canvas for the page will be redrawn.
+         * Note that the entire annotation canvas for the page will be redrawn.
          * @param annotation - The annotation to be redrawn.
          */
         redrawAnnotation(annotation: Core.Annotations.Annotation): void;
         /**
          * Sets the rate at which the redrawing of annotations is throttled. This can improve
-        annotation rendering on lower quality devices and browsers.
+         * annotation rendering on lower quality devices and browsers.
          * @param value - The throttled rate at which annotations will be redrawn, in milliseconds
          */
         setRedrawThrottle(value: number): void;
         /**
          * Sets the rate at which the redrawing of annotations is throttled. This can improve
-        annotation rendering on lower quality devices and browsers.
+         * annotation rendering on lower quality devices and browsers.
          * @param value - The throttled rate at which annotations will be redrawn, in milliseconds
          */
         setRedrawThrottleRate(value: number): void;
@@ -25657,7 +26408,7 @@ declare namespace Core {
         }): void;
         /**
          * Gets the root annotation that this annotation is replying to.
-        If this annotation is not replying to anything then the root is itself.
+         * If this annotation is not replying to anything then the root is itself.
          * @param annotation - The annotation from which to find the root annotation in the reply chain
          * @returns The root annotation
          */
@@ -25673,8 +26424,8 @@ declare namespace Core {
          * Updates the annotation state. This is done by creating an annotation that replies to the passed in annotation.
          * @param annotation - The annotation to add a reply to
          * @param state - Annotations may have an author-specific state associated with them.
-        Valid states are for Review stateModel: Accepted, Rejected, Cancelled, Completed, None. Default is None.
-        Valid states are for Marked stateModel: Marked and Unmarked. Default is Unmarked.
+         * Valid states are for Review stateModel: Accepted, Rejected, Cancelled, Completed, None. Default is None.
+         * Valid states are for Marked stateModel: Marked and Unmarked. Default is Unmarked.
          * @param stateModel - Gets or sets the stateModel of the annotation. stateModel has two statemodels: Marked, Review. Default is Review.
          * @param message - Message to be set when the state is updated.
          * @returns The created annotation reply
@@ -25688,9 +26439,9 @@ declare namespace Core {
         /**
          * Apply redaction annotations
          * @param [annotations] - An array of redaction annotations or a single redaction annotation.
-        If nothing passed, apply all redactions. If the redaction annotations overlap with other annotations, it calls deleteAnnotations on the other annotations.
+         * If nothing passed, apply all redactions. If the redaction annotations overlap with other annotations, it calls deleteAnnotations on the other annotations.
          * @returns Returns a promise that resolves with an array of redaction info when the redactions have been applied.
-        If using WebViewer server, the promise will resolve with a URL to the redacted document.
+         * If using WebViewer server, the promise will resolve with a URL to the redacted document.
          */
         applyRedactions(annotations?: Core.Annotations.Annotation | Core.Annotations.Annotation[]): Promise<Core.AnnotationManager.RedactionInfo[] | string>;
         /**
@@ -25705,20 +26456,20 @@ declare namespace Core {
         isCreateRedactionEnabled(): boolean;
         /**
          * Enable redaction tools
-        Please use enableRedaction or disableRedaction without params
-        the parameter is deprecated since version 8.0
+         * Please use enableRedaction or disableRedaction without params
+         * the parameter is deprecated since version 8.0
          */
         enableRedaction(): void;
         /**
          * Check if an annotation is redactable (is a redaction annotation the user can apply).
-        When using Webviewer Server, single redaction aren't allowed, only redact all is allowed
+         * When using Webviewer Server, single redaction aren't allowed, only redact all is allowed
          * @param annotation - An annotation to check if it redactable
          * @returns True if annotation can be redacted (WebViewer is set up correctly for applying), false otherwise
          */
         isAnnotationRedactable(annotation: Core.Annotations.Annotation): boolean;
         /**
          * Deletes the specified annotation in the managed list of annotations.
-        If an annotation is successfully deleted, the annotationChanged event will be fired with a "delete" action.
+         * If an annotation is successfully deleted, the annotationChanged event will be fired with a "delete" action.
          * @param annotation - An instance of Annotation.
          * @param [options] - An object that can contain the following optional parameters.
          * @param [options.imported] - Whether the annotation was imported from another source or not OR a option parameters contains
@@ -25734,7 +26485,7 @@ declare namespace Core {
         }): void;
         /**
          * Deletes the specified annotations in the managed list of annotations.
-        If an annotation is successfully deleted, the annotationChanged event will be fired with a "delete" action.
+         * If an annotation is successfully deleted, the annotationChanged event will be fired with a "delete" action.
          * @param annotation - An array of annotations
          * @param [options] - An object that can contain the following optional parameters.
          * @param [options.imported] - Whether the annotations were imported from another source or not
@@ -25760,8 +26511,8 @@ declare namespace Core {
         /**
          * Pastes the currently copied annotations.
          * @param [useMouseLocation = false] - Whether or not to paste the
-        annotations based on the position of the mouse cursor in the window,
-        accounting for the scroll position
+         * annotations based on the position of the mouse cursor in the window,
+         * accounting for the scroll position
          */
         pasteCopiedAnnotations(useMouseLocation?: boolean): void;
         /**
@@ -25788,35 +26539,36 @@ declare namespace Core {
         isAnnotationSelected(annotation: Core.Annotations.Annotation): boolean;
         /**
          * Selects the specified annotation.
-        If an annotation is successfully selected then the annotationSelected event will be fired with a "selected" action.
-        Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
+         * If an annotation is successfully selected then the annotationSelected event will be fired with a "selected" action.
+         * Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
          * @param annotation - An instance of Annotation.
          */
         selectAnnotation(annotation: Core.Annotations.Annotation): void;
         /**
          * Selects the specified annotations.
-        If an annotation is successfully selected then the annotationSelected event will be fired with a "selected" action.
-        Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
+         * If an annotation is successfully selected then the annotationSelected event will be fired with a "selected" action.
+         * Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
          * @param annotations - An array of Annotations.
          */
         selectAnnotations(annotations: Core.Annotations.Annotation[]): void;
         /**
          * Deselects all annotations.
-        If an annotation is successfully deselected then the annotationSelected event will be triggered with two parameters: an array of annotations that were deselected and a "deselected" action.
-        Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
+         * If an annotation is successfully deselected then the annotationSelected event will be triggered with two parameters: an array of annotations that were deselected and a "deselected" action.
+         * Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
+         * The annotationDeselected event will also be triggered with one parameter: an array of annotations that were deselected.
          */
         deselectAllAnnotations(): void;
         /**
          * Deselects the specified annotation.
-        If an annotation is successfully deselected then the annotationSelected event will be fired with a "deselected" action.
-        Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
+         * If an annotation is successfully deselected then the annotationSelected event will be fired with a "deselected" action.
+         * Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
          * @param annotation - An instance of Annotation.
          */
         deselectAnnotation(annotation: Core.Annotations.Annotation): void;
         /**
          * Deselects the specified annotations.
-        If annotations are successfully deselected then the annotationSelected event will be fired with a "deselected" action.
-        Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
+         * If annotations are successfully deselected then the annotationSelected event will be fired with a "deselected" action.
+         * Note: the annotationSelected event has two parameters: an array of annotations and a string value of either "selected" or "deselected"
          * @param annotations - An array of annotation instances
          */
         deselectAnnotations(annotations: Core.Annotations.Annotation[]): void;
@@ -25868,9 +26620,9 @@ declare namespace Core {
         }): Promise<string>;
         /**
          * Gets an XML string from the last time this function was called.
-        XML string specifies the added, modified and deleted annotations.
-        Added and modified annotations will have their XFDF representation included
-        while deleted annotations will only include their id.
+         * XML string specifies the added, modified and deleted annotations.
+         * Added and modified annotations will have their XFDF representation included
+         * while deleted annotations will only include their id.
          * @returns Returns a promise that resolves to an XFDF command string
          */
         exportAnnotCommand(): Promise<string>;
@@ -25896,13 +26648,13 @@ declare namespace Core {
         importAnnotCommand(xfdfString: string): Promise<Core.Annotations.Annotation[]>;
         /**
          * Used to load appearance documents for annotations with custom appearances.
-        The function will be called when an annotation is imported that contains a custom appearance that references a filename.
+         * The function will be called when an annotation is imported that contains a custom appearance that references a filename.
          * @param func - Function which must return Document object created with {@link Core.createDocument}
          */
         setCustomAppearanceHandler(func: (...params: any[]) => any): void;
         /**
          * Draws all the pages associated with the annotations in the list as long the page is visible.
-        A single annotation can also be passed in.
+         * A single annotation can also be passed in.
          * @param annotationList - List of annotations or a single annotation object
          * @returns Returns a promise that resolves when all the annotations in the annotationList have been drawn
          */
@@ -25939,40 +26691,40 @@ declare namespace Core {
          * Set the styles for the annotation
          * @param annotation - an annotation of which the styles will be changed.
          * @param newStyles - if an object is used, it should contain properties of the new styles.
-        If a function is used, the current styles will be passed as its argument and the function should return an object which contains properties of the new styles.
-        Example of valid properties: StrokeColor, TextColor, FillColor, FontSize, Opacity, StrokeThickness, Precision, Scale, OverlayText, Style and Dashes.
+         * If a function is used, the current styles will be passed as its argument and the function should return an object which contains properties of the new styles.
+         * Example of valid properties: StrokeColor, TextColor, FillColor, FontSize, Opacity, StrokeThickness, Precision, Scale, OverlayText, Style and Dashes.
          */
         setAnnotationStyles(annotation: Core.Annotations.Annotation, newStyles: any | ((...params: any[]) => any)): void;
         /**
          * Sets the mapping function used to get the display name for annotation authors
-        and is used when calling getDisplayAuthor.
+         * and is used when calling getDisplayAuthor.
          * @example
          * annotManager.setAnnotationDisplayAuthorMap((annotationUserId) => {
-          if (annotationUserId === '1') {
-            return 'John';
-          } else {
-            return 'Guest';
-          }
-        });
+         *   if (annotationUserId === '1') {
+         *     return 'John';
+         *   } else {
+         *     return 'Guest';
+         *   }
+         * });
          * @param mapFunction - The mapping function to use. The function is passed a userID/GUID and should return the display name for the UI.
          */
         setAnnotationDisplayAuthorMap(mapFunction: (...params: any[]) => any): void;
         /**
          * Annotations may set the author to a unique id which isn't suitable for display in the UI.
-        this function gets the author name of the annotation that should be displayed.
+         * this function gets the author name of the annotation that should be displayed.
          * @param annotationUserId - Annotation userId
          * @returns The display author name
          */
         getDisplayAuthor(annotationUserId: string): string;
         /**
          * Changes the sticky note rendering to the old implementation when the sticky note
-        has been created before the specified date.
+         * has been created before the specified date.
          * @param date - The date timestamp to use
          */
         setOldStickyNoteRenderingDate(date: number): void;
         /**
          * Triggered when an annotation or annotations have been changed (added, deleted, modified).
-        Attach like annotManager.addEventListener('annotationChanged', callback)
+         * Attach like annotManager.addEventListener('annotationChanged', callback)
          * @param annotations - The annotations that were changed
          * @param action - The action that occurred (add, delete, modify)
          * @param info - An object containing extra information about the annotationChanged event
@@ -25980,7 +26732,7 @@ declare namespace Core {
         on(event: 'annotationChanged', callback: (annotations: Core.Annotations.Annotation[], action: string, info: Core.AnnotationManager.AnnotationChangedInfoObject) => void): void;
         /**
          * Triggered when an annotation or annotations have been changed (added, deleted, modified).
-        Attach like annotManager.addEventListener('annotationChanged', callback)
+         * Attach like annotManager.addEventListener('annotationChanged', callback)
          * @param annotations - The annotations that were changed
          * @param action - The action that occurred (add, delete, modify)
          * @param info - An object containing extra information about the annotationChanged event
@@ -26000,14 +26752,14 @@ declare namespace Core {
         off(event?: 'annotationDoubleClicked', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         /**
          * Triggered when a field's value has been changed.
-        Attach like annotManager.addEventListener('fieldChanged', callback)
+         * Attach like annotManager.addEventListener('fieldChanged', callback)
          * @param field - The field that was changed
          * @param value - The field's new value
          */
         on(event: 'fieldChanged', callback: (field: any, value: string) => void): void;
         /**
          * Triggered when a field's value has been changed.
-        Attach like annotManager.addEventListener('fieldChanged', callback)
+         * Attach like annotManager.addEventListener('fieldChanged', callback)
          * @param field - The field that was changed
          * @param value - The field's new value
          */
@@ -26028,17 +26780,28 @@ declare namespace Core {
         off(event?: 'annotationHidden', callback?: (annotationList: Core.Annotations.Annotation[], hidden: boolean) => void): void;
         /**
          * Triggered after annotation selection has been changed.
-         * @param annotationList - List of annotations that have selected or deselected. If the event is triggered by deselectAllAnnotations then the annotationList will be null.
+         * @param annotationList - List of annotations that have selected or deselected.
          * @param action - Either 'selected' or 'deselected'
          */
         on(event: 'annotationSelected', callback: (annotationList: Core.Annotations.Annotation[], action: string) => void): void;
         /**
          * Triggered after annotation selection has been changed.
-         * @param annotationList - List of annotations that have selected or deselected. If the event is triggered by deselectAllAnnotations then the annotationList will be null.
+         * @param annotationList - List of annotations that have selected or deselected.
          * @param action - Either 'selected' or 'deselected'
          */
         one(event: 'annotationSelected', callback: (annotationList: Core.Annotations.Annotation[], action: string) => void): void;
         off(event?: 'annotationSelected', callback?: (annotationList: Core.Annotations.Annotation[], action: string) => void): void;
+        /**
+         * Triggered after annotations have been deselected.
+         * @param annotationList - List of annotations that have been deselected.
+         */
+        on(event: 'annotationDeselected', callback: (annotationList: Core.Annotations.Annotation[]) => void): void;
+        /**
+         * Triggered after annotations have been deselected.
+         * @param annotationList - List of annotations that have been deselected.
+         */
+        one(event: 'annotationDeselected', callback: (annotationList: Core.Annotations.Annotation[]) => void): void;
+        off(event?: 'annotationDeselected', callback?: (annotationList: Core.Annotations.Annotation[]) => void): void;
         /**
          * Triggered when a reply has been added to an annotation
          * @param annotation - The annotation that was added
@@ -26082,13 +26845,13 @@ declare namespace Core {
         off(event?: 'setNoteText', callback?: (annotation: Core.Annotations.Annotation, root: Core.Annotations.Annotation) => void): void;
         /**
          * Triggered when permissions for annotations should be updated. This might be when the user changes or readonly is switched to.
-        If no annotation is specified then every annotation should be updated.
+         * If no annotation is specified then every annotation should be updated.
          * @param [annotation] - The annotation that needs to have its permissions updated
          */
         on(event: 'updateAnnotationPermission', callback: (annotation?: Core.Annotations.Annotation) => void): void;
         /**
          * Triggered when permissions for annotations should be updated. This might be when the user changes or readonly is switched to.
-        If no annotation is specified then every annotation should be updated.
+         * If no annotation is specified then every annotation should be updated.
          * @param [annotation] - The annotation that needs to have its permissions updated
          */
         one(event: 'updateAnnotationPermission', callback: (annotation?: Core.Annotations.Annotation) => void): void;
@@ -26135,6 +26898,7 @@ declare namespace Core {
         }) => void): void;
         /**
          * @property ANNOTATION_SELECTED - {@link Core.AnnotationManager#event:annotationSelected Core.AnnotationManager.annotationSelected }
+         * @property ANNOTATION_DESELECTED - {@link Core.AnnotationManager#event:annotationDeselected Core.AnnotationManager.annotationDeselected }
          * @property ANNOTATION_DOUBLE_CLICKED - {@link Core.AnnotationManager#event:annotationDoubleClicked Core.AnnotationManager.annotationDoubleClicked }
          * @property ANNOTATION_CHANGED - {@link Core.AnnotationManager#event:annotationChanged Core.AnnotationManager.annotationChanged }
          * @property UPDATE_ANNOTATION_PERMISSION - {@link Core.AnnotationManager#event:updateAnnotationPermission Core.AnnotationManager.updateAnnotationPermission }
@@ -26151,6 +26915,10 @@ declare namespace Core {
              * {@link Core.AnnotationManager#event:annotationSelected Core.AnnotationManager.annotationSelected }
              */
             ANNOTATION_SELECTED: string;
+            /**
+             * {@link Core.AnnotationManager#event:annotationDeselected Core.AnnotationManager.annotationDeselected }
+             */
+            ANNOTATION_DESELECTED: string;
             /**
              * {@link Core.AnnotationManager#event:annotationDoubleClicked Core.AnnotationManager.annotationDoubleClicked }
              */
@@ -26233,9 +27001,9 @@ declare namespace Core {
     }
     /**
      * Forces a higher level of accuracy in image downsampling at the expense of rendering performance.
-    This function should be called before loading a document to ensure this setting is used.
+     * This function should be called before loading a document to ensure this setting is used.
      * @param advanced - if true advanced image scaling will be used. Can alternatively pass a number for
-    the number of downsampling steps to take. Passing true is equivalent to passing 1.4.
+     * the number of downsampling steps to take. Passing true is equivalent to passing 1.4.
      */
     function setAdvancedImageScaling(advanced: boolean): void;
     /**
@@ -26395,7 +27163,7 @@ declare namespace Core {
          * @param mousePt1 - The starting mouse point, an object with x and y properties
          * @param mousePt2 - The ending mouse point, an object with x and y properties
          * @returns An object with a 'first' property being the first page selected and a 'last'
-             property being the last page selected.  last must be >= first.
+         *      property being the last page selected.  last must be >= first.
          */
         getSelectedPages(mousePt1: any, mousePt2: any): any;
         /**
@@ -26409,7 +27177,7 @@ declare namespace Core {
          * Returns the amount the page is shifted relative to the viewport
          * @param pageNumber - The number of the page
          * @returns An object with x and y properties of the amount the page is shifted relative to the viewport
-             and width and height properties of the page.
+         *      and width and height properties of the page.
          */
         getPageTransform(pageNumber: number): any;
         /**
@@ -26432,7 +27200,7 @@ declare namespace Core {
         getDisplayMode(): any;
         /**
          * Sets the display mode. Also removes selection caused by text selection or search.
-        Only renders if a document has been loaded.
+         * Only renders if a document has been loaded.
          * @param displayMode - The display mode object to set as the current display mode
          */
         setDisplayMode(displayMode: any): void;
@@ -26519,7 +27287,7 @@ declare namespace Core {
      * Constructs a new empty Document, representing a document with individual pages (canvases) that can be displayed on screen and printed.
      * @param id - Unique string identifier for the document
      * @param type - The type of document that should be instantiated.
-    Values are 'xod' for XOD documents, 'pdf' for PDF, JPG or PNG documents, 'office' for MS Office documents and 'webviewerServer' for WebViewer Server documents
+     * Values are 'xod' for XOD documents, 'pdf' for PDF, JPG or PNG documents, 'office' for MS Office documents and 'webviewerServer' for WebViewer Server documents
      */
     class Document {
         constructor(id: string, type: string);
@@ -26542,7 +27310,7 @@ declare namespace Core {
         getType(): string;
         /**
          * Gets whether the document will be interacted with as a WebViewer Server document
-        This will return false if the document was loaded from WebViewer Server but forceClientSideInit is set to true
+         * This will return false if the document was loaded from WebViewer Server but forceClientSideInit is set to true
          * @returns Returns whether the document will be interacted with as a WebViewer Server document.
          */
         isWebViewerServerDocument(): boolean;
@@ -26558,8 +27326,8 @@ declare namespace Core {
         cancelLoadCanvas(id: number): void;
         /**
          * Unloads resources for the page associated with the loadCanvasAsync call corresponding to the passed in id.
-        So if the loadCanvasAsync call had requested page 2 then page 2's resources will be cleaned up
-        (as long as nothing else requires those resources). Note that the canvas element itself is not touched.
+         * So if the loadCanvasAsync call had requested page 2 then page 2's resources will be cleaned up
+         * (as long as nothing else requires those resources). Note that the canvas element itself is not touched.
          * @param id - The id returned from the loadCanvasAsync call that will have it's page resources unloaded
          */
         unloadCanvasResources(id: number): void;
@@ -26661,6 +27429,33 @@ declare namespace Core {
             customHandlerId?: number;
         }): Promise<void>;
         /**
+         * Update rasterizer options of the document
+         * @param options - Options for this function
+         * @param [options.pageTransparent] - Page background transparency. False by default.
+         * @param [options.overprintMode] - Enable or disable support for overprint and overprint simulation. OverprintPreviewMode.PDFX_ON by default.
+         * @param [options.antiAliasing] - Enable or disable anti-aliasing. True by default.
+         * @param [options.pathHinting] - Enable or disable path hinting. True by default.
+         * @param [options.thinLinePixelGridFit] - If true (horizontal/vertical) thin lines will be snapped to integer pixel positions. False by default.
+         * @param [options.thinLineStrokeAdjust] - Enable or disable auto stroke adjustment. True by default.
+         * @param [options.imageSmoothing] - Enable or disable image smoothing. True by default.
+         * @param [options.hqImageResampling] - Whether use a higher quality (but slower) smoothing algorithm. False by default.
+         * @param [options.caching] - Enables or disables caching. Caching can improve the rendering performance in cases where the same page will be drawn multiple times. True by default.
+         * @param [options.expGamma] - The gamma factor used for anti-aliased rendering. It is the exponent value of gamma function. Typical values are in the range from 0.1 to 3.
+         * @returns returns true if document can update rasterizer options
+         */
+        updateRasterizerOptions(options: {
+            pageTransparent?: boolean;
+            overprintMode?: number;
+            antiAliasing?: boolean;
+            pathHinting?: boolean;
+            thinLinePixelGridFit?: boolean;
+            thinLineStrokeAdjust?: boolean;
+            imageSmoothing?: boolean;
+            hqImageResampling?: boolean;
+            caching?: boolean;
+            expGamma?: number;
+        }): boolean;
+        /**
          * Loads a canvas for a particular page number.
          * @param options - An object specifying the options for loading the canvas. The following parameters should be properties on this object. The only non-optional parameter is pageNumber.
          * @param options.pageNumber - The page number of the requested canvas.
@@ -26710,7 +27505,7 @@ declare namespace Core {
         /**
          * Gets the XFDF data for the document's internal annotations.
          * @param [pages] - An array of page numbers to get the XFDF data for the document. Note: Only one page
-        is supported by XOD documents. For PDF documents if no parameter is passed then the XFDF data for the entire document is returned.
+         * is supported by XOD documents. For PDF documents if no parameter is passed then the XFDF data for the entire document is returned.
          * @returns A promise that resolves to an object with an xfdfString property and a pages property where pages is the array of page numbers that annotations were extracted from
          */
         extractXFDF(pages?: number[]): Promise<Core.Document.XFDFInfo>;
@@ -26719,7 +27514,7 @@ declare namespace Core {
          * @param pageNumber - The page number of the requested thumbnail (1-indexed).
          * @param onLoadThumbnail - The callback to call when the thumbnail has been retrieved. Accepts an HTMLImageElement or HTMLCanvasElement as a parameter.
          * @returns The id of the request that can later be used for cancelling the request
-        It is passed an image element if the .xod file contains thumbnails and a canvas element otherwise.
+         * It is passed an image element if the .xod file contains thumbnails and a canvas element otherwise.
          */
         loadThumbnailAsync(pageNumber: number, onLoadThumbnail: (...params: any[]) => any): number;
         /**
@@ -26734,7 +27529,7 @@ declare namespace Core {
         resumeLoadCanvas(id: number): void;
         /**
          * Returns the PDFNet.PDFDoc object associated with the document. Note that the full API is required to be enabled
-        and WebViewer Server cannot be enabled.
+         * and WebViewer Server cannot be enabled.
          * @returns A promise that resolves to the PDFDoc object.
          */
         getPDFDoc(): Promise<Core.PDFNet.PDFDoc>;
@@ -26755,7 +27550,7 @@ declare namespace Core {
          * [XOD Document only] Downloads the document for offline viewing.
          * @param onComplete - The function that's called when the document has finished being downloaded or the download has been cancelled
          * @param onProgress - The function that's called on each update in progress of the download.
-        The fraction downloaded is passed as a parameter. (eg 50% downloaded passes 0.5)
+         * The fraction downloaded is passed as a parameter. (eg 50% downloaded passes 0.5)
          */
         storeOffline(onComplete: (...params: any[]) => any, onProgress: (...params: any[]) => any): void;
         /**
@@ -26764,21 +27559,21 @@ declare namespace Core {
         unloadResources(): void;
         /**
          * Refresh the text data stored by the viewer.
-        Useful if the text content of the document has changed, e.g. after a redaction.
+         * Useful if the text content of the document has changed, e.g. after a redaction.
          */
         refreshTextData(): void;
         /**
          * [PDF/Office Document only] Asynchronously saves the document and provides the result as an ArrayBuffer.
-        To include annotations in the saved document, please provide an object with the xfdfString property.
+         * To include annotations in the saved document, please provide an object with the xfdfString property.
          * @param [options] - An optional object containing save options and parameters.
          * @param [options.xfdfString] - An xfdf string containing annotation data to be used when saving. This will usually be retrieved by calling exportAnnotations on a Core.AnnotationManager object.
          * @param [options.flatten] - A flag that is only useful when the xfdfString option is used. If true all the annotations in the saved document will be flattened.
          * @param [options.finishedWithDocument] - A flag specifying that the document data may be discarded by the worker after use.
-        Only use this when completely finished with document processing. When handling larger documents this can be useful to avoid memory exhaustion as only one copy of the document needs to be kept.
+         * Only use this when completely finished with document processing. When handling larger documents this can be useful to avoid memory exhaustion as only one copy of the document needs to be kept.
          * @param [options.printDocument] - If true the saved document data will have an open action specifying that it should be printed. This is mostly only used to trigger print actions in the browser's PDF Viewer.
          * @param [options.downloadType] - The file type to download as, where the default is the source type. PDF and image files can only be downloaded as PDFs, but office files can be downloaded as "pdf" or as "office" if you want to get the original file without annotations.
          * @param [options.flags] - The flags with which to save the document.
-        Possible values include Core.SaveOptions.REMOVE_UNUSED (remove unused objects during save) and Core.SaveOptions.LINEARIZED (optimize the document for fast web view and remove unused objects). The default value is Core.SaveOptions.REMOVE_UNUSED.
+         * Possible values include Core.SaveOptions.REMOVE_UNUSED (remove unused objects during save) and Core.SaveOptions.LINEARIZED (optimize the document for fast web view and remove unused objects). The default value is Core.SaveOptions.REMOVE_UNUSED.
          * @returns a promise that resolves to an array buffer containing PDF document bytes.
          */
         getFileData(options?: {
@@ -26878,16 +27673,16 @@ declare namespace Core {
         getLayersArray(): Promise<LayerContext[]>;
         /**
          * [PDF Document only] Update the array describing the layers/OCG structure in order
-        to adjust which layers should be enabled or disabled.
-        The layers updated event is triggered as a side effect
+         * to adjust which layers should be enabled or disabled.
+         * The layers updated event is triggered as a side effect
          * @param layersContext - the OCG layers to set
          */
         setLayersArray(layersContext: LayerContext[]): void;
         /**
          * [PDF Document only] Set the overprint preview mode to be used when rendering
-        this document.
+         * this document.
          * @param mode - The mode to use. Possible values are Core.OverprintPreviewMode.OFF,
-        Core.OverprintPreviewMode.ON and Core.OverprintPreviewMode.PDFX_ON
+         * Core.OverprintPreviewMode.ON and Core.OverprintPreviewMode.PDFX_ON
          */
         setOverprintPreviewMode(mode: any): void;
         /**
@@ -26910,7 +27705,7 @@ declare namespace Core {
         getPageRotation(pageNumber: number): number;
         /**
          * @returns returns user defined document id passed in WebViewer constructor constorctor or loadDocument API, e.g.
-        WebViewer({ documentId: 'foo-11', initialDoc: 'url'  }) or instance.loadDocument(url, { documentId: 'foo-11' })
+         * WebViewer({ documentId: 'foo-11', initialDoc: 'url'  }) or instance.loadDocument(url, { documentId: 'foo-11' })
          */
         getDocumentId(): string;
         /**
@@ -26927,7 +27722,7 @@ declare namespace Core {
         insertBlankPages(insertBeforeThesePages: number[], width: number, height: number): Promise<object>;
         /**
          * [PDF Document only] Returns whether the document is linearized or not.
-        Note that this only works for documents that are loaded by URL and if useDownloader is not set to false.
+         * Note that this only works for documents that are loaded by URL and if useDownloader is not set to false.
          * @returns Whether the document is linearized or not
          */
         isLinearized(): boolean;
@@ -26935,94 +27730,94 @@ declare namespace Core {
          * Sets watermark to be added to the document
          * @example
          * doc.setWatermark({
-          diagonal: {
-            fontSize: (number),
-            fontFamily: (string),
-            color: (string),
-            opacity: (number (between 0 and 100)),
-            text: (string)
-          },
-          header: {
-            fontSize: (number),
-            fontFamily: (string),
-            color: (string),
-            opacity: (number (between 0 and 100)),
-            left: (string),
-            center: (string),
-            right: (string)
-          },
-          footer: {
-            fontSize: (number),
-            fontFamily: (string),
-            color: (string),
-            opacity: (number (between 0 and 100)),
-            left: (string),
-            center: (string),
-            right: (string)
-          }
-          custom: (function(ctx, pageIndex, pageWidth, pageHeight))
-        });
-        
-        To allow more customization of the header/footer, the following can be done:
-        
-        doc.setWatermark({
-        diagonal: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        headerLeft: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        headerCenter: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        headerRight: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        footerLeft: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        footerCenter: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        footerRight: {
-          fontSize: (number),
-          fontFamily: (string),
-          color: (string),
-          opacity: (number (between 0 and 100)),
-          text: (string)
-        },
-        custom: (function(ctx, pageIndex, pageWidth, pageHeight))
-        });
+         *   diagonal: {
+         *     fontSize: (number),
+         *     fontFamily: (string),
+         *     color: (string),
+         *     opacity: (number (between 0 and 100)),
+         *     text: (string)
+         *   },
+         *   header: {
+         *     fontSize: (number),
+         *     fontFamily: (string),
+         *     color: (string),
+         *     opacity: (number (between 0 and 100)),
+         *     left: (string),
+         *     center: (string),
+         *     right: (string)
+         *   },
+         *   footer: {
+         *     fontSize: (number),
+         *     fontFamily: (string),
+         *     color: (string),
+         *     opacity: (number (between 0 and 100)),
+         *     left: (string),
+         *     center: (string),
+         *     right: (string)
+         *   }
+         *   custom: (function(ctx, pageIndex, pageWidth, pageHeight))
+         * });
+         *
+         * To allow more customization of the header/footer, the following can be done:
+         *
+         * doc.setWatermark({
+         * diagonal: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * headerLeft: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * headerCenter: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * headerRight: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * footerLeft: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * footerCenter: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * footerRight: {
+         *   fontSize: (number),
+         *   fontFamily: (string),
+         *   color: (string),
+         *   opacity: (number (between 0 and 100)),
+         *   text: (string)
+         * },
+         * custom: (function(ctx, pageIndex, pageWidth, pageHeight))
+         * });
          * @param options - Object that contains style/content of the watermark
          */
         setWatermark(options: any): void;
         /**
          * [PDF Document only] Enables the color separations feature for rendering.
-        the parameter is deprecated since version 8.0
+         * the parameter is deprecated since version 8.0
          */
         enableColorSeparations(): void;
         /**
@@ -27034,6 +27829,11 @@ declare namespace Core {
          * @returns the client Id as a string.
          */
         getClientId(): string;
+        /**
+         * [Server Document only] Get auth Id for current server document.
+         * @returns the auth Id as a string.
+         */
+        getAuthId(): string;
         /**
          * [PDF Document only] Gets the color separations available on this document.
          * @returns The color separations of the document
@@ -27048,17 +27848,23 @@ declare namespace Core {
         /**
          * Get the size of the document in bytes. Throws if the size cannot be found.
          * @param [aggressionLevel = 2] - Set the number of failed attempts to allow before throwing.
-        Each attempt calls a method that may take slighly longer than the previous.
-        The order of attempts are as follows:
-        1) Return the size immediately if we already have the data
-        2) Make a HEAD request to the server and attempt to read the 'content-length' header
-        3) Download the full document and return the size
-        
-        For example, setting aggressionLevel to 1 only tries the first method, setting it to 3 tries all the methods.
-        The default is 2
+         * Each attempt calls a method that may take slighly longer than the previous.
+         * The order of attempts are as follows:
+         * 1) Return the size immediately if we already have the data
+         * 2) Make a HEAD request to the server and attempt to read the 'content-length' header
+         * 3) Download the full document and return the size
+         *
+         * For example, setting aggressionLevel to 1 only tries the first method, setting it to 3 tries all the methods.
+         * The default is 2
          * @returns The number of bytes
          */
         getFileSize(aggressionLevel?: number): Promise<number>;
+        /**
+         * [Office Document only] Update a Document via binding template keys to content.
+         * @param autoFillMap - An object consisting of template key-value pairs
+         * @returns Resolves when template data has been applied to the document, or rejects with an error.
+         */
+        applyTemplateValues(autoFillMap: any): Promise<void>;
         /**
          * Triggered when a color separation is loaded and available on the document.
          * @param colorData - An object with properties of the color separation
@@ -27178,7 +27984,7 @@ declare namespace Core {
         };
         /**
          * This function must be called after modifying the scroll view element's dimensions or properties.
-        The scroll view is the element returned from docViewer.getScrollViewElement()
+         * The scroll view is the element returned from docViewer.getScrollViewElement()
          */
         scrollViewUpdated(): void;
         /**
@@ -27187,8 +27993,8 @@ declare namespace Core {
         closeDocument(): void;
         /**
          * Request a recalculation of page layout and rerender all pages. For use when
-        modifying the underlying Document without using the provided page
-        modification functions (cropPages, rotatePages...)
+         * modifying the underlying Document without using the provided page
+         * modification functions (cropPages, rotatePages...)
          * @param pagesToRecalculate - An array of page numbers (1-indexed) that should be recalculated
          */
         recalculateLayout(pagesToRecalculate: number[]): void;
@@ -27199,18 +28005,18 @@ declare namespace Core {
         isAutomaticLinkingEnabled(): boolean;
         /**
          * Sets whether automatic linking should be enabled.
-        If enabled then any URLs detected in the document text will automatically be linked.
+         * If enabled then any URLs detected in the document text will automatically be linked.
          * @param enable - Whether to enable automatic linking.
          */
         setEnableAutomaticLinking(enable: boolean): void;
         /**
          * Enable automatic linking.
-        If enabled then any URLs detected in the document text will automatically be linked.
+         * If enabled then any URLs detected in the document text will automatically be linked.
          */
         enableAutomaticLinking(): void;
         /**
          * Disable automatic linking.
-        If disabled then any URLs detected in the document text will not automatically be linked.
+         * If disabled then any URLs detected in the document text will not automatically be linked.
          */
         disableAutomaticLinking(): void;
         /**
@@ -27348,7 +28154,7 @@ declare namespace Core {
         getAnnotationHistoryManager(): AnnotationHistoryManager;
         /**
          * Set the options that are used when importing annotations from a document asynchronously.
-        These are the options that will be passed to AnnotationManager.importAnnotations.
+         * These are the options that will be passed to AnnotationManager.importAnnotations.
          * @param options - The options for importing
          * @param options.batchSize - The number of annotations to import in each batch
          * @param options.batchDelay - The amount of time in milliseconds to delay between importing each batch
@@ -27359,13 +28165,13 @@ declare namespace Core {
         }): void;
         /**
          * Sets whether annotations should only be loaded from the visible pages and removed when a page is no longer visible.
-        Note that when enabling this option only annotations on the visible pages will be exported or included in the downloaded document
+         * Note that when enabling this option only annotations on the visible pages will be exported or included in the downloaded document
          * @param val - Whether the option should be enabled or not
          */
         setLoadAnnotationsFromVisiblePages(val: boolean): void;
         /**
          * Enable annotations to only be loaded from the visible pages and removed when a page is no longer visible.
-        Note that when enabling this option only annotations on the visible pages will be exported or included in the downloaded document
+         * Note that when enabling this option only annotations on the visible pages will be exported or included in the downloaded document
          */
         enableLoadingAnnotationsFromVisiblePages(): void;
         /**
@@ -27384,12 +28190,12 @@ declare namespace Core {
         setPagesUpdatedInternalAnnotationsTransform(handler: (...params: any[]) => any): void;
         /**
          * Sets the XFDF retriever that will be called when a document is being loaded. The XFDF returned from the retriever will be merged into the document.
-        It is recommended to use this function instead of annotManager.importAnnotations if you are loading XFDF from your server so that you don't need to wait for the annotationsLoaded event to be triggered. setDocumentXFDFRetriever will ensure that the annotation data is merged at the right time and as early as possible.
+         * It is recommended to use this function instead of annotManager.importAnnotations if you are loading XFDF from your server so that you don't need to wait for the annotationsLoaded event to be triggered. setDocumentXFDFRetriever will ensure that the annotation data is merged at the right time and as early as possible.
          * @example
          * instance.docViewer.setDocumentXFDFRetriever(async (documentId) => {
-          const documentXFDFString = await fetchDocumentXFDFFromServer(documentId);
-          return documentXFDFString;
-        })
+         *   const documentXFDFString = await fetchDocumentXFDFFromServer(documentId);
+         *   return documentXFDFString;
+         * })
          * @param retriever - A retriever function that returns a Promise which should resolve to the XFDF string that is going to merged into the document
          * @returns A promise that resolves when the retriever has been set
          */
@@ -27454,11 +28260,11 @@ declare namespace Core {
          * Sets the color to use when highlighting text from searching.
          * @example
          * docViewer.setSearchHighlightColors({
-          searchResult: 'rgba(255, 0, 0, 0.5)',
-          activeSearchResult: 'rgba(0, 255, 0, 0.5)'
-        });
+         *   searchResult: 'rgba(255, 0, 0, 0.5)',
+         *   activeSearchResult: 'rgba(0, 255, 0, 0.5)'
+         * });
          * @param colorOptions - An object with searchResult or activeSearchResult properties
-        set as a color eg 'rgba(0, 0, 200, 0.5)'
+         * set as a color eg 'rgba(0, 0, 200, 0.5)'
          */
         setSearchHighlightColors(colorOptions: any): void;
         /**
@@ -27484,7 +28290,7 @@ declare namespace Core {
         setEnableStylusMode(): boolean;
         /**
          * Puts all annotation tools in the stylus annotating mode.
-        When in this mode, finger movements will scroll the document and using a stylus device will annotate the document.
+         * When in this mode, finger movements will scroll the document and using a stylus device will annotate the document.
          */
         enableStylusMode(): void;
         /**
@@ -27495,9 +28301,9 @@ declare namespace Core {
          * Returns the current viewing rotation.
          * @example
          * PageRotation['E_0'] = 0 (0 degress) <br/>
-        PageRotation['E_90'] = 1 (90 degress) <br/>
-        PageRotation['E_180'] = 2 (180 degress) <br/>
-        PageRotation['E_270'] = 3 (270 degress) <br/>
+         * PageRotation['E_90'] = 1 (90 degress) <br/>
+         * PageRotation['E_180'] = 2 (180 degress) <br/>
+         * PageRotation['E_270'] = 3 (270 degress) <br/>
          * @param [pageNumber] - Optionally pass the page number to get the specific page's rotation
          * @returns The current viewing rotation.
          */
@@ -27516,9 +28322,9 @@ declare namespace Core {
         setRotation(pageRotation: Core.PageRotation, pageNumber?: number): void;
         /**
          * Sets the individual page rotations of multiple pages at once. Pages that aren't specified will
-        use the default document rotation.
+         * use the default document rotation.
          * @param rotations - An object with keys that are page indexes (1-indexed) and values that are rotation values.
-        Rotations should be specified as {Core.PageRotation}s
+         * Rotations should be specified as {Core.PageRotation}s
          */
         setPageRotations(rotations: any): void;
         /**
@@ -27554,6 +28360,11 @@ declare namespace Core {
          */
         getRightToLeftPages(): boolean;
         /**
+         * Returns whether right to left page rendering is enabled.
+         * @returns True if right to left page rendering is enabled, false otherwise.
+         */
+        isRightToLeftPageRenderingEnabled(): boolean;
+        /**
          * Sets the page rendering order.
          * @param rightToLeftPages - Whether the new page rendering order should be right to left or not.
          */
@@ -27567,14 +28378,22 @@ declare namespace Core {
          */
         disableRightToLeftPageRendering(): void;
         /**
+         * Enable using the left/right arrow keys to switch pages.
+         */
+        enableArrowKeyNavigation(): void;
+        /**
+         * Disable using the left/right arrow keys to switch pages.
+         */
+        disableArrowKeyNavigation(): void;
+        /**
          * If the boomark is an internal link then it scrolls the viewer so that the position of the bookmark is in the upper-left corner of the viewer.
-        If it's an external URL then it opens the URL.
+         * If it's an external URL then it opens the URL.
          * @param bookmark - A bookmark that specifies the location to go to. Returned by {@link Core.Document#getBookmarks}.
          */
         displayBookmark(bookmark: Bookmark): void;
         /**
          * Shifts the current viewport of the viewer such that it can display the specified viewer coordinate position
-        Please refer to https://www.pdftron.com/documentation/web/guides/coordinates/#viewer-page-coordinates for more details
+         * Please refer to https://www.pdftron.com/documentation/web/guides/coordinates/#viewer-page-coordinates for more details
          * @param pageNumber - The page number the location is on
          * @param horizontalPosition - The horizontal position from the x-axis origin of the page (in viewer page coordinates)
          * @param verticalPostion - The vertical position from the y-axis of the page (in viewer page coordinates)
@@ -27593,7 +28412,7 @@ declare namespace Core {
          * @param [searchOptions.onError] - (result) The callback function that is called when search failed or regex has syntax error.
          * @param [searchOptions.startPage] - Page to start the search on (1-indexed).
          * @param [searchOptions.endPage] - Page to end the search on inclusively (1-indexed).
-        The search may complete when the search term is found, when the entire document has been searched, and, depending on the search options, at the end of every page. Parameter result: {@link DocumentViewer.SearchResults}.
+         * The search may complete when the search term is found, when the entire document has been searched, and, depending on the search options, at the end of every page. Parameter result: {@link DocumentViewer.SearchResults}.
          */
         textSearchInit(pattern: string, mode: number, searchOptions?: {
             fullSearch?: boolean;
@@ -27657,8 +28476,8 @@ declare namespace Core {
         displayAdditionalSearchResult(result: any): void;
         /**
          * Displays the new search results without clearing previous results
-        If you need to display many results at the same time this can be much
-        more efficient than calling displayAdditionalSearchResult for each result
+         * If you need to display many results at the same time this can be much
+         * more efficient than calling displayAdditionalSearchResult for each result
          * @param results - An array of search results {@link Core.DocumentViewer.SearchResult}. Returned by onResult in {@link Core.DocumentViewer#textSearchInit}.
          */
         displayAdditionalSearchResults(results: object[]): void;
@@ -27684,7 +28503,7 @@ declare namespace Core {
         getPageSearchResults(pageNumber?: number): any;
         /**
          * Draws the text selection for the specified page. Should be called after calling
-        AnnotationManager's drawAnnotations function if the selection should still be shown.
+         * AnnotationManager's drawAnnotations function if the selection should still be shown.
          * @param pageNumber - The page number to draw the selection on
          */
         drawSelection(pageNumber: number): void;
@@ -27713,8 +28532,8 @@ declare namespace Core {
         setToolMode(tool: Core.Tools.Tool): void;
         /**
          * Sets how the document will scale to fit the size of the scrollviewer's viewport.
-        Also re-renders content to the appropriate zoom level.
-        Only renders if a document has been loaded.
+         * Also re-renders content to the appropriate zoom level.
+         * Only renders if a document has been loaded.
          */
         setFitMode(fitMode: DocumentViewer.FitMode): void;
         /**
@@ -27729,7 +28548,7 @@ declare namespace Core {
         rotateCounterClockwise(pageNumber?: number): void;
         /**
          * Adjusts the viewer's zoom factor, and positions the point (x,y) at the upper left corner of the viewer.
-        Only renders if a document has been loaded.
+         * Only renders if a document has been loaded.
          * @param zoom - Zoom value.
          * @param [x] - Horizontal position to scroll to.
          * @param [y] - Vertical position to scroll to.
@@ -27737,7 +28556,7 @@ declare namespace Core {
         zoomTo(zoom: number, x?: number, y?: number): void;
         /**
          * Adjusts the viewer's zoom factor and positions the point on the document under the mouse at the same position
-        after zooming in.
+         * after zooming in.
          * @param zoom - Zoom value
          * @param offsetX - The x offset from the mouse position to the viewer's position (e.g. taking into account toolbars)
          * @param offsetY - The y offset from the mouse position to the viewer's position (e.g. taking into side panels)
@@ -27757,7 +28576,7 @@ declare namespace Core {
         setPageZoom(pageNumber: number, zoom: number): void;
         /**
          * Removes all the page content from the DOM.
-        Also clear the cache if the zoom or rotation has changed.
+         * Also clear the cache if the zoom or rotation has changed.
          * @param removeData - Whether or not to remove all event handlers and data on the elements
          */
         removeContent(removeData: boolean, rotationChanged: boolean, isZoomChanged: boolean): void;
@@ -27786,13 +28605,9 @@ declare namespace Core {
         displayFirstPage(): void;
         /**
          * Invalidates the rendering cache for all pages and removes embedded
-        thumbnails for viewer optimized PDF
+         * thumbnails for viewer optimized PDF
          */
         refreshAll(): void;
-        /**
-         * Invalidates the rendering cache for all pages, this not exposed function.
-         */
-        refreshAllAndClear(): void;
         /**
          * Invalidates the rendering cache for the specified page
          * @param pageNumber - The page number of the page (1-indexed)
@@ -27805,16 +28620,16 @@ declare namespace Core {
         updateLinks(pageNumber: number): void;
         /**
          * Removes previously drawn pages that are no longer visible and
-        draws pages that are visible and have not been drawn.
-        If visiblePages are provided then those pages are rendered otherwise visiblePages are calculated
-        depending on where the DIV elements for the pages are located.
+         * draws pages that are visible and have not been drawn.
+         * If visiblePages are provided then those pages are rendered otherwise visiblePages are calculated
+         * depending on where the DIV elements for the pages are located.
          * @param visiblePages - An array of integers representing the pages to render.
          * @param currentPageNumber - The number of the page that is currently visible in the viewer.
          */
         updateView(visiblePages: number[], currentPageNumber: number): void;
         /**
          * Notifies the document viewer that the visible pages have changed
-        but does not draw any pages.
+         * but does not draw any pages.
          */
         updateVisiblePages(visiblePages: number[]): void;
         /**
@@ -27828,6 +28643,14 @@ declare namespace Core {
          */
         setViewportRenderMode(val: boolean): void;
         /**
+         * Enables viewport rendering mode. This only renders the part of the page that is visible within the viewport.
+         */
+        enableViewportRenderMode(): void;
+        /**
+         * Disables viewport rendering mode
+         */
+        disableViewportRenderMode(): void;
+        /**
          * Returns a boolean to denote if viewer is in viewport rendering mode
          * @returns the boolean to denote if in viewport render mode
          */
@@ -27839,38 +28662,38 @@ declare namespace Core {
         setDefaultPageColor(color: string): void;
         /**
          * Sets watermark to be added to documents. Instead of an options object you can also pass a Promise
-        that resolves with the watermark options object. If the document hasn't been loaded yet then
-        DocumentViewer will wait to finish loading it until the watermark options are ready.
+         * that resolves with the watermark options object. If the document hasn't been loaded yet then
+         * DocumentViewer will wait to finish loading it until the watermark options are ready.
          * @example
          * docViewer.setWatermark({
-          diagonal: {
-            text: (string),
-            fontSize: (number || 20),
-            fontFamily: (string || 'sans-serif'),
-            color: (string || 'black'),
-            opacity: (number || 100)
-          },
-          header: {
-            left: (string),
-            center: (string),
-            right: (string),
-            fontSize: (number || 20),
-            fontFamily: (string || 'sans-serif'),
-            color: (string || 'black'),
-            opacity: (number || 100)
-          },
-          footer: {
-            left: (string)
-            center: (string),
-            right: (string),
-            fontSize: (number || 20),
-            fontFamily: (string || 'sans-serif'),
-            color: (string || 'black'),
-            opacity: (number || 100),
-          },
-          custom: (function(ctx, pageIndex, pageWidth, pageHeight)),
-          shouldDrawOverAnnotations: (boolean || false)
-        });
+         *   diagonal: {
+         *     text: (string),
+         *     fontSize: (number || 20),
+         *     fontFamily: (string || 'sans-serif'),
+         *     color: (string || 'black'),
+         *     opacity: (number || 100)
+         *   },
+         *   header: {
+         *     left: (string),
+         *     center: (string),
+         *     right: (string),
+         *     fontSize: (number || 20),
+         *     fontFamily: (string || 'sans-serif'),
+         *     color: (string || 'black'),
+         *     opacity: (number || 100)
+         *   },
+         *   footer: {
+         *     left: (string)
+         *     center: (string),
+         *     right: (string),
+         *     fontSize: (number || 20),
+         *     fontFamily: (string || 'sans-serif'),
+         *     color: (string || 'black'),
+         *     opacity: (number || 100),
+         *   },
+         *   custom: (function(ctx, pageIndex, pageWidth, pageHeight)),
+         *   shouldDrawOverAnnotations: (boolean || false)
+         * });
          * @param options - Object that contains style/content of the watermark
          * @param [options.diagonal] - Settings for a diagonal watermark
          * @param [options.diagonal.text] - The text content to be rendered as a diagonal watermark
@@ -27933,13 +28756,13 @@ declare namespace Core {
         getWatermark(): Promise<object>;
         /**
          * Triggered for the mouseLeftButtonDown event in the DocumentViewer's viewing area
-        Attach like docViewer.addEventListener('mouseLeftDown', callback)
+         * Attach like docViewer.addEventListener('mouseLeftDown', callback)
          * @param nativeEvt - Event object of the native JavaScript event
          */
         on(event: 'mouseLeftDown', callback: (nativeEvt: any) => void): void;
         /**
          * Triggered for the mouseLeftButtonDown event in the DocumentViewer's viewing area
-        Attach like docViewer.addEventListener('mouseLeftDown', callback)
+         * Attach like docViewer.addEventListener('mouseLeftDown', callback)
          * @param nativeEvt - Event object of the native JavaScript event
          */
         one(event: 'mouseLeftDown', callback: (nativeEvt: any) => void): void;
@@ -28213,16 +29036,16 @@ declare namespace Core {
         off(event?: 'annotationsLoaded', callback?: () => void): void;
         /**
          * Triggered when a search starts or ends.
-        When {@link Core.DocumentViewer#clearSearchResults} is executed searchInProgress event is triggered with both inProgress and isFullSearch
-        arguments to be undefined. This can be used to differentiate the search that hasn’t been started versus the search that was done.
+         * When {@link Core.DocumentViewer#clearSearchResults} is executed searchInProgress event is triggered with both inProgress and isFullSearch
+         * arguments to be undefined. This can be used to differentiate the search that hasn’t been started versus the search that was done.
          * @param inProgress - Whether a search is in progress or not
          * @param isFullSearch - Whether this is a full text search or not
          */
         on(event: 'searchInProgress', callback: (inProgress: boolean, isFullSearch: boolean) => void): void;
         /**
          * Triggered when a search starts or ends.
-        When {@link Core.DocumentViewer#clearSearchResults} is executed searchInProgress event is triggered with both inProgress and isFullSearch
-        arguments to be undefined. This can be used to differentiate the search that hasn’t been started versus the search that was done.
+         * When {@link Core.DocumentViewer#clearSearchResults} is executed searchInProgress event is triggered with both inProgress and isFullSearch
+         * arguments to be undefined. This can be used to differentiate the search that hasn’t been started versus the search that was done.
          * @param inProgress - Whether a search is in progress or not
          * @param isFullSearch - Whether this is a full text search or not
          */
@@ -28256,13 +29079,13 @@ declare namespace Core {
         off(event?: 'notify', callback?: (type: string) => void): void;
         /**
          * Triggered when the page should be changed.
-        Only fired when using a non-scrollable custom display mode.
+         * Only fired when using a non-scrollable custom display mode.
          * @param pageNum - The 1-indexed page number
          */
         on(event: 'changePage', callback: (pageNum: number) => void): void;
         /**
          * Triggered when the page should be changed.
-        Only fired when using a non-scrollable custom display mode.
+         * Only fired when using a non-scrollable custom display mode.
          * @param pageNum - The 1-indexed page number
          */
         one(event: 'changePage', callback: (pageNum: number) => void): void;
@@ -28494,7 +29317,7 @@ declare namespace Core {
         type DocumentXFDFRetriever = (docId: string) => Promise<string | string[]>;
         /**
          * @param ctx - The {@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D|Canvas Context} that determines how the watermark will be rendered.
-        Edit the {@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#Text_styles|text styles attributes} to change the rendering styling.
+         * Edit the {@link https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#Text_styles|text styles attributes} to change the rendering styling.
          * @param pageIndex - The index of the current page
          * @param pageWidth - The width of the current page
          * @param pageHeight - The height of the current page
@@ -28696,7 +29519,7 @@ declare namespace Core {
             static multiply(left: Core.Math.Matrix, right: Core.Math.Matrix): Core.Math.Matrix;
             /**
              * Multiples a series of transformations to create a final transformation matrix. Optionally, provide a point to transform with respect to.
-            Note that the order of transformations in the array matters and should be the logical order you expect them to execute in.
+             * Note that the order of transformations in the array matters and should be the logical order you expect them to execute in.
              * @param transforms - An array of ordered transformations
              * @param [origin] - A point to transform with respect to. Default: (0, 0)
              * @returns The result matrix
@@ -28802,7 +29625,7 @@ declare namespace Core {
             determinent(): number;
             /**
              * Get an inverse matrix. This is helpful for reversing transformations.
-            This function will return null if no inverse was found.
+             * This function will return null if no inverse was found.
              * @returns The inverse matrix of this matrix
              */
             inverse(): Core.Math.Matrix;
@@ -28882,7 +29705,7 @@ declare namespace Core {
             normalize(): Core.Math.Point;
             /**
              * .
-            Reverses the direction of this vector
+             * Reverses the direction of this vector
              * @returns The reverse vector
              */
             reverse(): Core.Math.Point;
@@ -28938,7 +29761,7 @@ declare namespace Core {
             equalTo(vec: any): any;
             /**
              * Serialize a Point object to a JSON object, which can be saved for further use.
-            Calling 'JSON.stringify()' on a Point object will call this function automatically.
+             * Calling 'JSON.stringify()' on a Point object will call this function automatically.
              * @returns The converted Point JSON object.
              */
             toJSON(): any;
@@ -28955,8 +29778,8 @@ declare namespace Core {
          * Create a new Quad with the x and y coordinates of the the four points of a quadrilateral.
          * @example
          * (x4,y4)---(x3,y3)
-            |        |
-         (x1,y1)---(x2,y2)
+         *     |        |
+         *  (x1,y1)---(x2,y2)
          * @property x1 - the x coordinate of the lower-left point
          * @property y1 - the y coordinate of the lower-left point
          * @property x2 - the x coordinate of the lower-right point
@@ -29018,8 +29841,8 @@ declare namespace Core {
          * Create a new Rect with the x and y coordinates of the upper-left and lower right points.
          * @example
          * (x1,y1)------|
-            |         |
-            |-------(x2,y2)
+         *     |         |
+         *     |-------(x2,y2)
          * @property x1 - the x coordinate of the upper-left point
          * @property y1 - the y coordinate of the upper-left point
          * @property x2 - the x coordinate of the lower-right point
@@ -29084,27 +29907,27 @@ declare namespace Core {
              * Gets a {@link Core.Math.Point Point} that is at the center of the rect.
              * @returns A point at the center of the rect
              */
-            getCenter(): number;
+            getCenter(): Core.Math.Point;
             /**
              * Gets a {@link Core.Math.Point Point} that is at the top-left of the rect.
              * @returns A point at the top-left of the rect
              */
-            getTopLeft(): number;
+            getTopLeft(): Core.Math.Point;
             /**
              * Gets a {@link Core.Math.Point Point} that is at the top-right of the rect.
              * @returns A point at the top-right of the rect
              */
-            getTopRight(): number;
+            getTopRight(): Core.Math.Point;
             /**
              * Gets a {@link Core.Math.Point Point} that is at the bottom-left of the rect.
              * @returns A point at the bottom-left of the rect
              */
-            getBottomLeft(): number;
+            getBottomLeft(): Core.Math.Point;
             /**
              * Gets a {@link Core.Math.Point Point} that is at the top-right of the rect.
              * @returns A point at the top-right of the rect
              */
-            getBottomRight(): number;
+            getBottomRight(): Core.Math.Point;
             /**
              * Translates the rect
              * @param x - The amount to translate in the x direction
@@ -29128,7 +29951,7 @@ declare namespace Core {
              * @param otherRect - The other rect
              * @returns True if the rects intersect. Otherwise, false.
              */
-            intersect(otherRect: Rect): boolean;
+            intersects(otherRect: Rect): boolean;
             /**
              * A method to determine whether this rect contains another rect. It is not considered as containment if another rect intersects this one.
              * @param otherRect - The other rect
@@ -29266,7 +30089,7 @@ declare namespace Core {
     namespace Tools {
         /**
          * Creates a new instance of AnnotationEditTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class AnnotationEditTool extends Core.Tools.AnnotationSelectTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29274,7 +30097,7 @@ declare namespace Core {
         /**
          * Represents a tool that can select annotations
          * @property overrideSelection - Whether to override the default annotation selection behavior of the tool. If true then annotations will not be selected by the tool.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class AnnotationSelectTool extends Core.Tools.Tool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29286,58 +30109,60 @@ declare namespace Core {
              * Sets the minimum size of annotations when resizing.
              * @example
              * instance.Core.Tools.AnnotationSelectTool.setMinimumAnnotationSizeWhenResizing((annotation) => {
-              if (annotation instanceof instance.Annotations.RectangleAnnotation) {
-                // minimum size for rectangles
-                return { width: 100, height: 30 };
-              }
-              // no minimum size for other types
-              return null;
-            });
+             *   if (annotation instanceof instance.Annotations.RectangleAnnotation) {
+             *     // minimum size for rectangles
+             *     return { width: 100, height: 30 };
+             *   }
+             *   // no minimum size for other types
+             *   return null;
+             * });
              * @param minimumAnnotationSizeGetterFunction - A function that receives the annotation being resized
-            and returns an object with width and height values that represent the minimum width and height the annotation
-            should be allowed to resize to.
+             * and returns an object with width and height values that represent the minimum width and height the annotation
+             * should be allowed to resize to.
              */
             setMinimumAnnotationSizeWhenResizing(minimumAnnotationSizeGetterFunction: (...params: any[]) => any): void;
             /**
-             * Set if the tool should trigger action immediately after clicking an annotation. For example, if this is enabled then you can immediately click and drag an annotation without making a separate click to select the annotation.
+             * Set if the tool should trigger action immediately after clicking an annotation.
+             * For example, if this is enabled then you can immediately click and drag an annotation without making a separate click to select the annotation.
              * @example
              * To enable this for one tool (The Pan tool, for example), this can be done:
-            
-            const tool = docViewer.getTool(window.Core.Tools.ToolNames.PAN);
-            tool.setEnableImmediateActionOnAnnotationSelection(true);
-            
-            To enable this for all selection tools, this can be done:
-            
-            const allTools = Object.values(docViewer.getToolModeMap());
-            for (const tool of allTools) {
-              if (tool instanceof Tools.AnnotationSelectTool) {
-                tool.setEnableImmediateActionOnAnnotationSelection(true);
-              }
-            }
-             * @param enable - a boolean indicating whether actions are triggered immediately on clicking on an annotation
+             *
+             * const tool = docViewer.getTool(window.Core.Tools.ToolNames.PAN);
+             * tool.setEnableImmediateActionOnAnnotationSelection(true);
+             *
+             * To enable this for all selection tools, this can be done:
+             *
+             * const allTools = Object.values(docViewer.getToolModeMap());
+             * for (const tool of allTools) {
+             *   if (tool instanceof Tools.AnnotationSelectTool) {
+             *     tool.setEnableImmediateActionOnAnnotationSelection(true);
+             *   }
+             * }
+             * @param enable - A boolean indicating whether actions are triggered immediately on clicking on an annotation
              */
             setEnableImmediateActionOnAnnotationSelection(enable: boolean): void;
             /**
-             * Sets if the tool should trigger actions immediately after clicking an annotation. For example, if this is enabled then you can immediately click and drag an annotation without making a separate click to select the annotation.
+             * Sets if the tool should trigger actions immediately after clicking an annotation.
+             * For example, if this is enabled then you can immediately click and drag an annotation without making a separate click to select the annotation.
              * @example
              * To enable this for one tool (The Pan tool, for example), this can be done:
-            
-            const tool = docViewer.getTool(window.Core.Tools.ToolNames.PAN);
-            tool.enableImmediateActionOnAnnotationSelection();
-            
-            To enable this for all selection tools, this can be done:
-            
-            const allTools = Object.values(docViewer.getToolModeMap());
-            for (const tool of allTools) {
-              if (tool instanceof Tools.AnnotationSelectTool) {
-                tool.enableImmediateActionOnAnnotationSelection();
-              }
-            }
+             *
+             * const tool = docViewer.getTool(window.Core.Tools.ToolNames.PAN);
+             * tool.enableImmediateActionOnAnnotationSelection();
+             *
+             * To enable this for all selection tools, this can be done:
+             *
+             * const allTools = Object.values(docViewer.getToolModeMap());
+             * for (const tool of allTools) {
+             *   if (tool instanceof Tools.AnnotationSelectTool) {
+             *     tool.enableImmediateActionOnAnnotationSelection();
+             *   }
+             * }
              */
             enableImmediateActionOnAnnotationSelection(): void;
             /**
              * Disable whether the tool should trigger an action immediately after clicking an annotation. When this is disabled you need to first click on annotation to select it before you can drag it.
-            This behavior is disabled by default.
+             * This behavior is disabled by default.
              */
             disableImmediateActionOnAnnotationSelection(): void;
             /**
@@ -29346,50 +30171,314 @@ declare namespace Core {
             overrideSelection: boolean;
         }
         /**
-         * Creates a new instance of the AreaMeasurementCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating polygon annotations with a measure dictionary.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class AreaMeasurementCreateTool extends Core.Tools.PerimeterMeasurementCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the ArrowCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating line annotations with an arrow head.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class ArrowCreateTool extends Core.Tools.LineCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the CalloutCreateTool.
+         * Represents the tool for creating {@link Core.Annotations.FreeTextAnnotation}.
          * @property lineCount - The number of segments for the line of the created callout
-         * @property defaults - the default styles of the tool
-         * @property defaults.StrokeColor - the stroke color of the tool
-         * @property defaults.FillColor - the fill color of the tool
-         * @property defaults.TextColor - the text color of the tool
-         * @property defaults.Opacity - the opacity of the tool
-         * @property defaults.StrokeThickness - the stroke thickness of the tool
-         * @property defaults.FontSize - the font size of the tool
-         * @property defaults.Width - the width of the text box
-         * @property defaults.Height - the height of the text box
-         * @property defaults.Font - the font family of the tool. The value should be web safe fonts
-         * @property defaults.TextAlign - the text alignment of the tool
-         * @param docViewer - an instance of DocumentViewer.
+         * @property defaults - The default styles of the tool
+         * @property defaults.StrokeColor - The stroke color of the tool
+         * @property defaults.FillColor - The fill color of the tool
+         * @property defaults.TextColor - The text color of the tool
+         * @property defaults.Opacity - The opacity of the tool
+         * @property defaults.StrokeThickness - The stroke thickness of the tool
+         * @property defaults.FontSize - The font size of the tool
+         * @property defaults.Width - The width of the text box
+         * @property defaults.Height - The height of the text box
+         * @property defaults.Font - The font family of the tool. The value should be web safe fonts
+         * @property defaults.TextAlign - The text alignment of the tool
+         * @param docViewer - An instance of DocumentViewer.
          */
         class CalloutCreateTool extends Core.Tools.PolylineCreateTool {
             constructor(docViewer: Core.DocumentViewer);
             /**
-             * @param textHandler - A function that should return a string that will be used as the initial text for a freetext annotation
+             * @param handler - A function that should return a string that will be used as the initial text for a freetext annotation
              */
-            static setTextHandler(textHandler: (...params: any[]) => any): void;
+            static setTextHandler(handler: (...params: any[]) => any): void;
             /**
              * Set if the text box of the annotation should auto resize with a fixed width on text change
-            The width can be adjusted by changing calloutTool.defaults.Width to a different value
-             * @param enable - a boolean indicating whether only the box height will resize on text change
+             * The width can be adjusted by changing calloutTool.defaults.Width to a different value
+             * @param enable - A boolean indicating whether only the box height will resize on text change
              */
             setEnableAutoSized(enable: boolean): void;
             /**
              * Enables the text box of the annotation to auto resize with a fixed width when the text changes
-            The width can be adjusted by changing calloutTool.defaults.Width to a different value
+             * The width can be adjusted by changing calloutTool.defaults.Width to a different value
              */
             enableAutoSizedTextBox(): void;
             /**
@@ -29397,11 +30486,121 @@ declare namespace Core {
              */
             disableAutoSizedTextBox(): void;
             /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
              * The number of segments for the line of the created callout
             */
             lineCount: number;
             /**
-             * the default styles of the tool
+             * The default styles of the tool
             */
             defaults: {
                 StrokeColor: Core.Annotations.Color;
@@ -29417,10 +30616,376 @@ declare namespace Core {
             };
         }
         /**
+         * Represents the tool for creating CheckBox Form Field Placeholders.
+         * @param docViewer - An instance of DocumentViewer.
+         */
+        class CheckBoxFormFieldCreateTool extends Core.Tools.RectangleCreateTool {
+            constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+        }
+        /**
          * Represents the tool for creating rectangular polygon annotations with a measure dictionary.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class CloudyRectangularAreaMeasurementTool extends Core.Tools.RectangularAreaMeasurementTool {
+            constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+        }
+        /**
+         * Represents the tool for creating ComboBox Form Field Placeholders
+         * @param docViewer - An instance of DocumentViewer.
+         */
+        class ComboBoxFormFieldCreateTool extends Core.Tools.RectangleCreateTool {
             constructor(docViewer: Core.DocumentViewer);
             /**
              * Triggered when an annotation has been created by the tool
@@ -29535,7 +31100,7 @@ declare namespace Core {
         }
         /**
          * Creates a new instance of the CountMeasurementCreateTool
-         * @param docViewer - an instance of DocumentViewer
+         * @param docViewer - An instance of DocumentViewer
          */
         class CountMeasurementCreateTool extends Core.Tools.StickyCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29547,8 +31112,8 @@ declare namespace Core {
             }
         }
         /**
-         * Creates a new instance of the CropCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for cropping a page.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class CropCreateTool extends Core.Tools.RectangleCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29556,9 +31121,9 @@ declare namespace Core {
              * Sets the crop mode for the tool
              * @example
              * WebViewer(...).then(instance => {
-             const tool = instance.docViewer.getTool('CropPage');
-             tool.setCropMode(instance.Core.Tools.CropCreateTool.CropModes.ALL_PAGES);
-            })
+             *  const tool = instance.docViewer.getTool('CropPage');
+             *  tool.setCropMode(instance.Core.Tools.CropCreateTool.CropModes.ALL_PAGES);
+             * })
              * @param cropMode - The crop mode to select
              */
             setCropMode(cropMode: Core.Tools.CropCreateTool.CropModes): void;
@@ -29572,6 +31137,28 @@ declare namespace Core {
              * @returns A promise that resolves when the crop regions have been applied.
              */
             applyCrop(): Promise<void>;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
             /**
              * Triggered when an annotation has been created by the tool
              * @param annotations - The annotation that was created
@@ -29631,16 +31218,126 @@ declare namespace Core {
                 bottom: number;
                 top: number;
             }) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the DistanceMeasurementCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating line annotations with a measure dictionary.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class DistanceMeasurementCreateTool extends Core.Tools.LineCreateTool {
             constructor(docViewer: Core.DocumentViewer);
             /**
              * Set if the tool should draw leader lines after the first mouse up instead of finishing it
-             * @param enable - a boolean indicating whether leader lines should be drawn
+             * @param enable - A boolean indicating whether leader lines should be drawn
              */
             setEnableLeaderLines(enable: boolean): void;
             /**
@@ -29648,20 +31345,214 @@ declare namespace Core {
              */
             enableLeaderLines(): void;
             /**
+             * Enables the creation of new distance annotations where the units are shown as imperial marks: ' and "
+             * @example
+             * WebViewer(...).then(instance => {
+             *  const tool = instance.docViewer.getTool('AnnotationCreateDistanceMeasurement');
+             *  tool.enableImperialMarks()
+             * })
+             */
+            enableImperialMarks(): void;
+            /**
+             * Disable the showing of imperial marks for the units of distance annotations created by this tool
+             * @example
+             * WebViewer(...).then(instance => {
+             *  const tool = instance.docViewer.getTool('AnnotationCreateDistanceMeasurement');
+             *  tool.disableImperialMarks()
+             * })
+             */
+            disableImperialMarks(): void;
+            /**
              * Disables drawing of leader lines after the first mouse up. The annotation will be immediately created.
              */
             disableLeaderLines(): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the EllipseCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.EllipseAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class EllipseCreateTool extends Core.Tools.GenericAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Represents the tool from creating an Ellipse Annotation to measure area and diameter
-         * @param docViewer - an instance of DocumentViewer
+         * @param docViewer - An instance of DocumentViewer
          */
         class EllipseMeasurementCreateTool extends Core.Tools.EllipseCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29699,6 +31590,50 @@ declare namespace Core {
             one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
             off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
             /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
              * Triggered when an annotation has been created by the tool
              * @param annotations - The annotation that was created
              */
@@ -29733,7 +31668,7 @@ declare namespace Core {
             off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Represents the tool for erasing annotations.
+         * Represents the tool for creating {@link Core.Annotations.EraserTool}.
          * @param docViewer - an instance of DocumentViewer.
          */
         class EraserTool extends Core.Tools.GenericAnnotationCreateTool {
@@ -29802,12 +31737,78 @@ declare namespace Core {
                 annotation: any;
                 skipAnnotation: Core.Annotations.FreeHandAnnotation;
             }) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Represents the tool for creating {@link Core.Annotations.FileAttachmentAnnotation}.
          * @property ACCEPTED_FILE_TYPES - A string specifying the accepted file types to be opened by the file picker. By default any file type is accepted.
          * @property ACCEPTED_FILE_SIZE - A number specifying the accepted file size in bytes (exclusive). A null, undefined, or value zero and below means no limit.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class FileAttachmentCreateTool extends Core.Tools.Tool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29821,19 +31822,85 @@ declare namespace Core {
             ACCEPTED_FILE_SIZE: number;
         }
         /**
-         * Creates a new instance of the FreeHandCreateTool.
+         * Represents the tool for creating {@link Core.Annotations.FreeHandAnnotation}.
          * @property createDelay - The delay to allow for multiple paths to be added as part of the same annotation
          * @property simplifyPen - Whether to simplify the annotation path when a pen input is used, defaults to false
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class FreeHandCreateTool extends Core.Tools.GenericAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
             /**
              * When called, the current freehand annotation being created is added to the AnnotationManager, ignoring the createDelay.
-            It is only necessary to call this function if you want the annotation to be added before the createDelay elapses.
+             * It is only necessary to call this function if you want the annotation to be added before the createDelay elapses.
              * @returns A promise that resolves when the current freehand annotation has been added to the AnnotationManager
              */
             complete(): Promise<any>;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
             /**
              * The delay to allow for multiple paths to be added as part of the same annotation
             */
@@ -29844,28 +31911,132 @@ declare namespace Core {
             simplifyPen: boolean;
         }
         /**
-         * Creates a new instance of the FreeHandHighlightCreateTool.
+         * Represents the tool for creating {@link Core.Annotations.FreeHandAnnotation}.
          * @property createDelay - The delay to allow for multiple paths to be added as part of the same annotation
          * @property simplifyPen - Whether to simplify the annotation path when a pen input is used, defaults to false
          * @property autoSmoothingRange - The range for error in auto-smoothing, a larger number meaning more room for error. Highlights that are drawn wider than this range will not be autosmoothed
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
-        class FreeHandHighlightCreateTool extends Core.Tools.GenericAnnotationCreateTool {
+        class FreeHandHighlightCreateTool extends Core.Tools.FreeHandCreateTool {
             constructor(docViewer: Core.DocumentViewer);
-            /**
-             * When called, the current freehand annotation being created is added to the AnnotationManager, ignoring the createDelay.
-            It is only necessary to call this function if you want the annotation to be added before the createDelay elapses.
-             * @returns A promise that resolves when the current freehand annotation has been added to the AnnotationManager
-             */
-            complete(): Promise<any>;
             /**
              * Sets how wide the range would be for auto smoothing vertical and horizontal strokes.
              * @example
              * const tool = docViewer.getTool(window.Core.Tools.ToolNames.FREEHAND_HIGHLIGHT);
-            tool.setAutoSmoothingRange(1);
+             * tool.setAutoSmoothingRange(1);
              * @param range - a number indicating how wide is the range to auto smooth vertical and horizontal strokes
              */
             FreeHandHighlightCreateTool(range: number): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
             /**
              * The delay to allow for multiple paths to be added as part of the same annotation
             */
@@ -29880,26 +32051,92 @@ declare namespace Core {
             autoSmoothingRange: number;
         }
         /**
-         * Creates a new instance of the FreeTextCreateTool.
-         * @property defaults - the default styles of the tool
-         * @property defaults.StrokeColor - the stroke color of the tool
-         * @property defaults.FillColor - the fill color of the tool
-         * @property defaults.TextColor - the text color of the tool
-         * @property defaults.Opacity - the opacity of the tool
-         * @property defaults.StrokeThickness - the stroke thickness of the tool
-         * @property defaults.FontSize - the font size of the tool
-         * @property defaults.Font - the font family of the tool. The value should be web safe fonts
-         * @property defaults.TextAlign - the text alignment of the tool
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.FreeTextAnnotation}.
+         * @property defaults - The default styles of the tool
+         * @property defaults.StrokeColor - The stroke color of the tool
+         * @property defaults.FillColor - The fill color of the tool
+         * @property defaults.TextColor - The text color of the tool
+         * @property defaults.Opacity - The opacity of the tool
+         * @property defaults.StrokeThickness - The stroke thickness of the tool
+         * @property defaults.FontSize - The font size of the tool
+         * @property defaults.Font - The font family of the tool. The value should be web safe fonts
+         * @property defaults.TextAlign - The text alignment of the tool
+         * @param docViewer - An instance of DocumentViewer.
          */
         class FreeTextCreateTool extends Core.Tools.GenericAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
             /**
-             * @param textHandler - A function that should return a string that will be used as the initial text for a freetext annotation
+             * @param handler - A function that should return a string that will be used as the initial text for a freetext annotation
              */
-            static setTextHandler(textHandler: (...params: any[]) => any): void;
+            static setTextHandler(handler: (...params: any[]) => any): void;
             /**
-             * the default styles of the tool
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * The default styles of the tool
             */
             defaults: {
                 StrokeColor: Core.Annotations.Color;
@@ -29914,15 +32151,15 @@ declare namespace Core {
         }
         /**
          * Represents a generic tool use to create markup annotations based on two mouse points (mouse left down and mouse left up).
-         * @property annotation - the instance of the annotation object created
+         * @property annotation - The instance of the annotation object created
          * @property annotationPrototype - The prototype of the annotation object created
-         * @property defaults - the default styles of the tool
-         * @property defaults.StrokeColor - the stroke color of the tool
-         * @property defaults.FillColor - the fill color of the tool
-         * @property defaults.Opacity - the opacity of the tool
-         * @property defaults.StrokeThickness - the stroke thickness of the tool
-         * @param docViewer - the instance of the corresponding DocumentViewer
-         * @param annotationPrototype - the prototype of the Annotation to create.
+         * @property defaults - The default styles of the tool
+         * @property defaults.StrokeColor - The stroke color of the tool
+         * @property defaults.FillColor - The fill color of the tool
+         * @property defaults.Opacity - The opacity of the tool
+         * @property defaults.StrokeThickness - The stroke thickness of the tool
+         * @param docViewer - The instance of the corresponding DocumentViewer
+         * @param annotationPrototype - The prototype of the Annotation to create.
          * @param [constructorArg] - optional argument to pass to the annotation's constructor
          */
         class GenericAnnotationCreateTool extends Core.Tools.AnnotationSelectTool {
@@ -29950,7 +32187,7 @@ declare namespace Core {
             one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
             off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
             /**
-             * the instance of the annotation object created
+             * The instance of the annotation object created
             */
             annotation: Core.Annotations.Annotation;
             /**
@@ -29958,7 +32195,7 @@ declare namespace Core {
             */
             annotationPrototype: Core.Annotations.Annotation;
             /**
-             * the default styles of the tool
+             * The default styles of the tool
             */
             defaults: {
                 StrokeColor: Core.Annotations.Color;
@@ -29968,8 +32205,8 @@ declare namespace Core {
             };
         }
         /**
-         * Creates a new instance of the LineCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.LineAnnotations}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class LineCreateTool extends Core.Tools.GenericAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -29983,11 +32220,194 @@ declare namespace Core {
              * @returns Enum for a snapping mode for the snapping.
              */
             getSnapMode(): number;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+        }
+        /**
+         * Represents the tool for creating ListBox Form Field Placeholders
+         * @param docViewer - An instance of DocumentViewer.
+         */
+        class ListBoxFormFieldCreateTool extends Core.Tools.RectangleCreateTool {
+            constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Creates a new instance of MarqueeZoomTool.
          * @property setZoomHandler - Sets the function that takes the current zoom level and returns the next zoom level if a mouse click without drag is performed
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class MarqueeZoomTool extends Core.Tools.Tool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30019,7 +32439,7 @@ declare namespace Core {
         /**
          * Represents a tool for DocumentViewer's built-in mouse pan scrolling.
          * @property [previousStylusTool] - the previous tool instance before panning the document in the stylus mode.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class PanTool extends Core.Tools.AnnotationSelectTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30037,8 +32457,8 @@ declare namespace Core {
             previousStylusTool?: Core.Tools.Tool;
         }
         /**
-         * Creates a new instance of the PerimeterMeasurementCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating polyline annotations with a measure dictionary.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class PerimeterMeasurementCreateTool extends Core.Tools.PolylineCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30052,6 +32472,116 @@ declare namespace Core {
              * @returns Enum for a snapping mode for the snapping.
              */
             getSnapMode(): number;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         namespace PolygonCloudCreateTool {
             enum ArcDrawModes {
@@ -30060,18 +32590,18 @@ declare namespace Core {
             }
         }
         /**
-         * Creates a new instance of the PolygonCloudCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.PolygonAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
-        class PolygonCloudCreateTool extends Core.Tools.PolylineCreateTool {
+        class PolygonCloudCreateTool extends Core.Tools.PolygonCreateTool {
             constructor(docViewer: Core.DocumentViewer);
             /**
              * Sets the arc drawing mode for annotations created by the tool
              * @example
              * const cloudTool = docViewer.getTool('AnnotationCreatePolygonCloud');
-            cloudTool.setArcDrawMode(instance.Core.Tools.PolygonCloudCreateTool.ArcDrawModes.RANDOM_ARCS);
-             * @param arcDrawMode - is either RANDOM_ARCS or EQUAL_ARCs
-            use existing ENUM to pass this value
+             * cloudTool.setArcDrawMode(instance.Core.Tools.PolygonCloudCreateTool.ArcDrawModes.RANDOM_ARCS);
+             * @param arcDrawMode - Is either RANDOM_ARCS or EQUAL_ARCs
+             * use existing ENUM to pass this value
              */
             setArcDrawMode(arcDrawMode: string): void;
             /**
@@ -30079,17 +32609,281 @@ declare namespace Core {
              * @returns the ArcDrawMode
              */
             getArcDrawMode(): string;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the PolygonCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.PolygonAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class PolygonCreateTool extends Core.Tools.PolylineCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the PolylineCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.PolylineAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class PolylineCreateTool extends Core.Tools.GenericAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30106,17 +32900,266 @@ declare namespace Core {
              * Prevent the tool from creating new annotations when hovering over an existing annotation. The annotation will be selected instead.
              */
             disableCreationOverAnnotation(): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the RectangleCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating RadioButton Form Field Placeholders
+         * @param docViewer - An instance of DocumentViewer.
+         */
+        class RadioButtonFormFieldCreateTool extends Core.Tools.EllipseCreateTool {
+            constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+        }
+        /**
+         * Represents the tool for creating {@link Core.Annotations.RectangleAnnotations}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class RectangleCreateTool extends Core.Tools.GenericAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Represents the tool for creating rectangular polygon annotations with a measure dictionary.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class RectangularAreaMeasurementTool extends Core.Tools.AreaMeasurementCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30154,6 +33197,138 @@ declare namespace Core {
             one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
             off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
             /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
              * Triggered when an annotation has been created by the tool
              * @param annotations - The annotation that was created
              */
@@ -30188,8 +33363,8 @@ declare namespace Core {
             off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the RedactionCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.RedactionAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class RedactionCreateTool extends Core.Tools.TextAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30206,13 +33381,110 @@ declare namespace Core {
              * Disable automatically setting the font size based on the selected text (if redacting text)
              */
             disableAutoSizedText(): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+        }
+        namespace RubberStampCreateTool {
+            /**
+             */
+            type CustomStampData = {
+                /**
+                 * Custom stamp's main text
+                 */
+                title?: string;
+                /**
+                 * Time format text used as a custom timestamp, e.g. "DD-MM-YYYY"
+                To render a plain-text string as a subtitle, place the desired string inside of square brackets
+                e.g. "[This is a subtitle]".
+                 */
+                subtitle?: string;
+                /**
+                 * Background color value
+                 */
+                color?: Core.Annotations.Color;
+            };
         }
         /**
-         * Creates a new instance of the RubberStampCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.StampAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class RubberStampCreateTool extends Core.Tools.Tool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotation - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotation: Core.Annotations.StampAnnotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotation - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotation: Core.Annotations.StampAnnotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotation: Core.Annotations.StampAnnotation) => void): void;
             /**
              * Have this rubber stamp tool always create a single type of stamp with the specified icon value.
              * @param options - An object that can contain the following optional parameters
@@ -30230,15 +33502,15 @@ declare namespace Core {
                 Opacity?: number;
             }): void;
             /**
-             * Returns array of objects representing the standard stamps
+             * Returns array of strings representing the standard stamps
              * @returns An array of objects representing the standard stamps
              */
-            getStandardStamps(): object[];
+            getStandardStamps(): string[];
             /**
              * Accepts and sets an array of objects representing standard stamps
-             * @param stamps - An array of objects representing the standard stamps
+             * @param stamps - An array of strings representing the standard stamps
              */
-            setStandardStamps(stamps: object[]): void;
+            setStandardStamps(stamps: string[]): void;
             /**
              * Returns array of objects representing the custom stamps
              * @returns An array of objects representing the custom stamps
@@ -30247,74 +33519,74 @@ declare namespace Core {
             /**
              * Accepts and sets an array of objects representing custom stamps
              * @param stamps - An array of objects representing custom stamps
-            Example:
-            [
-             {
-               "title": "Sample Text",
-               "subtitle": "DD-MM-YYYY",
-               "color": window.Annotations.Color(0,0,0)
-             }
-            ]
+             * Example:
+             * [
+             *  {
+             *    "title": "Sample Text",
+             *    "subtitle": "DD-MM-YYYY",
+             *    "color": window.Annotations.Color(0,0,0)
+             *  }
+             * ]
              */
             setCustomStamps(stamps: Core.Tools.RubberStampCreateTool.CustomStampData[]): void;
             /**
              * Sets the underlying annotation used by the tool
-             * @param annotation - annotation to set
+             * @param annotation - Annotation to set
              */
             setRubberStamp(annotation: Core.Annotations.StampAnnotation): Promise<void>;
             /**
              * Sets a custom function to be used for drawing extra content on top of
-            custom stamps, enabling customization of the CanvasRenderingContext2D of
-            the Canvas element used for Rubber Stamps
+             * custom stamps, enabling customization of the CanvasRenderingContext2D of
+             * the Canvas element used for Rubber Stamps
              * @example
              * WebViewer(
-             // ...
-            ).then(instance => {
-              const { docViewer } = instance;
-              const tool = docViewer.getTool('AnnotationCreateRubberStamp');
-              tool.setCustomDrawFunction((ctx, annotation) => {
-                const { Icon } = annotation;
-                // `Icon` contains the text content of the stamp
-                // This example conditionally renders custom content on the stamp only
-                // if the contents of the stamp are in the approved list of stamps to
-                // draw on
-                const stampsToDrawOn = [
-                  'Approved',
-                  'Completed',
-                  'Final',
-                ];
-                if (stampsToDrawOn.includes(Icon)) {
-                  // Arbitrary example where an image is available in the DOM
-                  const img = document.getElementById('my-company-logo');
-                  ctx.drawImage(
-                    img, // The image to render
-                    0, // The X coordinate of where to place the image
-                    0, // The Y coordinate of where the place the image
-                    25, // The width of the image in pixels
-                    25, // The height of the image in pixels
-                  );
-                }
-              });
-            });
+             *  // ...
+             * ).then(instance => {
+             *   const { docViewer } = instance;
+             *   const tool = docViewer.getTool('AnnotationCreateRubberStamp');
+             *   tool.setCustomDrawFunction((ctx, annotation) => {
+             *     const { Icon } = annotation;
+             *     // `Icon` contains the text content of the stamp
+             *     // This example conditionally renders custom content on the stamp only
+             *     // if the contents of the stamp are in the approved list of stamps to
+             *     // draw on
+             *     const stampsToDrawOn = [
+             *       'Approved',
+             *       'Completed',
+             *       'Final',
+             *     ];
+             *     if (stampsToDrawOn.includes(Icon)) {
+             *       // Arbitrary example where an image is available in the DOM
+             *       const img = document.getElementById('my-company-logo');
+             *       ctx.drawImage(
+             *         img, // The image to render
+             *         0, // The X coordinate of where to place the image
+             *         0, // The Y coordinate of where the place the image
+             *         25, // The width of the image in pixels
+             *         25, // The height of the image in pixels
+             *       );
+             *     }
+             *   });
+             * });
              * @param callback - A callback side effect function that takes a
-            two parameters. The first is assumed to be the type
-            CanvasRenderingContext2D, and modifies the parameter for the purposes of
-            custom drawing behavior on top of the default stamp behavior. The second
-            parameter is optional, and is assumed to be an instance of the
-            Core.Annotations.Annotation class, wherein custom behavior for the stamp
-            annotation being modified can be added (i.e. conditionally apply custom
-            drawing on certain annotations only)
+             * two parameters. The first is assumed to be the type
+             * CanvasRenderingContext2D, and modifies the parameter for the purposes of
+             * custom drawing behavior on top of the default stamp behavior. The second
+             * parameter is optional, and is assumed to be an instance of the
+             * Core.Annotations.Annotation class, wherein custom behavior for the stamp
+             * annotation being modified can be added (i.e. conditionally apply custom
+             * drawing on certain annotations only)
              */
             setCustomDrawFunction(callback: (...params: any[]) => any): void;
             /**
              * Add the stamp to the document.
              */
-            addStamp(): void;
+            addStamp(): Promise<void>;
             /**
              * Gets the preview about how the annot will be drawn on the document
              * @param annotation - annotation to get the preview for.
              * @param parameters - canvas parameters and optional text for annotation, e.g. translated text.
-             e.g. { canvasHeight: number, canvasWidth: number, text: string }
+             *  e.g. { canvasHeight: number, canvasWidth: number, text: string }
              * @returns Returns a promise that resolves a base64 string of the preview image
              */
             getPreview(annotation: Core.Annotations.StampAnnotation, parameters: any): Promise<string>;
@@ -30328,25 +33600,25 @@ declare namespace Core {
             hidePreview(): void;
             /**
              * Checks if the underlying annotation is empty.
-            If the underlying annotation is a StampAnnotation type return true.
+             * If the underlying annotation is a StampAnnotation type return true.
              */
             isEmptyStamp(): boolean;
             /**
              * Get array of standard stamp annotations.
              */
-            getStandardStampAnnotations(): Promise<Core.Annotations.Annotation[]>;
+            getStandardStampAnnotations(): Promise<Core.Annotations.StampAnnotation[]>;
             /**
              * Add a single custom stamp to tool's list
-             * @param data - The custom stamp data
+             * @param options - The custom stamp data
              */
-            addCustomStamp(data: Core.Tools.RubberStampCreateTool.CustomStampData): void;
+            addCustomStamp(options: Core.Tools.RubberStampCreateTool.CustomStampData): void;
             /**
              * Draw custom stamp annotation onto a canvas
              * @param options - An object that can contain the following optional parameters
              * @param [options.title] - Custom stamp's main text
              * @param [options.subtitle] - Time format text used as a custom timestamp, e.g. "DD-MM-YYYY"
-            To render a plain-text string as a subtitle, place the desired string inside of square brackets
-            e.g. "[This is a subtitle]".
+             * To render a plain-text string as a subtitle, place the desired string inside of square brackets
+             * e.g. "[This is a subtitle]".
              * @param [options.color] - Fill color value, see Annotation.Color
              * @param [options.canvas] - Canvas to draw this annotation
              * @param [options.width] - Default width of stamp
@@ -30365,27 +33637,7 @@ declare namespace Core {
             /**
              * Get array of custom annotations.
              */
-            getCustomStampAnnotations(): Core.Annotations.Annotation[];
-        }
-        namespace RubberStampCreateTool {
-            /**
-             */
-            type CustomStampData = {
-                /**
-                 * Custom stamp's main text
-                 */
-                title?: string;
-                /**
-                 * Time format text used as a custom timestamp, e.g. "DD-MM-YYYY"
-                 * To render a plain-text string as a subtitle, place the desired string inside of square brackets
-                 * e.g. "[This is a subtitle]".
-                 */
-                subtitle?: string;
-                /**
-                 * Background color value
-                 */
-                color?: Core.Annotations.Color;
-            };
+            getCustomStampAnnotations(): Promise<Core.Annotations.StampAnnotation[]>;
         }
         /**
          * Creates a new instance of the SignatureCreateTool.
@@ -30457,7 +33709,7 @@ declare namespace Core {
             resizeCanvas(): void;
             /**
              * Save an array of freehand or stamp annotations to the signature tool
-             * @param annotations - annotations to be saved to the signature tool
+             * @param annotations - Annotations to be saved to the signature tool
              */
             saveSignatures(annotations: Core.Annotations.FreeHandAnnotation | Core.Annotations.StampAnnotation): void;
             /**
@@ -30473,22 +33725,24 @@ declare namespace Core {
             /**
              * Loads signature data into the signature tool
              * @param signatureData - An array contains arrays of path points or base64 image data
-            If the element is a string, a stamp annotation will be saved and the string will be the value of its ImageData property
-            If the element is an array of objects, a freehand annotation will be saved and the array will be its paths
+             * If the element is a string, a stamp annotation will be saved and the string will be the value of its ImageData property
+             * If the element is an array of objects, a freehand annotation will be saved and the array will be its paths
+             * @returns Promise<void>
              */
-            importSignatures(signatureData: (string | Core.Math.Point[])[]): void;
+            importSignatures(signatureData: (string | Core.Math.Point[][])[]): any;
             /**
              * Exports all saved signatures as an array
-            The array can be stringified using JSON.stringify and saved for later use
+             * The array can be stringified using JSON.stringify and saved for later use
              * @returns Returns a promise that resolves an array that contains arrays of path points or a base64 image data
              */
-            exportSignatures(): Promise<(string | Core.Math.Point[])[]>;
+            exportSignatures(): Promise<(string | Core.Math.Point[][])[]>;
             /**
              * Sets the underlying annotation used by the tool
-            If a base64 string is passed, the underlying annotation will be a stamp annotation with the string being its ImageData
-             * @param annotation - annotation to set
+             * If a base64 string is passed, the underlying annotation will be a stamp annotation with the string being its ImageData
+             * @param annotation - Annotation to set
+             * @returns Promise<void>
              */
-            setSignature(annotation: Core.Annotations.FreeHandAnnotation | Core.Annotations.StampAnnotation | string | object[]): void;
+            setSignature(annotation: Core.Annotations.FreeHandAnnotation | Core.Annotations.StampAnnotation | string | object[]): any;
             /**
              * Clear the location which is set when a mouse click is performed
              */
@@ -30501,7 +33755,7 @@ declare namespace Core {
              * Gets the preview about how the annot will be drawn on the document
              * @returns A promise that resolves with a base64 string of the preview image
              */
-            getPreview(): Promise<any>;
+            getPreview(annotation: Core.Annotations.FreeHandAnnotation | Core.Annotations.StampAnnotation): Promise<string>;
             /**
              * Shows the preview about how the underlying annot looks like if it's drawn.
              */
@@ -30517,8 +33771,8 @@ declare namespace Core {
             addSignature(): Promise<void>;
             /**
              * Checks if the underlying annotation is empty.
-            If the underlying annotation is a freehand, it's empty if it doesn't have any paths
-            If the underlying annotation is a stamp, it's empty if its ImageData property has a falsy value
+             * If the underlying annotation is a freehand, it's empty if it doesn't have any paths
+             * If the underlying annotation is a stamp, it's empty if its ImageData property has a falsy value
              * @returns If number of drawn paths is 0.
              */
             isEmptySignature(): Promise<boolean>;
@@ -30526,7 +33780,7 @@ declare namespace Core {
              * Sets the canvas to be used by the signature tool.
              * @param canvas - The canvas that the signature tool uses to draw on.
              */
-            setSignatureCanvas(canvas: HTMLElement): void;
+            setSignatureCanvas(canvas: HTMLCanvasElement): void;
             /**
              * The signature canvas context
             */
@@ -30537,9 +33791,9 @@ declare namespace Core {
             annot: Core.Annotations.FreeHandAnnotation | Core.Annotations.StampAnnotation;
         }
         /**
-         * Creates a new instance of the StampCreateTool.
+         * Represents the tool for creating {@link Core.Annotations.StampAnnotation}.
          * @property ACCEPTED_IMAGE_TYPES - A string specifying the accepted image types to be opened by the file picker default is image/*
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class StampCreateTool extends Core.Tools.Tool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30549,45 +33803,11 @@ declare namespace Core {
             ACCEPTED_IMAGE_TYPES: string;
         }
         /**
-         * Creates a new instance of the StickyCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.StickyAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class StickyCreateTool extends Core.Tools.Tool {
             constructor(docViewer: Core.DocumentViewer);
-            /**
-             * Sets whether new annotations can be created by the tool when hovering over an existing annotation
-             * @param val - Whether creation of annotation is allowed when hovering over another annotation
-             */
-            setAllowCreationOverAnnotation(val: boolean): void;
-            /**
-             * Allow the tool to create new annotations when hovering over an existing annotation
-             */
-            enableCreationOverAnnotation(): void;
-            /**
-             * Prevent the tool from creating new annotations when hovering over an existing annotation. The annotation will be selected instead.
-             */
-            disableCreationOverAnnotation(): void;
-            /**
-             * Sets whether new annotations have a ViewState applied to them.
-            ViewState is the state of the viewer when the annotation is created.
-            When the annotation is double clicked and ViewState exists, the viewer state will
-            be set to the ViewState
-             */
-            setSaveViewState(val: boolean): void;
-            /**
-             * When enabled, new annotations will have a ViewState applied to them.
-            ViewState is the state of the viewer when the annotation is created.
-            When the annotation is double clicked and ViewState exists, the viewer state will
-            be set to the ViewState
-             */
-            enableViewStateSaving(): void;
-            /**
-             * When called new annotations will not have a ViewState applied to them. By default no ViewState is applied.
-            ViewState is the state of the viewer when the annotation is created.
-            When the annotation is double clicked and ViewState exists, the viewer state will
-            be set to the ViewState
-             */
-            disableViewStateSaving(): void;
             /**
              * Triggered when an annotation has been created by the tool
              * @param annotations - The annotation that was created
@@ -30610,14 +33830,48 @@ declare namespace Core {
              */
             one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
             off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Sets whether new annotations can be created by the tool when hovering over an existing annotation
+             * @param val - Whether creation of annotation is allowed when hovering over another annotation
+             */
+            setAllowCreationOverAnnotation(val: boolean): void;
+            /**
+             * Allow the tool to create new annotations when hovering over an existing annotation
+             */
+            enableCreationOverAnnotation(): void;
+            /**
+             * Prevent the tool from creating new annotations when hovering over an existing annotation. The annotation will be selected instead.
+             */
+            disableCreationOverAnnotation(): void;
+            /**
+             * Sets whether new annotations have a ViewState applied to them.
+             * ViewState is the state of the viewer when the annotation is created.
+             * When the annotation is double clicked and ViewState exists, the viewer state will
+             * be set to the ViewState
+             */
+            setSaveViewState(val: boolean): void;
+            /**
+             * When enabled, new annotations will have a ViewState applied to them.
+             * ViewState is the state of the viewer when the annotation is created.
+             * When the annotation is double clicked and ViewState exists, the viewer state will
+             * be set to the ViewState
+             */
+            enableViewStateSaving(): void;
+            /**
+             * When called new annotations will not have a ViewState applied to them. By default no ViewState is applied.
+             * ViewState is the state of the viewer when the annotation is created.
+             * When the annotation is double clicked and ViewState exists, the viewer state will
+             * be set to the ViewState
+             */
+            disableViewStateSaving(): void;
         }
         /**
          * This class should not be instantiated.
-         * @property defaults - the default styles of the tool
-         * @property defaults.StrokeColor - the stroke color of the tool
-         * @property defaults.Opacity - the opacity of the tool
-         * @param docViewer - an instance of DocumentViewer.
-         * @param textAnnotationPrototype - the prototype the text-based annotation to create.
+         * @property defaults - The default styles of the tool
+         * @property defaults.StrokeColor - The stroke color of the tool
+         * @property defaults.Opacity - The opacity of the tool
+         * @param docViewer - An instance of DocumentViewer.
+         * @param textAnnotationPrototype - The prototype the text-based annotation to create.
          */
         class TextAnnotationCreateTool extends Core.Tools.TextTool {
             constructor(docViewer: Core.DocumentViewer, textAnnotationPrototype: (...params: any[]) => any);
@@ -30644,11 +33898,11 @@ declare namespace Core {
             one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
             off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
             /**
-             * toggle whether selected text should be set as annotation note contents
+             * Toggle whether selected text should be set as annotation note contents
              */
             static AUTO_SET_TEXT: boolean;
             /**
-             * the default styles of the tool
+             * The default styles of the tool
             */
             defaults: {
                 StrokeColor: Core.Annotations.Color;
@@ -30656,15 +33910,198 @@ declare namespace Core {
             };
         }
         /**
-         * Creates a new instance of the TextHighlightCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating Text Form Field Placeholders
+         * @param docViewer - An instance of DocumentViewer.
+         */
+        class TextFormFieldCreateTool extends Core.Tools.RectangleCreateTool {
+            constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+        }
+        /**
+         * Represents the tool for creating {@link Core.Annotations.TextHighlightAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class TextHighlightCreateTool extends Core.Tools.TextAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Represents a tool for DocumentViewer's built-in text selection.
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class TextSelectTool extends Core.Tools.TextTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30683,23 +34120,155 @@ declare namespace Core {
             off(event?: 'selectionComplete', callback?: (startLocation: any, allQuads: any) => void): void;
         }
         /**
-         * Creates a new instance of the TextSquigglyCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.TextSquigglyAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class TextSquigglyCreateTool extends Core.Tools.TextAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
-         * Creates a new instance of the TextStrikeoutCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.TextStrikeoutAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class TextStrikeoutCreateTool extends Core.Tools.TextAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Represents an extendable class for text-based tool.
-         * @property SELECTION_MODE - Selection mode used by text tools (structural or rectangular)
-         * @param docViewer - an instance of DocumentViewer.
+         * @property SELECTION_MODE - Selection mode used by text tools ('structural' or 'rectangular')
+         * @param docViewer - An instance of DocumentViewer.
          */
         class TextTool extends Core.Tools.AnnotationSelectTool {
             constructor(docViewer: Core.DocumentViewer);
@@ -30711,21 +34280,87 @@ declare namespace Core {
             select(pagePt1: any, pagePt2: any): void;
             /**
              * The function called when a text region is selected.
-             * @param quads - the array of quad coordinates for the selected text.
-             * @param text - the text selected.
+             * @param quads - The array of quad coordinates for the selected text.
+             * @param text - The text selected.
              */
             textSelected(pageNumber: number, quads: Core.Math.Quad[], text: string): void;
             /**
-             * Selection mode used by text tools (structural or rectangular)
+             * Selection mode used by text tools ('structural' or 'rectangular')
             */
             SELECTION_MODE: string;
         }
         /**
-         * Creates a new instance of the TextUnderlineCreateTool.
-         * @param docViewer - an instance of DocumentViewer.
+         * Represents the tool for creating {@link Core.Annotations.TextUnderlineAnnotation}.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class TextUnderlineCreateTool extends Core.Tools.TextAnnotationCreateTool {
             constructor(docViewer: Core.DocumentViewer);
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            on(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been created by the tool
+             * @param annotations - The annotation that was created
+             */
+            one(event: 'annotationCreated', callback: (annotations: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationCreated', callback?: (annotations: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            on(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            /**
+             * Triggered when an annotation has been added to the document by the tool
+             * @param annotation - The annotation that was added
+             */
+            one(event: 'annotationAdded', callback: (annotation: Core.Annotations.Annotation) => void): void;
+            off(event?: 'annotationAdded', callback?: (annotation: Core.Annotations.Annotation) => void): void;
         }
         /**
          * Represents the base class for DocumentViewer UI tools.
@@ -30733,7 +34368,7 @@ declare namespace Core {
          * @property pageCoordinates - an array of page coordinates this tool currently holds. The default is index 0 for the mouse left down and index 1 for mouse left up.
          * @property [name] - The name of the tool
          * @property cursor - The name of the default mouse cursor used when the tool is active
-         * @param docViewer - an instance of DocumentViewer.
+         * @param docViewer - An instance of DocumentViewer.
          */
         class Tool extends Core.EventHandler {
             constructor(docViewer: Core.DocumentViewer);
@@ -30755,8 +34390,8 @@ declare namespace Core {
             static ALLOW_ANNOTS_OUTSIDE_PAGE: boolean;
             /**
              * Takes an event object from a mouse event and converts the location into window coordinates
-             * @param e - the event object containing mouse coordinates
-             * @returns returns an object with x and y coordinates of the mouse cursor in the viewer
+             * @param e - The event object containing mouse coordinates
+             * @returns Returns an object with x and y coordinates of the mouse cursor in the viewer
              */
             getMouseLocation(e: any): Core.Math.Point;
             /**
@@ -30766,7 +34401,7 @@ declare namespace Core {
             mouseLeftDown(e: any): void;
             /**
              * The function called when the left mouse button is up.
-            Typically, annotations are created and added to the annotation manager at this point.
+             * Typically, annotations are created and added to the annotation manager at this point.
              * @param e - The event object containing mouse coordinates.
              */
             mouseLeftUp(e: any): void;
@@ -30781,48 +34416,48 @@ declare namespace Core {
              */
             mouseMove(e: any): void;
             /**
-             * The function called when the mouse left button is double clicked.
-             * @param e - the event object containing mouse coordinates.
+             * The function is called when the mouse left button is double clicked.
+             * @param e - The event object containing mouse coordinates.
              */
             mouseDoubleClick(e: any): void;
             /**
-             * The function called when a keyboard key is down.
-             * @param e - the event object containing keyboard key data.
+             * The function is called when a keyboard key is down.
+             * @param e - The event object containing keyboard key data.
              */
             keyDown(e: any): void;
             /**
-             * The function called when a context menu should be shown.
-            Use e.preventDefault to disable the default browser context menu
-             * @param e - the event object
+             * The function is called when a context menu should be shown.
+             * Use e.preventDefault to disable the default browser context menu.
+             * @param e - The event object
              */
             contextMenu(e: any): void;
             /**
-             * The function called when this tool is selected.
-            Typically use for changing mouse cursors, and initializing states for the tool.
-             * @param oldTool - the Tool class that was previously selected.
+             * The function is called when this tool is selected.
+             * Typically use for changing mouse cursors, and initializing states for the tool.
+             * @param oldTool - The Tool class that was previously selected.
              */
             switchIn(oldTool: Core.Tools.Tool): void;
             /**
-             * The function called when this tool is deselected.
-            Typically use for changing mouse cursors, and cleaning up states for the tool.
-             * @param newTool - the Tool class that was newly selected.
+             * The function is called when this tool is deselected.
+             * Typically use for changing mouse cursors, and cleaning up states for the tool.
+             * @param newTool - The Tool class that was newly selected.
              */
             switchOut(newTool: Core.Tools.Tool): void;
             /**
              * Returns the instance of DocumentViewer for this tool.
-             * @returns the instance of DocumentViewer for this tool.
+             * @returns The instance of DocumentViewer for this tool.
              */
             getDocumentViewer(): Core.DocumentViewer;
             /**
              * Set the style for the tool, which will be applied to annotations drawn afterwards
              * @param newStyles - if an object is used, it should contain properties of the new styles.
-            If a function is used, the current styles will be passed as its argument and the function should return an object which contains properties of the new styles.
-            Example of valid properties: StrokeColor, TextColor, FillColor, FontSize, Opacity, StrokeThickness, Precision, Scale, OverlayText, Style and Dashes.
+             * If a function is used, the current styles will be passed as its argument and the function should return an object which contains properties of the new styles.
+             * Example of valid properties: StrokeColor, TextColor, FillColor, FontSize, Opacity, StrokeThickness, Precision, Scale, OverlayText, Style and Dashes.
              */
             setStyles(newStyles: any | ((...params: any[]) => any)): void;
             /**
              * Set the name of the tool, which can be accessed by toolObject.name
-             * @param name - name of the tool
+             * @param name - Name of the tool
              */
             setName(name: string): void;
             /**
@@ -30971,7 +34606,7 @@ declare namespace Core {
     function getResourcesPath(): string;
     /**
      * Set default backend type. This method can be used for forced backend type for
-    specific workers, for example, "ems" for Emscripten worker type
+     * specific workers, for example, "ems" for Emscripten worker type
      * @param backendType - value for default backend type, e.g. asm, ems, wasm-threads, jsworker.
      */
     function forceBackendType(backendType: string): void;
@@ -30987,7 +34622,7 @@ declare namespace Core {
     function getCurrentPDFBackendType(): Promise<string>;
     /**
      * Enable or disable use of the full version of PDFNetJS.
-    the parameter is deprecated since version 8.0
+     * the parameter is deprecated since version 8.0
      */
     function enableFullPDF(): void;
     /**
@@ -31031,7 +34666,7 @@ declare namespace Core {
     function getPDFResourcePath(): string;
     /**
      * Sets the location of the local worker files CORSWorker.js/CoreWorker.js which will be different when setting the main worker path to another domain.
-    Note that this path should be on the same domain as WebViewer is being loaded.
+     * Note that this path should be on the same domain as WebViewer is being loaded.
      * @param workerPath - The path to the local worker files
      * @param isExact - By default this function will add a trailing slash if it wasn't added but in rare cases you may not want this behavior and can pass true for isExact
      */
@@ -31056,20 +34691,20 @@ declare namespace Core {
     function resetWorker(): void;
     /**
      * Set the URL at which PDFNetJS backend will request font resources for the purposes
-    of font substitution. By default they are retrieved from the pdftron website.
+     * of font substitution. By default they are retrieved from the pdftron website.
      * @param url - The url at which font resources should be requested.
      */
     function setCustomFontURL(url: string): void;
     /**
      * Enables or color management for PDFNetJS backend. Color management is off by default.
-    Enabling color management will better reflect correct color conversions but has a performance penalty.
+     * Enabling color management will better reflect correct color conversions but has a performance penalty.
      * @param [boolean] - value if true enable color management. Otherwise disable it.
      */
     function setColorManagement(boolean?: any): void;
     /**
      * Adjusts the up front heap size used by Emscripten. This method must be called before the worker is
-    initialized to change heap allocation behaviour. By default the heap size is set to 50331648 bytes.
-    Note that decreasing the heap size very low or running complex operations may require a resize.
+     * initialized to change heap allocation behaviour. By default the heap size is set to 50331648 bytes.
+     * Note that decreasing the heap size very low or running complex operations may require a resize.
      * @param The - number of bytes to allocate for the Emscripten heap.
      */
     function setEmscriptenHeapSize(The: number): void;
@@ -31095,14 +34730,14 @@ declare namespace Core {
     function getWorkerPath(): string;
     /**
      * Sets the path to the Web Worker JavaScript file.
-    By default the file is expected to be in the same directory as the html file of the viewer
-    and the path should be specified relative to the html file
+     * By default the file is expected to be in the same directory as the html file of the viewer
+     * and the path should be specified relative to the html file
      * @param path - Path to the Web Worker JS file relative to the html file of the viewer
      */
     function setWorkerPath(path: string): void;
     /**
      * Returns whether demo mode is active or not. Must be called after the document is loaded
-    or after the call to Core.initPDFWorkerTransports if you're calling it directly.
+     * or after the call to Core.initPDFWorkerTransports if you're calling it directly.
      * @returns true or false depending on whether the viewer is in demo mode or not
      */
     function isDemoMode(): boolean;
@@ -31161,9 +34796,9 @@ declare namespace Core {
     function initOfficeWorkerTransports(officeType: string, workerHandlers: any, l: string): any;
     /**
      * Set the location of the Office resource worker. This will override the
-    location specified by Core.setWorkerPath for Office worker files
-    This new officeResourcePath will be used in very specific situations where
-    worker files are located in different locations.
+     * location specified by Core.setWorkerPath for Office worker files
+     * This new officeResourcePath will be used in very specific situations where
+     * worker files are located in different locations.
      * @param workerPath - the prefix url for WebOfficeWorker.js and .mem files
      */
     function setOfficeResourcePath(workerPath: string): void;
@@ -31174,9 +34809,9 @@ declare namespace Core {
     function getOfficeResourcePath(): string;
     /**
      * Set the location of the Legacy Office resource worker. This will override the
-    location specified by Core.setWorkerPath for Legacy Office worker files
-    This new legacyOfficeResourcePath will be used in very specific situations where
-    worker files are located in different locations.
+     * location specified by Core.setWorkerPath for Legacy Office worker files
+     * This new legacyOfficeResourcePath will be used in very specific situations where
+     * worker files are located in different locations.
      * @param workerPath - the prefix url for WebB2XOfficeWorker.js and .mem files
      */
     function setLegacyOfficeResourcePath(workerPath: string): void;
@@ -31238,7 +34873,7 @@ declare namespace Core {
             /**
              * Sets custom HTTP headers that will be sent with XOD part requests.
              * @param headers - An object with the properties and values being the header names and values that will be set.
-            e.g. { 'MyCustomHeader': 'MyCustomValue'}
+             * e.g. { 'MyCustomHeader': 'MyCustomValue'}
              */
             setCustomHeaders(headers: any): void;
             /**
@@ -31267,13 +34902,13 @@ declare namespace Core {
         }
         /**
          * The type of hint to provide to browsers for caching the document. The part retriever may use query parameters
-        to influence browser caching behavior.
+         * to influence browser caching behavior.
          * @example
          * NEVER_CACHE: A unique ID is appended to the document URL.
-        CACHE: The range of bytes requested is appended to the document URL.
-        This should be used in most cases.
-        NO_HINT: Nothing is appended to the document URL.
-        Useful if you require that the document URL never changes.
+         * CACHE: The range of bytes requested is appended to the document URL.
+         * This should be used in most cases.
+         * NO_HINT: Nothing is appended to the document URL.
+         * Useful if you require that the document URL never changes.
          */
         enum CacheHinting {
         }
@@ -31301,14 +34936,14 @@ declare namespace Core {
     }
     /**
      * Creates a new instance of WebViewerServerAnnotationManager.
-     * <b>Note</b>: As of version 6.3, directly constructing a WebViewerServerAnnotationManager is deprecated and the capability will be removed in a future version. Please use the {@link CoreControls#getBlackBoxAnnotationManager} function instead.
+     *  * <b>Note</b>: As of version 6.3, directly constructing a WebViewerServerAnnotationManager is deprecated and the capability will be removed in a future version. Please use the {@link CoreControls#getBlackBoxAnnotationManager} function instead.
      * @param serverRoot - The webViewerServer annotation server to contact for annot storing.
      */
     class WebViewerServerAnnotationManager {
         constructor(serverRoot: string, docViewer: Core.DocumentViewer);
         /**
          * Preloads existing annotations made without realtime collaboration enabled,
-        will only trigger once on initial collaboration enabling event.
+         * will only trigger once on initial collaboration enabling event.
          * @param An - array of annotation objects.
          */
         preloadAnnotations(An: Core.Annotations.Annotation[]): void;
@@ -31323,14 +34958,14 @@ declare namespace Core {
         disableCollaboration(): void;
         /**
          * Triggered when collaboration is enabled for webViewerServer.
-        Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsEnabled', callback)
+         * Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsEnabled', callback)
          * @param username - user name as specified by webViewerServer collaboration.
          * @param userId - user ID as specified by webViewerServer collaboration.
          */
         on(event: 'webViewerServerAnnotationsEnabled', callback: (username: string, userId: string) => void): void;
         /**
          * Triggered when collaboration is enabled for webViewerServer.
-        Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsEnabled', callback)
+         * Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsEnabled', callback)
          * @param username - user name as specified by webViewerServer collaboration.
          * @param userId - user ID as specified by webViewerServer collaboration.
          */
@@ -31338,12 +34973,12 @@ declare namespace Core {
         off(event?: 'webViewerServerAnnotationsEnabled', callback?: (username: string, userId: string) => void): void;
         /**
          * Triggered when collaboration has abruptly closed or been disabled.
-        Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsDisabled', callback)
+         * Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsDisabled', callback)
          */
         on(event: 'webViewerServerAnnotationsDisabled', callback: () => void): void;
         /**
          * Triggered when collaboration has abruptly closed or been disabled.
-        Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsDisabled', callback)
+         * Attach like webViewerServerAnnotManager.addEventListener('webViewerServerAnnotationsDisabled', callback)
          */
         one(event: 'webViewerServerAnnotationsDisabled', callback: () => void): void;
         off(event?: 'webViewerServerAnnotationsDisabled', callback?: () => void): void;
@@ -31433,8 +35068,8 @@ declare namespace Core {
          * Add a handler to the given event name
          * @example
          * annotManager.addEventListener('annotationChanged', (annotations, action) => {
-          ...
-        });
+         *   ...
+         * });
          * @param type - The name of the event to listen to
          * @param fn - The handler to be called when the event is triggered
          * @param [options] - Optional options object for addEventListener
@@ -31448,8 +35083,8 @@ declare namespace Core {
          * Add a handler to the given event name
          * @example
          * annotManager.on('annotationChanged', (annotations, action) => {
-          ...
-        });
+         *   ...
+         * });
          * @param type - The name of the event to listen to
          * @param fn - The handler to be called when the event is triggered
          * @returns Returns the object that 'on' is being called on
@@ -31459,12 +35094,12 @@ declare namespace Core {
          * Remove a handler of the given event name
          * @example
          * annotManager.removeEventListener();
-        annotManager.removeEventListener('annotationChanged');
-        annotManager.removeEventListener('annotationChanged', fn);
+         * annotManager.removeEventListener('annotationChanged');
+         * annotManager.removeEventListener('annotationChanged', fn);
          * @param [type] - The name of the event to remove the handler of.
-        If type is undefined, all the handlers of the object will be removed
+         * If type is undefined, all the handlers of the object will be removed
          * @param [fn] - The handler associated with this event to be removed.
-        If fn is undefined, all the handlers of the given event name will be removed
+         * If fn is undefined, all the handlers of the given event name will be removed
          * @returns Returns the object that 'removeEventListener' is being called on
          */
         removeEventListener(type?: string | number, fn?: (...params: any[]) => any): any;
@@ -31472,12 +35107,12 @@ declare namespace Core {
          * Remove a handler of the given event name
          * @example
          * annotManager.off();
-        annotManager.off('annotationChanged');
-        annotManager.off('annotationChanged', fn);
+         * annotManager.off('annotationChanged');
+         * annotManager.off('annotationChanged', fn);
          * @param [type] - The name of the event to remove the handler of.
-        If type is undefined, all the handlers of the object will be removed
+         * If type is undefined, all the handlers of the object will be removed
          * @param [fn] - The handler associated with this event to be removed.
-        If fn is undefined, all the handlers of the given event name will be removed
+         * If fn is undefined, all the handlers of the given event name will be removed
          * @returns Returns the object that 'off' is being called on
          */
         off(type?: string | number, fn?: (...params: any[]) => any): any;
@@ -31485,10 +35120,10 @@ declare namespace Core {
          * Calls the handlers of the event name with given data
          * @example
          * annotManager.trigger('annotationChanged');
-        annotManager.trigger('annotationChanged', [[annotation], 'add', {}]);
+         * annotManager.trigger('annotationChanged', [[annotation], 'add', {}]);
          * @param type - event name of which the handlers will be called.
          * @param [data] - data that will be passed to the handlers.
-        If data is an array, it will be spread and then passed to the handlers
+         * If data is an array, it will be spread and then passed to the handlers
          * @returns Returns the object that 'trigger' is being called on
          */
         trigger(type: string | number, data?: any): any;
@@ -31496,8 +35131,8 @@ declare namespace Core {
          * Same as 'on' except the handler will be called only once
          * @example
          * annotManager.one('annotationChanged', (annotations, action) => {
-         ...
-        });
+         *  ...
+         * });
          * @param type - The name of the event to listen to
          * @param fn - The handler to be called when the event is triggered
          * @returns Returns the object that 'one' is being called on
@@ -31526,14 +35161,14 @@ declare namespace Core {
     function unsetAsWindowsApp(): void;
     /**
      * Sets the default multiplier used for rendering pages with document.loadCanvasAsync.
-    Higher multipliers mean that pages will be rendered at higher resolutions.
-    The default value is the browser's {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio|devicePixelRatio}
+     * Higher multipliers mean that pages will be rendered at higher resolutions.
+     * The default value is the browser's {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio|devicePixelRatio}
      * @param value - The value of multiplier to be set
      */
     function setCanvasMultiplier(value: number): void;
     /**
      * Unsets the multiplier that was set using the setCanvasMultiplier function.
-    The multiplier will default back to the browser's {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio|devicePixelRatio}
+     * The multiplier will default back to the browser's {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio|devicePixelRatio}
      */
     function unsetCanvasMultiplier(): void;
     /**
@@ -31639,10 +35274,10 @@ declare namespace Core {
 
 /**
  * WebViewer Instance UI namespace.
-Contains functions and properties related to UI related parts of WebViewer
+ * Contains functions and properties related to UI related parts of WebViewer
  * @example
  * webViewerInstance.UI.someProperty
-webViewerInstance.UI.someAPI()
+ * webViewerInstance.UI.someAPI()
  */
 declare namespace UI {
     /**
@@ -31801,9 +35436,9 @@ declare namespace UI {
     var contextMenuPopup: UI.Popup;
     /**
      * Disable clearing search results when user closes search panel. When disabled, search results are kept even if user
-    closes and reopens search panel.
-    
-    Note, mobile devices never clear search results even if this setting is enabled. This is because the panel needs to be closed to view the search results on the document.
+     * closes and reopens search panel.
+     *
+     * Note, mobile devices never clear search results even if this setting is enabled. This is because the panel needs to be closed to view the search results on the document.
      * @example
      * WebViewer(...)
      *  .then(function(instance) {
@@ -31813,7 +35448,7 @@ declare namespace UI {
     function disableClearSearchOnPanelClose(): void;
     /**
      * Disables desktop only mode on WebViewer UI.
-    This means that at small browser width/height, mobile/tablet CSS styling will be applied.
+     * This means that at small browser width/height, mobile/tablet CSS styling will be applied.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -31981,9 +35616,9 @@ declare namespace UI {
     }): Promise<any>;
     /**
      * Enable clearing search results when user closes search panel. When this is enabled and user closes search panel
-    all search results are cleared.
-    
-    Note, mobile devices never clear search results even if this setting is enabled. This is because the panel needs to be closed to view the search results on the document.
+     * all search results are cleared.
+     *
+     * Note, mobile devices never clear search results even if this setting is enabled. This is because the panel needs to be closed to view the search results on the document.
      * @example
      * WebViewer(...)
      *  .then(function(instance) {
@@ -31994,7 +35629,7 @@ declare namespace UI {
     function enableClearSearchOnPanelClose(): void;
     /**
      * Enables desktop only mode on WebViewer UI.
-    This means that at small browser width/height, mobile/tablet CSS styling will not be applied.
+     * This means that at small browser width/height, mobile/tablet CSS styling will not be applied.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -32132,7 +35767,7 @@ declare namespace UI {
     function getAnnotationReadState(annotationId: string): boolean;
     /**
      * A getter that returns a stringified version of the 'custom' property that is passed to the WebViewer constructor
-    <a href='https://www.pdftron.com/documentation/web/guides/config-files/#passing-custom-data' target='_blank'>Refer to the passing custom data section</a>.
+     * <a href='https://www.pdftron.com/documentation/web/guides/config-files/#passing-custom-data' target='_blank'>Refer to the passing custom data section</a>.
      * @returns returns a stringified version of the 'custom' property that is passed to the WebViewer constructor
      */
     function getCustomData(): string;
@@ -32346,6 +35981,7 @@ declare namespace UI {
      * @param [options.documentId] - Unique id of the document.
      * @param [options.withCredentials] - Whether or not cross-site requests should be made using credentials.
      * @param [options.cacheKey] - A key that will be used for caching the document on WebViewer Server.
+     * @param [options.officeLocale] - The locale to render the document with.
      * @param [options.password] - A string that will be used to as the password to load a password protected document.
      * @param [options.xodOptions] - An object that contains the options for a XOD document.
      * @param [options.xodOptions.decrypt] - Function to be called to decrypt a part of the XOD file. For default XOD AES encryption pass Core.Encryption.decrypt.
@@ -32362,6 +35998,7 @@ declare namespace UI {
         documentId?: string;
         withCredentials?: boolean;
         cacheKey?: string;
+        officeLocale?: string;
         password?: string;
         xodOptions?: {
             decrypt?: boolean;
@@ -32470,8 +36107,8 @@ declare namespace UI {
     function openElements(dataElements: string[]): void;
     /**
      * Add custom override function for default search on UI.
-    overrideSearchExecutionCallback function will be executed with search value and search options
-    when user executes search from UI. This function won't be executed when search is triggered through programmatic searches.
+     * overrideSearchExecutionCallback function will be executed with search value and search options
+     * when user executes search from UI. This function won't be executed when search is triggered through programmatic searches.
      * @example
      * WebViewer(...)
      *  .then(function(instance) {
@@ -32484,6 +36121,130 @@ declare namespace UI {
      * @param overrideSearchExecutionCallback - Function that will executed instead of default search functionality.
      */
     function overrideSearchExecution(overrideSearchExecutionCallback: (...params: any[]) => any): void;
+    /**
+     * An  instance of PageManipulationsOverlay that can be used to edit the items included in the overlay
+     * @example
+     * WebViewer(...)
+     *   .then(function (instance) {
+     *     instance.UI.pageManipulationOverlay.someAPI();
+     *   })
+     */
+    var pageManipulationsOverlay: UI.PageManipulationOverlay;
+    /**
+     * A class which contains PageManipulationOverlay APIs. <br/><br/>
+     * <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> If you want to remove an item in the PageManipulationOverlay, use {@link UI.disableElements disableElements}.
+     */
+    interface PageManipulationOverlay {
+        /**
+         * Adds an array of page manipulation operations to the default operations. If passed a dataElement parameter, it will
+         * add the new operations after this element. Otherwise, they will be appended to the start of the existing list
+         * of operations.
+         * @example
+         * // Each object in the operations array shall consist of the following:
+         *     {
+         *       type: 'customPageOperation', // Required type of 'customPageOperation'
+         *       header: 'Custom options', // Header to be displayed in the UI
+         *       dataElement: 'customPageOperations', // Unique dataElement
+         *       // Each new section can have one more more operations.
+         *       // The onClick handler for each operation gets passed an array of the currently selected
+         *       // thumbnail page numbers.
+         *       operations: [
+         *         {
+         *           title: 'Alert me of selected thumbnail page numbers',
+         *           img: '/path-to-image',
+         *           onClick: (selectedPageNumbers) => {
+         *             alert(`Selected thumbnail pages: ${selectedPageNumbers}`);
+         *           },
+         *           dataElement: 'customPageOperationButton', // Each operation must have a dataElement
+         *         }
+         *       ]
+         *     }
+         *      // Additionally, to add dividers you can include this in the operations array:
+         *     { type: 'divider' }
+         *     // Example:
+         *     WebViewer(...)
+         *       .then(function (instance) {
+         *         instance.UI.pageManipulationOverlay.add([
+         *           {
+         *             type: 'customPageOperation',
+         *             header: 'Custom options',
+         *             dataElement: 'customPageOperations',
+         *             operations: [
+         *               {
+         *                 title: 'Alert me',
+         *                 img: '/path-to-image',
+         *                 onClick: (selectedPageNumbers) => {
+         *                   alert(`Selected thumbnail pages: ${selectedPageNumbers}`);
+         *                 },
+         *                 dataElement: 'customPageOperationButton',
+         *               }
+         *             ]
+         *           },
+         *           { type: 'divider' }
+         *         ]);
+         *       });
+         * @param PageManipulationSection - Array of sections to be added, each with its individual operations. See example below.
+         * @param [dataElementToInsertAfter] - An optional string that determines where in the overlay the new section will be added. If not included, the new page manipulation section will be added at the top.
+         * You can call {@link UI.PageManipulationOverlay#getItems getItems} to get existing items and their dataElements.
+         * @returns The instance itself
+         */
+        add(PageManipulationSection: PageManipulationSection[], dataElementToInsertAfter?: 'pageRotationControls' | 'pageInsertionControls' | 'pageManipulationControls'): UI.PageManipulationOverlay;
+        /**
+         * Update all the operations in the PageManipulationOverlay, essentially replacing them with
+         * a new list of operations.
+         * To update an individual item, use {@link UI.updateElement updateElement}
+         * @example
+         * WebViewer(...)
+         *       .then(function (instance) {
+         *         instance.UI.pageManipulationOverlay.update([
+         *           {
+         *             type: 'customPageOperation',
+         *             header: 'Print Operations',
+         *             dataElement: 'customPageOperations',
+         *             operations: [
+         *               {
+         *                 title: 'Print page',
+         *                 img: 'icon-header-print-line',
+         *                 onClick: (selectedPageNumbers) => {
+         *                   alert(`Selected thumbnail pages: ${selectedPageNumbers}`);
+         *                 },
+         *                 dataElement: 'printThumbnailPage',
+         *               }
+         *             ]
+         *           },
+         *           { type: 'divider' },
+         *           {
+         *             type: 'customPageOperation',
+         *             header: 'Alert Operations',
+         *             dataElement: 'customPageOperations-2',
+         *             operations: [
+         *               {
+         *                 title: 'Alert me',
+         *                 img: 'icon-header-print-line',
+         *                 onClick: (selectedPageNumbers) => {
+         *                   alert(`Selected thumbnail pages: ${selectedPageNumbers}`);
+         *                 },
+         *                 dataElement: 'alertPage',
+         *               }
+         *             ]
+         *           }
+         *         ]);
+         *       });
+         * @param PageManipulationSection - The list of PageManipulationSections that will be rendered in the PageManipulation overlay. See the add documentation for an example.
+         * @returns The instance of itself
+         */
+        update(PageManipulationSection: PageManipulationSection[]): UI.PageManipulationOverlay;
+        /**
+         * Return the array of items in the PageManipulationOverlay.
+         * @example
+         * WebViewer(...)
+         *   .then(function(instance) {
+         *     instance.UI.pageManipulationOverlay.getItems();
+         *   });
+         * @returns Current items in the PageManipulationOverlay.
+         */
+        getItems(): PageManipulationSection[];
+    }
     /**
      * Print the current document.
      * @example
@@ -32598,7 +36359,7 @@ declare namespace UI {
     function removeSearchListener(listener: UI.searchListener): void;
     /**
      * Searches the document one by one for the text matching searchValue. To go to the next result this
-    function must be called again. Once document end is reach it will jump back to the first found result.
+     * function must be called again. Once document end is reach it will jump back to the first found result.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -32789,17 +36550,17 @@ declare namespace UI {
     function setCustomMeasurementOverlay(customOverlayInfo: any[]): void;
     /**
      * Add custom modal element to WebViewer.
-    <br /><br />
-    Controlling custom modals is done using element API for example {@link UI.openElements openElements}, {@link UI.closeElements closeElements}, {@link UI.toggleElement toggleElement}, and {@link UI.disableElements disableElements}.
-    dateElement string passed on these function should be same as you set in options.dataElement.
-    <br /><br />
-    Every custom modal will add new &lt;div&gt; element with <b>CustomModal</b> and <b>&lt;options.dataElement string&gt;</b> set as class attribute
-    Modal with identical <em>options.dataElement</em> will get replaced by the latest modal options.
-    <br /><br />
-    For styling these components, see <a href="https://www.pdftron.com/documentation/web/guides/customizing-styles/" target="_blank">Customizing WebViewer UI Styles</a>
-    <br /><br />
-    Note that in most cases WebViewer is ran in iframe and making <i>options.disableEscapeKeyDown</i> automatically work, iframe must be the
-    active element. This can be done by setting focus to iframe programmatically.
+     * <br /><br />
+     * Controlling custom modals is done using element API for example {@link UI.openElements openElements}, {@link UI.closeElements closeElements}, {@link UI.toggleElement toggleElement}, and {@link UI.disableElements disableElements}.
+     * dateElement string passed on these function should be same as you set in options.dataElement.
+     * <br /><br />
+     * Every custom modal will add new &lt;div&gt; element with <b>CustomModal</b> and <b>&lt;options.dataElement string&gt;</b> set as class attribute
+     * Modal with identical <em>options.dataElement</em> will get replaced by the latest modal options.
+     * <br /><br />
+     * For styling these components, see <a href="https://www.pdftron.com/documentation/web/guides/customizing-styles/" target="_blank">Customizing WebViewer UI Styles</a>
+     * <br /><br />
+     * Note that in most cases WebViewer is ran in iframe and making <i>options.disableEscapeKeyDown</i> automatically work, iframe must be the
+     * active element. This can be done by setting focus to iframe programmatically.
      * @example
      * WebWiewer(...).then(function(instance) {
      *   var modal = {
@@ -32863,7 +36624,7 @@ declare namespace UI {
      *     })
      *   });
      * @param customNoteSelectionFunction - The function that will be invoked when clicking on a note in notes panel.
-    The function will only be invoked when the underlying annotation is not already selected.
+     * The function will only be invoked when the underlying annotation is not already selected.
      */
     function setCustomNoteSelectionFunction(customNoteSelectionFunction: UI.CustomNoteSelectionFunction): void;
     /**
@@ -32912,6 +36673,15 @@ declare namespace UI {
      * Callback that gets passed to `options.panel.render` in {@link UI.setCustomPanel setCustomPanel}.
      */
     type renderCustomPanel = () => HTMLElement;
+    /**
+     * Sets the default print options.
+     * @example
+     * WebViewer(...) .then(function(instance) {
+     *   instance.UI.setDefaultPrintOptions({ includeComments: true, includeAnnotations: true });
+     * });
+     * @param options - The default print options of the document to print. Must be an object.
+     */
+    function setDefaultPrintOptions(options: any): void;
     /**
      * @param annotation - A signature annotation found in the SignatureCreateTool saved signatures list
      * @param index - An optional parameter for the index of the annotaiton parameter within the SignatureCreateTool saved signatures list
@@ -33012,7 +36782,7 @@ declare namespace UI {
     type headerCallback = (header: UI.Header) => void;
     /**
      * A class which contains header APIs.<br/><br/>
-    <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> You must NOT instantiate this yourself. Access the header instance in {@link UI.setHeaderItems setHeaderItems} as follows:
+     * <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> You must NOT instantiate this yourself. Access the header instance in {@link UI.setHeaderItems setHeaderItems} as follows:
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -33158,7 +36928,7 @@ declare namespace UI {
     function setMaxZoomLevel(zoomLevel: string | number): void;
     /**
      * Sets the units that will be displayed in the measurement tools' styles popup
-    Valid units are: 'mm', 'cm', 'm', 'km', 'mi', 'yd', 'ft', 'in', 'pt'
+     * Valid units are: 'mm', 'cm', 'm', 'km', 'mi', 'yd', 'ft', 'in', 'pt'
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -33196,7 +36966,7 @@ declare namespace UI {
      * @param state.annotation - A reference to the annotation object associated with the note
      * @param state.isSelected - whether or not the note is currently expanded
      * @param createElement - A utility function that should be used when creating DOM nodes. This is a replacement for `document.createElement`.
-    Accepts the same parameters as `document.createElement`. Using document.createElement instead of this function will cause your DOM nodes to not be cleaned up on subsequent renders.
+     * Accepts the same parameters as `document.createElement`. Using document.createElement instead of this function will cause your DOM nodes to not be cleaned up on subsequent renders.
      */
     type NoteTransformFunction = (wrapperElement: HTMLElement, state: {
         annotation: Core.Annotations.Annotation;
@@ -33204,29 +36974,29 @@ declare namespace UI {
     }, createElement: (...params: any[]) => any) => void;
     /**
      * Accepts a function that will be called every time a note in the left panel is rendered.
-    This function can be used to add, edit or hide the contents of the note.
-    <br><br>
-    <span style='font-size: 18px'><b>Please carefully read the documentation and the notes below before using this API</b></span><br><br>
-    
-    <b>This API is experimental and should be used sparingly.</b> If you find you are heavily relying on this function,
-     it is recommended that you <a href='https://www.pdftron.com/documentation/web/guides/advanced-customization/'>fork the UI repo</a> and make the changes directly in the source code (Note.js).
-    <br><br>
-    
-    
-    The structure of the HTML that is passed into this function may change may change without notice in any release. <b>Please make sure
-    to test this function thoroughly when upgrading WebViewer versions.</b>
-    <br><br>
-    
-    
-     There may be unexpected behaviour when using this API. The HTML that is provided is controlled by React, and sometimes React will override any changes you make.
-     If you find any unexpected behaviour when using this API, then this API probably won't work for your use case and you will have to make the changes directly in the source code.
-    <br><br>
-    
-     <b>Do not use document.createElement to create DOM elements</b>. Instead, use the provided `createElement` utility function provided as the third parameter.
-    
-     <b>Do not use HTMLElement.removeChild or any other APIs that remove elements from the DOM.</b> Doing so will cause React to lose reference to this node, and will crash.
-     If you need to hide an HTML element, set the style to `display: none` instead.
-    <br><br>
+     * This function can be used to add, edit or hide the contents of the note.
+     * <br><br>
+     * <span style='font-size: 18px'><b>Please carefully read the documentation and the notes below before using this API</b></span><br><br>
+     *
+     * <b>This API is experimental and should be used sparingly.</b> If you find you are heavily relying on this function,
+     *  it is recommended that you <a href='https://www.pdftron.com/documentation/web/guides/advanced-customization/'>fork the UI repo</a> and make the changes directly in the source code (Note.js).
+     * <br><br>
+     *
+     *
+     * The structure of the HTML that is passed into this function may change may change without notice in any release. <b>Please make sure
+     * to test this function thoroughly when upgrading WebViewer versions.</b>
+     * <br><br>
+     *
+     *
+     *  There may be unexpected behaviour when using this API. The HTML that is provided is controlled by React, and sometimes React will override any changes you make.
+     *  If you find any unexpected behaviour when using this API, then this API probably won't work for your use case and you will have to make the changes directly in the source code.
+     * <br><br>
+     *
+     *  <b>Do not use document.createElement to create DOM elements</b>. Instead, use the provided `createElement` utility function provided as the third parameter.
+     *
+     *  <b>Do not use HTMLElement.removeChild or any other APIs that remove elements from the DOM.</b> Doing so will cause React to lose reference to this node, and will crash.
+     *  If you need to hide an HTML element, set the style to `display: none` instead.
+     * <br><br>
      * @example
      * Webviewer(...)
      *   .then(instance => {
@@ -33378,7 +37148,7 @@ declare namespace UI {
      *     // Change the toolbar group to the `Shapes` group
      *     instance.UI.setToolbarGroup('toolbarGroup-Shapes');
      * @param groupDataElement - The groups dataElement. Default values are: toolbarGroup-View, toolbarGroup-Annotate,
-    toolbarGroup-Shapes, toolbarGroup-Insert, toolbarGroup-Measure, toolbarGroup-Edit, toolbarGroup-Forms
+     * toolbarGroup-Shapes, toolbarGroup-Insert, toolbarGroup-Measure, toolbarGroup-Edit, toolbarGroup-Forms
      * @param pickTool - If true, after setting the toolbar group, the last picked tool for the group will be set as the current tool. Defaults to true.
      */
     function setToolbarGroup(groupDataElement: string, pickTool: boolean): void;
@@ -33482,7 +37252,7 @@ declare namespace UI {
     function toggleFullScreen(): void;
     /**
      * Toggles Reader mode of the viewer.
-    Note that Reader mode only works with fullAPI enabled.
+     * Note that Reader mode only works with fullAPI enabled.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -33492,7 +37262,7 @@ declare namespace UI {
     function toggleReaderMode(): void;
     /**
      * Enables syncing of annotation style updates to the associated tool that created the annotation.
-    Note that this is enabled by default.
+     * Note that this is enabled by default.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -33502,7 +37272,7 @@ declare namespace UI {
     function enableToolDefaultStyleUpdateFromAnnotationPopup(): void;
     /**
      * Disables syncing of annotation style updates to the associated tool that created the annotation.
-    So if an annotation's style is changed the tool default styles will not be updated.
+     * So if an annotation's style is changed the tool default styles will not be updated.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -33570,8 +37340,8 @@ declare namespace UI {
     }): void;
     /**
      * Use/not use embedded printing. Only applicable to Chrome.
-    The printing process will be faster and the quality might be higher when using Chrome's native printing.
-    You may not want to use embedded printing if there are custom annotations in your document.
+     * The printing process will be faster and the quality might be higher when using Chrome's native printing.
+     * You may not want to use embedded printing if there are custom annotations in your document.
      * @example
      * WebViewer(...)
      *   .then(function(instance) {
@@ -33586,28 +37356,28 @@ declare namespace UI {
     namespace VerificationOptions {
         /**
          * Loads the Public Key Certificates to be used for Digital Signature
-        Verification.
-        
-        The contents of the X.509 Public Key Certificate need to encoded in a binary
-        Distinguished Encoding Rules (DER) format, or in the plaintext
-        Privacy-Enhanced Mail (PEM) format, which includes an appropriate header,
-        Base64 encoded DER representing the public key certificate, and appropriate
-        footer.
+         * Verification.
+         *
+         * The contents of the X.509 Public Key Certificate need to encoded in a binary
+         * Distinguished Encoding Rules (DER) format, or in the plaintext
+         * Privacy-Enhanced Mail (PEM) format, which includes an appropriate header,
+         * Base64 encoded DER representing the public key certificate, and appropriate
+         * footer.
          * @example
          * WebViewer(...).then(async function(instance) {
-          const response = await fetch(
-            'https://mydomain.com/api/returns/certificate/as/arraybuffer'
-          );
-          const certificateAsArrayBuffer = await response.arrayBuffer();
-          instance.UI.VerificationOptions.addTrustedCertificates([
-             certificateAsArrayBuffer,
-            'https://mydomain.com/path/to/certificate1.cer',
-            'https://mydomain.com/path/to/certificate2.crt',
-          ])
-        });
+         *   const response = await fetch(
+         *     'https://mydomain.com/api/returns/certificate/as/arraybuffer'
+         *   );
+         *   const certificateAsArrayBuffer = await response.arrayBuffer();
+         *   instance.UI.VerificationOptions.addTrustedCertificates([
+         *      certificateAsArrayBuffer,
+         *     'https://mydomain.com/path/to/certificate1.cer',
+         *     'https://mydomain.com/path/to/certificate2.crt',
+         *   ])
+         * });
          * @param certificates - An array of URLs, and/or instance of the File type, and/or
-        a Binary Array datatype that contain the X.509 Public Key Certificates to be
-        used for validating Digital Signatures on a document.
+         * a Binary Array datatype that contain the X.509 Public Key Certificates to be
+         * used for validating Digital Signatures on a document.
          */
         function addTrustedCertificates(certificates: (string | File | ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray)[]): void;
     }
@@ -33930,7 +37700,7 @@ declare namespace UI {
         getUserData(): UI.MentionsManager.UserData[];
         /**
          * Sets the characters that can follow a mention, while not invalidating it
-        By default, a mention can only be followed by a space, or is located at the end of the string
+         * By default, a mention can only be followed by a space, or is located at the end of the string
          * @example
          * WebViewer(...)
          *   .then(function(instance) {
@@ -33939,14 +37709,14 @@ declare namespace UI {
          *         value: 'John Doe',
          *       },
          *     ]);
-         *       // this is considered as a mention, because `@John Doe` is at the end of the string
+         *      // this is considered as a mention, because `@John Doe` is at the end of the string
          *     'Hello, @John Doe'
-         *       // this is considered as a mention, because `@John Doe` is followed by a space
+         *      // this is considered as a mention, because `@John Doe` is followed by a space
          *     'Hello, @John Doe How are you?'
-         *       // this is NOT considered as a mention, because `@John Doe` is followed by a comma
+         *      // this is NOT considered as a mention, because `@John Doe` is followed by a comma
          *     '@John Doe, Hello!'
-         *       instance.mentions.setAllowedTrailingCharacters([' ', ',']);
-         *       // this is now considered as a mention, because comma is an allowed trailing character
+         *      instance.mentions.setAllowedTrailingCharacters([' ', ',']);
+         *      // this is now considered as a mention, because comma is an allowed trailing character
          *     '@John Doe, Hello!'
          *   });
          * @param chars - An array of characters. If `*` is passed, then a mention can be followed by any characters
@@ -33959,14 +37729,14 @@ declare namespace UI {
         getAllowedTrailingCharacters(): string[] | '*';
         /**
          * Triggered when a mention or mentions have been changed (added, deleted, modified).
-        Attach like instance.mentions.on('mentionChanged', callback)
+         * Attach like instance.mentions.on('mentionChanged', callback)
          * @param mentions - The mentions that were changed
          * @param action - The action that occurred (add, delete, modify)
          */
         on(event: 'mentionChanged', callback: (mentions: UI.MentionsManager.Mention, action: 'add' | 'modify' | 'delete') => void): void;
         /**
          * Triggered when a mention or mentions have been changed (added, deleted, modified).
-        Attach like instance.mentions.on('mentionChanged', callback)
+         * Attach like instance.mentions.on('mentionChanged', callback)
          * @param mentions - The mentions that were changed
          * @param action - The action that occurred (add, delete, modify)
          */
@@ -33975,7 +37745,7 @@ declare namespace UI {
     }
     /**
      * A class which contains popup APIs.<br/><br/>
-    <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> If you want to remove an item in a popup, use {@link WebViewerInstance#disableElements disableElements}.
+     * <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> If you want to remove an item in a popup, use {@link WebViewerInstance#disableElements disableElements}.
      */
     interface Popup {
         /**
@@ -33996,7 +37766,7 @@ declare namespace UI {
         add(items: object[], dataElement?: string): this;
         /**
          * Update all the items in the popup.
-        To update an individual item, use {@link UI.updateElement updateElement}
+         * To update an individual item, use {@link UI.updateElement updateElement}
          * @example
          * WebViewer(...)
          *   .then(function(instance) {
@@ -34031,7 +37801,7 @@ declare namespace UI {
     }
     /**
      * A class which contains hotkeys APIs.<br/><br/>
-    <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> You must NOT instantiate this yourself. Access instances of this class using {@link UI.hotkeys instance.hotkeys}
+     * <span style="color: red; font-size: 1.2em; font-weight: bold">⚠</span> You must NOT instantiate this yourself. Access instances of this class using {@link UI.hotkeys instance.hotkeys}
      */
     namespace Hotkeys {
         /**
@@ -34093,12 +37863,12 @@ declare namespace UI {
          *       // this will register the default zoom in handler
          *       instance.hotkeys.on(instance.hotkeys.Keys.CTRL_EQUAL);
          *       instance.hotkeys.on(instance.hotkeys.Keys.COMMAND_EQUAL);
-         *         // this will be called on keydown
+         *        // this will be called on keydown
          *       instance.hotkeys.on('ctrl+d, command+d', e => {
          *         e.preventDefault();
          *         instance.closeDocument();
          *       });
-         *         instance.hotkeys.on('ctrl+g', {
+         *        instance.hotkeys.on('ctrl+g', {
          *         keydown: e => {
          *           console.log('ctrl+g is pressed!');
          *         },
@@ -34108,11 +37878,11 @@ declare namespace UI {
          *       });
          *   });
          * @param key - A keyboard key <br/>
-        If a hotkey is consisted of more than one key. Those keys should be connected using '+'.
+         * If a hotkey is consisted of more than one key. Those keys should be connected using '+'.
          * @param [handler] - An optional argument <br/>
-        If it is undefined, the default handler of the given key will be registered <br/>
-        If it is an function, it will be called on key down <br/>
-        If it is an object, it should have the shape of { keydown: func1, keyup: func2 }. Func1 will be called on keydown while func2 will be called on keyup
+         * If it is undefined, the default handler of the given key will be registered <br/>
+         * If it is an function, it will be called on key down <br/>
+         * If it is an object, it should have the shape of { keydown: func1, keyup: func2 }. Func1 will be called on keydown while func2 will be called on keyup
          */
         function on(key: string | UI.Hotkeys.Keys, handler?: ((...params: any[]) => any) | any): void;
         /**
@@ -34144,27 +37914,27 @@ declare namespace UI {
 
 /**
  * A single instance of webviewer. Can be retrieved from the
-global WebViewer function.
-
-This class is not instantiable.
+ * global WebViewer function.
+ *
+ * This class is not instantiable.
  */
 declare class WebViewerInstance {
     /**
      * Core namespace on WebViewer instance
      * @example
      * WebViewer({...options}, document.getElementById('viewer'))
-     .then(webviewerInstance => {
-       webViewerInstance.Core
-     })
+     *  .then(webviewerInstance => {
+     *    webViewerInstance.Core
+     *  })
      */
     Core: typeof Core;
     /**
      * UI namespace on WebViewer instance
      * @example
      * WebViewer({...options}, document.getElementById('viewer'))
-     .then(webviewerInstance => {
-       webViewerInstance.UI
-     })
+     *  .then(webviewerInstance => {
+     *    webViewerInstance.UI
+     *  })
      */
     UI: typeof UI;
 }
@@ -34342,14 +38112,14 @@ declare function WebViewer(options: WebViewerOptions, viewerElement: HTMLElement
 
 /**
  * Gets an already existing instance of WebViewer. If only one instance of WebViewer exists on the page,
-then 'element' is not required, and the function will return the instance of WebViewer.
-If more than one instance of WebViewer exists, you must pass in the DOM element containing the
-instance of WebViewer you want to retrieve. This function can be imported directly as a module as well.
+ * then 'element' is not required, and the function will return the instance of WebViewer.
+ * If more than one instance of WebViewer exists, you must pass in the DOM element containing the
+ * instance of WebViewer you want to retrieve. This function can be imported directly as a module as well.
  * @example
  * import { getInstance } from '@pdftron/webviewer'
-
-// After WebViewer has already been constructed
-const instance = getInstance();
+ *
+ * // After WebViewer has already been constructed
+ * const instance = getInstance();
  * @param [element] - The DOM element containing the instance of WebViewer you want to retrieve
  * @returns Returns an instance of WebViewer. Returns null if no instances are available.
  */

@@ -64,7 +64,12 @@
     "addOption": "Adicionar Opção",
     "formFieldEdit": "Editar campo de formulário",
     "viewShortCutKeysFor3D": "Exibir teclas de atalho",
-    "markAllRead": "Marcar todas como lidas"
+    "markAllRead": "Marcar todas como lidas",
+    "insertPage": "Inserção de Página",
+    "insertBlankPageAbove": "Inserir página em branco acima",
+    "insertBlankPageBelow": "Inserir página em branco abaixo",
+    "pageManipulation": "Manipulação de página",
+    "replace": "Substituir"
   },
   "annotation": {
     "areaMeasurement": "Medição de área",
@@ -83,6 +88,7 @@
     "freeHandHighlight": "Destaque de mão livre",
     "freetext": "Texto livre",
     "highlight": "Destacar",
+    "image": "Imagem",
     "line": "Linha",
     "perimeterMeasurement": "Medição de perímetro",
     "polygon": "Polígono",
@@ -231,7 +237,7 @@
       "pageTransition": "Transição de página"
     },
     "documentControls": {
-      "placeholder": "Insira as páginas para selecionar. Por exemplo: 2, 5-9"
+      "placeholder": "1, 3, 5-10"
     },
     "outlineControls": {
       "add": "Adicionar Item",
@@ -304,7 +310,8 @@
     "filterAnnotModal": {
       "commentBy": "Comentado por",
       "types": "Tipos",
-      "color": "Cor"
+      "color": "Cor",
+      "includeReplies": "Incluir Respostas"
     },
     "status": {
       "status": "Status"
@@ -431,7 +438,7 @@
     "select": "(Esc)",
     "signature": "(S)",
     "squiggly": "(G)",
-    "stamp": "(I)",
+    "image": "(EU)",
     "redo": "(Ctrl Shift Z)",
     "redo_windows": "(Ctrl Y)",
     "undo": "(Ctrl Z)",
@@ -485,6 +492,20 @@
       "9": "Outubro",
       "10": "Novembro",
       "11": "Dezembro"
+    },
+    "monthsShort": {
+      "0": "Jan",
+      "1": "Fev",
+      "2": "Mar",
+      "3": "Abr",
+      "4": "Mai",
+      "5": "Jun",
+      "6": "Jul",
+      "7": "Ago",
+      "8": "Set",
+      "9": "Out",
+      "10": "Nov",
+      "11": "Dez"
     },
     "weekdays": {
       "0": "Domingo",
@@ -589,6 +610,7 @@
     "by": "de",
     "on": "em",
     "disallowedChange": "Alteração não permitida: {{type}}, objnum: {{objnum}}",
+    "unsignedSignatureField": "Campo de assinatura não assinado: {{fieldName}}",
     "trustVerification": {
       "current": "A hora de verificação usada foi a hora atual",
       "signing": "O tempo de verificação é a partir do relógio no computador do signatário",

@@ -64,7 +64,12 @@
     "addOption": "オプションを追加",
     "formFieldEdit": "フォームフィールドの編集",
     "viewShortCutKeysFor3D": "ショートカットキーを表示する",
-    "markAllRead": "すべて既読にする"
+    "markAllRead": "すべて既読にする",
+    "insertPage": "ページ挿入",
+    "insertBlankPageAbove": "上に空白のページを挿入",
+    "insertBlankPageBelow": "下に空白のページを挿入",
+    "pageManipulation": "ページ操作",
+    "replace": "交換"
   },
   "annotation": {
     "areaMeasurement": "面積測定",
@@ -83,6 +88,7 @@
     "freeHandHighlight": "フリーハンドハイライト",
     "freetext": "フリーテキスト",
     "highlight": "ハイライト",
+    "image": "画像",
     "line": "直線",
     "perimeterMeasurement": "周長測定",
     "polygon": "多角形",
@@ -231,7 +237,7 @@
       "pageTransition": "ページ移動"
     },
     "documentControls": {
-      "placeholder": "ページを選択（例：2, 5-9）"
+      "placeholder": "1, 3, 5-10"
     },
     "outlineControls": {
       "add": "アイテムを追加",
@@ -304,7 +310,8 @@
     "filterAnnotModal": {
       "commentBy": "によるコメント",
       "types": "タイプ",
-      "color": "色"
+      "color": "色",
+      "includeReplies": "返信を含める"
     },
     "status": {
       "status": "状態"
@@ -431,7 +438,7 @@
     "select": "(Esc)",
     "signature": "(S)",
     "squiggly": "(G)",
-    "stamp": "(I)",
+    "image": "（NS）",
     "redo": "（Ctrl Shift Z）",
     "redo_windows": "(Ctrl Y)",
     "undo": "（Ctrl Z）",
@@ -473,6 +480,20 @@
     "previousMonth": "前月",
     "nextMonth": "翌月",
     "months": {
+      "0": "1月",
+      "1": "2月",
+      "2": "3月",
+      "3": "4月",
+      "4": "5月",
+      "5": "6月",
+      "6": "7月",
+      "7": "8月",
+      "8": "9月",
+      "9": "10月",
+      "10": "11月",
+      "11": "12月"
+    },
+    "monthsShort": {
       "0": "1月",
       "1": "2月",
       "2": "3月",
@@ -589,6 +610,7 @@
     "by": "沿って",
     "on": "オン",
     "disallowedChange": "許可されていない変更：{{type}}、objnum：{{objnum}}",
+    "unsignedSignatureField": "署名されていない署名フィールド：{{fieldName}}",
     "trustVerification": {
       "current": "使用した検証時間は現在の時間でした",
       "signing": "確認時間は署名者のコンピューターの時計からです",
